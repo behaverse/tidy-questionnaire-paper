@@ -518,15 +518,30 @@ Standardized data calls for standardized processing, including automated data ch
 
 
 
+# References
 
+::: {#refs}
+
+:::
   
 
+# Contributions
+Both authors contriubted to the design and writing of the paper.
   
 # Acknowledgements
 
+
+# Funding information
 This work was supported by the Luxembourg National Research Fund (ATTRACT/2016/ID/11242114/DIGILEARN).
 
 
+# Competing interests
+The authors declare no competing interests.
+
+
+# Data accessibility statement
+
+This paper does not include any external data.
 
 
 
