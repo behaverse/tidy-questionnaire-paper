@@ -23,6 +23,7 @@ abstract: |
 bibliography: 
   - bibliography.bib
 
+# csl: apa.csl
 
 keywords: [questionnaire, tidy data, data standards, methods, automation, open science, FAIR]
 
@@ -526,8 +527,24 @@ Standardized data calls for standardized processing, including automated data ch
   
 
 # Contributions
-Both authors contriubted to the design and writing of the paper.
   
+Contributed to Conceptualization: Author1, Author2
+
+Contributed to Funding acquisition: Author1
+
+Contributed to Methodology: Author1, Author2
+
+Project administration: Author1, Author2
+
+Contributed to Software: Author1, Author2
+
+Contributed to Validation: Author1, Author2
+
+Contributed to Writing – original draft: Author1
+
+Contributed to Writing – review & editing: Author1, Author2
+
+
 # Acknowledgements
 
 
