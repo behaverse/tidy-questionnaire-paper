@@ -206,4 +206,4 @@ THE ABSTRACT\vskip12pt}\let\go\relax\fi
 \setlength\itemsep{0pt}%
 }
 %% Automatically abbreviate journal names
-\RequirePackage{jabbrv}
+% \RequirePackage{jabbrv}

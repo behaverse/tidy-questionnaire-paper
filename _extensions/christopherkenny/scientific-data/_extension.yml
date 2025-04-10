@@ -13,9 +13,9 @@ contributes:
         - "partials/title.tex"
         - "partials/doc-class.tex"
       format-resources:
-        - jabbrv.sty
-        - jabbrv-ltwa-all.ldf
-        - jabbrv-ltwa-en.ldf
-        - naturemag-doi.bst
+        # - jabbrv.sty
+        # - jabbrv-ltwa-all.ldf
+        # - jabbrv-ltwa-en.ldf
+        # - naturemag-doi.bst
         - wlscirep.cls
 
