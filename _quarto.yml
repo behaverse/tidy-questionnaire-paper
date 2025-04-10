@@ -4,6 +4,8 @@ project:
 manuscript:
   article: tidy-questionnaire-paper.qmd
 
+format:
+  scientific-data-pdf: default
 #format:
 #  html:
 #    comments:
@@ -14,8 +16,8 @@ manuscript:
   # (other formats)
   # pdf: default
 
-execute:
-  freeze: true
+# execute:
+#   freeze: true
 
 
 

@@ -1,7 +1,8 @@
 /.quarto/
 _manuscript
-jabbrv*
-wlscirep.cls
-naturemag-doi.bst
+/jabbrv*
+/wlscirep.cls
+/naturemag-doi.bst
 
 _freeze/
+.DS_Store
