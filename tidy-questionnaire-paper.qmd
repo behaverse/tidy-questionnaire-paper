@@ -227,7 +227,7 @@ When the data is sparse—participants are exposed only to a small set of possib
 
  
 ![The long data format is more effective to store sparse data. This figure provides a concrete example: the exact same data is stored using 6 rows x 4 columns = 24 values when using the long data format, while it requires almost twice as much under the wide data format (5 rows x 9 columns = 45 values).
-](figures/tidy_questionnaires_fig_1.png){#fig-1}
+](figures/fig_1.png){#fig-1}
 
 
 
@@ -237,7 +237,7 @@ When the data is sparse—participants are exposed only to a small set of possib
 
 
 
-![Selecting the data referring to a question of interest is harder under the wide than under the long data format.](figures/tidy_questionnaires_fig_2.png){#fig-2}
+![Selecting the data referring to a question of interest is harder under the wide than under the long data format.](figures/fig_2.png){#fig-2}
 
 
 
@@ -274,7 +274,7 @@ df |> filter(question_id == "q1")
 
 
 
-![Changing or augmenting response data with additional attributes (e.g., response times) requires adding many columns in the wide data frame (one per response), with an increased risk of mistakes. In contrast, under the long data format, only a single additional column is needed per new attribute.](figures/tidy_questionnaires_fig_3.png){#fig-3}
+![Changing or augmenting response data with additional attributes (e.g., response times) requires adding many columns in the wide data frame (one per response), with an increased risk of mistakes. In contrast, under the long data format, only a single additional column is needed per new attribute.](figures/fig_3.png){#fig-3}
 
 
 
@@ -289,7 +289,7 @@ Finally, writing code to transform columns (i.e., use data to compute new variab
 
 
 
-![Metadata are more concise and easier to manage under the long, tidy format than under the wide data format.](figures/tidy_questionnaires_fig_4.png){#fig-4}
+![Metadata are more concise and easier to manage under the long, tidy format than under the wide data format.](figures/fig_4.png){#fig-4}
 
 
 
