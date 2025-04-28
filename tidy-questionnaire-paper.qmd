@@ -41,7 +41,7 @@ Questionnaires[^1] have been a main research instrument in social sciences since
 The long history of questionnaire based research is marked by improvements in the design, distribution and analysis of questionnaires [@krosnick1999]. Yet, questionnaires remain underrated and their full potential unexploited. Indeed, most questionnaires today appear still grounded in the pen and paper medium of the past century. Digital technologies now permit a rapid and wide distribution of questionnaires via the Internet, the collection of datasets that are not only more voluminous but also much richer than in the past. Modern technologies allow for adaptive questionnaires well beyond the simple branching structures seen today (e.g., hiding or showing questions depending on previous responses). Questionnaires could be considerably more versatile by  adjusting the difficulty of the language to the reading level of the respondent or the granularity of the response options to their cognitive abilities, for example. Digital technologies facilitate the collection of rich behavioral data beyond simple answers to questions. Variables like date and time of day (i.e., timestamp), response times (i.e., how long it took a person to answer a question), changes of mind (i.e., changing responses before submitting) or geo-location are already straightforward to collect. Additional measurements, such as facial emotion recognition, gaze tracking, heart rate and blinking rate (e.g., using webcam video recordings while people fill out questionnaires)--collected separately for each question--may offer new insights and could significantly augment our understanding of respondents. Clearly, current practices in questionnaire based research have not yet taken full advantage of the possibilities modern technologies offer. One of the impediments to such advancements, we believe, is the ineffective management and processing of questionnaire data which typically do not scale up and prevent automation. 
 
 
-The goal of this work is to contribute to a more consistent and effective use of questionnaires by offering recommendations for better structuring their data. This work is part of a larger initiative aiming to improve data standards in behavioral sciences and raise research quality (for more details, see the PROJECT website https://PROJECT/standards/). 
+The goal of this work is to contribute to a more consistent and effective use of questionnaires by offering recommendations for better structuring their data. This work is part of a larger initiative aiming to improve data practices in behavioral sciences and raise research quality (for more details, see the PROJECT website https://PROJECT/standards/). 
 
 
 
@@ -64,17 +64,16 @@ In this paper, we focus on how to structure questionnaire data to facilitate the
 
 ### The wide data format
 
-In our experience, researchers rarely refer to standards when formatting or sharing questionnaire data. Yet, there seems to be an implicit consensus in that questionnaire data often appear to be formatted in similar ways. More specifically, the vast majority of questionnaire data is organized in a **wide format**, where each row contains all the data from one respondent and where the columns refer to the questions, the answers to questions or to other types of information (for a toy example of such data, see Table 1.) 
+In our experience, researchers rarely refer to standards or guidelines when formatting or sharing questionnaire data. Yet, there seems to be an implicit consensus in that questionnaire data often appear to be formatted in similar ways. More specifically, the vast majority of questionnaire data is organized in a **wide format**, where each row contains all the data from one respondent and where the columns refer to the questions, the answers to questions or to other types of information (for a toy example of such data, see Table 1.) 
 
 
 
 **Table 1.** Example of wide data format for questionnaire data.
 
-| subject_id | question_1              | answer_1 | question_2         | answer_2 |
-| ------- | ----------------------- | ---------- | ------------------ | ---------- |
-| s001    | "How old are you?" | 23         | "Do you like cinnamon?" | "yes"      | 
-| s002    | "How old are you?" | 37         |  "Do you like cinnamon?" | "no"       |
-
+| subject_id | question_1              | answer_1   | question_2              | answer_2   |
+| ---------- | ----------------------- | ---------- | ----------------------- | ---------- |
+| s001       | "How old are you?"      | 23         | "Do you like cinnamon?" | "yes"      | 
+| s002       | "How old are you?"      | 37         | "Do you like cinnamon?" | "no"       |
 
 
 
@@ -118,7 +117,7 @@ To sum up, the wide data format for questionnaire data may be convenient in a li
 
 ## Tidy data
 
-There are general recommendations for how to structure tabular data to facilitate their analysis. The concept of *tidy data* [@wickham2014;\ see also @broman2018] has caught a lot of traction within the R community and led to the development of a suite of elegantly designed software packages that greatly facilitate data manipulation, modeling and visualization [@wickham2019].  Two points need to be stressed before presenting the key principles behind tidy data. First, there are many ways to organize a given dataset as a table. While some of these ways are clearly inadequate, others may be useful for particular operations (e.g., creating a new column by adding the values of two other columns). The tidy way is the best *default* state for that data table (for a toy example of such data, see Table 2.) Second, the tidy table is not adequate for all possible operations--it is therefore *expected* and even unavoidable that data analysts will have to reshape their data tables in various ways to serve specific purposes (for an example of sample code in R using the tidyverse package to convert the long format into a wide one, see code chunk 1). 
+There are general recommendations for how to structure tabular data to facilitate their analysis. The concept of *tidy data* [@wickham2014;\ see also @broman2018] has caught a lot of traction within the R community and led to the development of a suite of elegantly designed software packages that greatly facilitate data manipulation, modeling and visualization [@wickham2019].  Two points need to be stressed before presenting the key principles behind tidy data. First, there are many ways to organize a given dataset as a table. While some of these ways are clearly inadequate, others may be useful for particular operations (e.g., creating a new column by summing the values of two other columns). The tidy way is the best *default* state for that data table (for a toy example of such data, see Table 2.) Second, the tidy table is not adequate for all possible operations--it is therefore *expected* and even unavoidable that data analysts will have to reshape their data tables in various ways to serve specific purposes (for an example of sample code in R using the tidyverse package to convert the long format into a wide one, see code chunk 1). 
 
 
 
@@ -126,13 +125,13 @@ There are general recommendations for how to structure tabular data to facilitat
 # load package
 library(tidyverse)
 
-# define example dataset in the long data format
+# define toy dataset in the long data format
 df <- tribble(
     ~subject_id, ~question_id, ~question_text, ~answer, 
-    "s001",   1, "Do you like cinnamon?", "yes", 
-    "s001",   2, "How old are you?", "23", 
-    "s002",   1, "Do you like cinnamon?", "no", 
-    "s002",   2, "How old are you?", "37"
+    "s001",   1, "How old are you?", "23", 
+    "s001",   2, "Do you like cinnamon?", "yes", 
+    "s002",   1, "How old are you?", "37",
+    "s002",   2, "Do you like cinnamon?", "no", 
 )
 
 # reshape the long data into the wide data format 
@@ -141,7 +140,7 @@ df_wide <- df %>% pivot_wider(id_cols = subject_id,
                    values_from = c(question_text, answer))
 ```
 
-**Code Chunk 1.** Reshaping data from wide to long is a breeze with the `pivot_wider()` function from the tidyverse package. Note that there is also a `pivot_longer()` function for the reverse reshaping operation.
+**Code Chunk 1.** Reshaping data from long to wide is a breeze with the `pivot_wider()` function from the tidyverse package. Note that there is also a `pivot_longer()` function for the reverse reshaping operation.
 
 
 
@@ -149,9 +148,9 @@ df_wide <- df %>% pivot_wider(id_cols = subject_id,
 
 | subject_id | questions_id | question_repetition | question_test           | response | response_time |
 | ---------- | ------------ | ------------------- | ----------------------- | -------- | ------------- |
-| s001       | 1            | 1                   | "Do you like cinnamon?" | "yes"    | 1.32          |
-| s001       | 1            | 2                   | "Do you like cinnamon?" | "yes"    | 0.98          |
-| s001       | 1            | 3                   | "Do you like cinnamon?" | "no"     | 3.78          | 
+| s001       | 2            | 1                   | "Do you like cinnamon?" | "yes"    | 1.32          |
+| s001       | 2            | 2                   | "Do you like cinnamon?" | "yes"    | 0.98          |
+| s001       | 2            | 3                   | "Do you like cinnamon?" | "no"     | 3.78          | 
 
 
 
@@ -167,7 +166,7 @@ Considering questionnaire data, if one organizes the data table so that each row
 
 ### Rule 2: Each column describes an aspect of that observational unit.
 
-As each row represents an observation, each column represents an attribute or a variable that describes an aspect of that observation. Going back to our survey example, under the wide format, a value of “yes” on the `question_1` variable implicitly describes person “s001”. Under the long format, the value “yes” on the “response” variable describes instead the interaction between “s001” and question_id 1. 
+As each row represents an observation, each column represents an attribute or a variable that describes an aspect of that observation. Going back to our survey example, under the wide format, a value of “yes” on the `question_2` variable implicitly describes person “s001”. Under the long format, the value “yes” on the “response” variable describes instead the interaction between “s001” and the question with `question_id==2`. 
 
 There are several points to note here. First, if a table contains columns that are *not* describing the observational unit formed by a row, those columns should be moved to a different table (see also Rule 3 below). For example, in Table 2, because the observational unit is the response, it wouldn't make sense to have a column describing the age of the participant (such a variable could however make sense in Table 1, where the observational unit is the participant.) Second, under this format, all variables describing a given observation are tied by virtue of being in the same row. This prevents the risk of incorrectly mixing descriptions from different observations. 
 
@@ -196,17 +195,17 @@ demographics <- tribble(
 )
 
 # join data tables
-df_wj <- left_join(df_wide, demographics, by = "subject_id")
+df_joined <- left_join(df_wide, demographics, by = "subject_id")
 ```
 
 **Code Chunk 2.** Joining data tables with shared keys. In this example we use the `left_join()` function from the tidyverse package in R to join a demographics table to a questionnaire data table (wide format) using `subject_id` as the key to map entries across the two tables. 
 
 
 
-| subject_id | question_text_1         | question_text_2    | answer_1 | answer_2 | age | gender   | ses_level |     |
-| ---------- | ----------------------- | ------------------ | -------- | -------- | --- | -------- | --------- | --- |
-| s001       |  "How old are you?" | "Do you like cinnamon?" | 23       | "yes"    |23  | "male"   | 4         |     |
-| s002       |  "How old are you?" | "Do you like cinnamon?" | 37       | "no"     | 37  | "female" | 8         |     |
+| subject_id | question_text_1     | question_text_2         | answer_1 | answer_2 | age | gender   | ses_level | 
+| ---------- | ------------------- | ----------------------- | -------- | -------- | --- | -------- | --------- | 
+| s001       |  "How old are you?" | "Do you like cinnamon?" | 23       | "yes"    | 23  | "male"   | 4         | 
+| s002       |  "How old are you?" | "Do you like cinnamon?" | 37       | "no"     | 37  | "female" | 8         |
 
 Table 3. Output of joining two tables (i.e., results from running chunk 2).
 
@@ -247,15 +246,39 @@ Figure 2 illustrates the fact that selecting variables related to a particular q
 ```{r}
 #| eval: false
 
-# get all data corresponding to question 1
-# -- under wide format
-dd |> select(matches("^q1_"))
-dd |> select(matches("r1$"))
+# create toy dataset
+df_long <- tribble(
+    ~subject_id, ~question_id, ~question, ~answer, ~repetition,
+    "s001",   1, "How old are you?", "23", 1,
+    "s001",   2, "Do you like cinnamon?", "yes", 1, 
+    "s002",   1, "How old are you?", "37", 1, 
+    "s002",   2, "Do you like cinnamon?", "no", 1, 
+    "s001",   1, "How old are you?", "23", 2, 
+    "s001",   2, "Do you like cinnamon?", "yes", 2,  
+    "s002",   1, "How old are you?", "37", 2, 
+    "s002",   2, "Do you like cinnamon?", "yes", 2, 
+    "s001",   1, "How old are you?", "23", 3, 
+    "s001",   2, "Do you like cinnamon?", "yes", 3, 
+)
 
-# search for names that are either from question 1 or end with r2
+# create a "wide" version of the dataset
+df_wide <- df_long |> 
+  mutate(question_id = paste0('q', question_id), 
+         repetition = paste0('r', repetition)) |> 
+  pivot_wider(names_from = c(question_id, repetition), 
+              values_from = c(question, answer),
+              names_glue = "{question_id}_{.value}_{repetition}")
+
+
+## Goal: get all data corresponding to question 1 or to second repetitions
+
+# -- under wide format:
+df_wide |> select(matches("^q1_"))
+df_wide |> select(matches("r2$"))
 
 # -- under the long format
-df |> filter(question_id == "q1")
+df_long |> filter(question_id == 1)
+df_long |> filter(repetition == 2)
 
 ```
 
@@ -332,8 +355,8 @@ In the previous section we demonstrated the clear advantages of the long over th
 
 
 ```{r}
-# ---- toy dataset ----
-data <- tribble(
+# create toy dataset
+quiz_data <- tribble(
   ~subject_id, ~question_id, ~question_text, ~answer, ~score,   
   "s001",   "q10", "What is the capital of France?", "Paris", 1,
   "s001",   "q11", "What is the capital of Luxembourg?", "Luxembourg", 1,
@@ -343,38 +366,25 @@ data <- tribble(
   "s002",   "q12", "When was Leanoardo da Vinci born?", "1900", 0,
 )
 
-# ---- scoring code ---- 
-# this code could be separate from the data analysis script and reused on other datasets.
-
-# define relevant questions for this scoring
-question_selection <- c("q10", "q11")
-
-# define scoring function (how to compute a score based on the responses to relevant questions)
-my_scoring_function <- function(x){
-  0.8*x$q10 + 1.2*x$q11
+# code to score quiz responses: this code could be separate from the data analysis script and reused on other datasets.
+my_scoring_function <- function(q10, q11){
+  0.8 * q10 + 1.2 * q11
 }
 
 
-# ---- analysis: computing the scores ----
 # computing scores typically follows this blueprint;
-scores <- data %>% 
-  
-  # select only questions used for the scoring
-  filter(question_id %in% question_selection) %>% 
-  
+scores <- quiz_data |>  
   # reshape data to wide format
   pivot_wider(id_cols = subject_id, 
 			  names_from = question_id,
-			  values_from = c(score)) %>% 
+			  values_from = c(score)) |> 
   
   # apply scoring function 
-  mutate(score = my_scoring_function(.)) %>% 
+  mutate(score = my_scoring_function(q10, q11)) |> 
   
   # retain only relevant columns
   select(subject_id, score)
 
-
-# display results
 print(scores)
 ```
 
