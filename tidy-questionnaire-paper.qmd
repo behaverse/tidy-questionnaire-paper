@@ -220,13 +220,13 @@ Tidy data typically has a long data format (i.e., tables have few columns and ma
 ### Effective representation of sparse data and missing values
 
 
-When the data is sparse—participants are exposed only to a small set of possible questions. Representing the data in the wide format can be highly ineffective because the data table has to be filled with missing values to complete all participant-by-column cells (see @fig-1). Instead, the long data format can represent the same data in a much more compact way, recording only the participants-questions interactions that actually occurred. Furthermore, the wide data format creates a potential issue with missing values. As shown in Figure 1, the cases where missing values are injected in the data for it to conform with the wide data format needs to be distinguished from genuine missing values, for example, when participants are exposed to a question but decided not to answer it.
+When the data is sparse—participants are exposed only to a small set of possible questions. Representing the data in the wide format can be highly ineffective because the data table has to be filled with missing values to complete all participant-by-column cells (see @fig-1). Instead, the long data format can represent the same data in a much more compact way, recording only the participants-questions interactions that actually occurred. Furthermore, the wide data format creates a potential issue with missing values. As shown in @fig-1, the cases where missing values are injected in the data for it to conform with the wide data format needs to be distinguished from genuine missing values, for example, when participants are exposed to a question but decided not to answer it.
 
 
 
  
 ![The long data format is more effective to store sparse data. This figure provides a concrete example: the exact same data is stored using 6 rows x 4 columns = 24 values when using the long data format, while it requires almost twice as much under the wide data format (5 rows x 9 columns = 45 values).
-](figures/fig_1.png){#fig-1}
+](figures/fig_1.png){#fig-1 width=100%}
 
 
 
@@ -236,12 +236,12 @@ When the data is sparse—participants are exposed only to a small set of possib
 
 
 
-![Selecting the data referring to a question of interest is harder under the wide than under the long data format.](figures/fig_2.png){#fig-2}
+![Selecting the data referring to a question of interest is harder under the wide than under the long data format.](figures/fig_2.png){#fig-2 width=50%}
 
 
 
 
-Figure 2 illustrates the fact that selecting variables related to a particular question is much harder under the wide than under the long, tidy format. Indeed, under the wide format, assuming the naming of the columns follows a clear pattern (e.g., "q1_response_r2" to refer to the response on question q1 on its second occurrence), accessing for example all the data corresponding to one particular questions (i.e., all "q1_" prefixed variables) will typically require some form of regular expression matching. This regular expression will be both specific to the column naming convention used (without which each column will need to be named in extenso, typically requiring to keep a codebook at hand at all times) and the specific subset of requested data (e.g., grabbing all data related to first time questions). In contrast, filtering data in the long data format is easier and more consistent (for an example of code in R using the tidyverse library, see code chunk 3). 
+@fig-2 illustrates the fact that selecting variables related to a particular question is much harder under the wide than under the long, tidy format. Indeed, under the wide format, assuming the naming of the columns follows a clear pattern (e.g., "q1_response_r2" to refer to the response on question q1 on its second occurrence), accessing for example all the data corresponding to one particular questions (i.e., all "q1_" prefixed variables) will typically require some form of regular expression matching. This regular expression will be both specific to the column naming convention used (without which each column will need to be named in extenso, typically requiring to keep a codebook at hand at all times) and the specific subset of requested data (e.g., grabbing all data related to first time questions). In contrast, filtering data in the long data format is easier and more consistent (for an example of code in R using the tidyverse library, see code chunk 3). 
 
 ```{r}
 #| eval: false
@@ -297,12 +297,12 @@ df_long |> filter(repetition == 2)
 
 
 
-![Changing or augmenting response data with additional attributes (e.g., response times) requires adding many columns in the wide data frame (one per response), with an increased risk of mistakes. In contrast, under the long data format, only a single additional column is needed per new attribute.](figures/fig_3.png){#fig-3}
+![Changing or augmenting response data with additional attributes (e.g., response times) requires adding many columns in the wide data frame (one per response), with an increased risk of mistakes. In contrast, under the long data format, only a single additional column is needed per new attribute.](figures/fig_3.png){#fig-3 width=50%}
 
 
 
 
-Adding more attributes to describe a response is straightforward when using the tidy format, but rather cumbersome when using the wide one (see Figure 3). For instance, assuming a 100 question long questionnaire, adding a `response_time` attribute to each response only adds a single column to the tidy data table while it adds 100 additional columns (with names like `q1_response_time`, `q2_response_time`, etc.) under the wide data format.  This state of affairs is of course magnified the more attributes are included to describe a given response (e.g., `timestamp`, `is_optional`, `changed_response`). These additional attributes are critical to make the most out of questionnaire data (e.g., timestamps could be used for telemetry, identify bottlenecks and in general improve the questionnaire design; `repsonse_time` could be used to determine if a question is hard or if people are just randomly pressing keys). Because in the wide data format more columns are added or created it is also much harder to check if a column is missing (e.g., is there a timestamp for the third repetition of question 42?). 
+Adding more attributes to describe a response is straightforward when using the tidy format, but rather cumbersome when using the wide one (see @fig-3). For instance, assuming a 100 question long questionnaire, adding a `response_time` attribute to each response only adds a single column to the tidy data table while it adds 100 additional columns (with names like `q1_response_time`, `q2_response_time`, etc.) under the wide data format.  This state of affairs is of course magnified the more attributes are included to describe a given response (e.g., `timestamp`, `is_optional`, `changed_response`). These additional attributes are critical to make the most out of questionnaire data (e.g., timestamps could be used for telemetry, identify bottlenecks and in general improve the questionnaire design; `repsonse_time` could be used to determine if a question is hard or if people are just randomly pressing keys). Because in the wide data format more columns are added or created it is also much harder to check if a column is missing (e.g., is there a timestamp for the third repetition of question 42?). 
 
 Finally, writing code to transform columns (i.e., use data to compute new variables) is much easier under the long format than under the wide format. Imagine for example that you want to change the units of the response-time variable from milliseconds to seconds. Under the long data format this is a trivial task that can be completed with one line of code. Under the wide data format however, this operation would be quite challenging, time consuming and error prone.  
 
@@ -312,18 +312,18 @@ Finally, writing code to transform columns (i.e., use data to compute new variab
 
 
 
-![Metadata are more concise and easier to manage under the long, tidy format than under the wide data format.](figures/fig_4.png){#fig-4}
+![Metadata are more concise and easier to manage under the long, tidy format than under the wide data format.](figures/fig_4.png){#fig-4 width=50%}
 
 
 
-Describing data (e.g., with a codebook) is much easier under the long, tidy data format than it is under the typical wide data format (see Figure 4). Assuming a questionnaire with 100 questions, 3 attributes per question and 2 repetitions, the data table would have 601 columns (100x3x2 + 1 subject_index) under wide data format, each of which requiring its own entry in a codebook (i.e., 601 rows in a codebook table) generating large files with considerable redundancies and thus a higher risk for errors. Alternatively, under the long, tidy data format, the same data would have only 6 columns (subject_index, question_id, repetition_index and the three attributes). The 100 questions could have their own codebook (i.e., 100 entries, one per question) as well as the different types of response options offered for each question (e.g., with only 1 entry if all the questions used the same Likert scale).  Thus, in total, under the tidy data model, in our example, the codebook would have only 107, non-redundant entries, which is much smaller and more convenient to use than the 601 codebook entries under the typical wide data format.
+Describing data (e.g., with a codebook) is much easier under the long, tidy data format than it is under the typical wide data format (see @fig-4). Assuming a questionnaire with 100 questions, 3 attributes per question and 2 repetitions, the data table would have 601 columns (100x3x2 + 1 subject_index) under wide data format, each of which requiring its own entry in a codebook (i.e., 601 rows in a codebook table) generating large files with considerable redundancies and thus a higher risk for errors. Alternatively, under the long, tidy data format, the same data would have only 6 columns (subject_index, question_id, repetition_index and the three attributes). The 100 questions could have their own codebook (i.e., 100 entries, one per question) as well as the different types of response options offered for each question (e.g., with only 1 entry if all the questions used the same Likert scale).  Thus, in total, under the tidy data model, in our example, the codebook would have only 107, non-redundant entries, which is much smaller and more convenient to use than the 601 codebook entries under the typical wide data format.
 
 Another important concern when using questionnaires is how to deal with multiple languages. In international projects the same questionnaires are typically distributed in multiple languages. Moreover, the language used by respondents in a study may not be the language required by the journal where the study will be published nor the language used by the scientific community that may reuse that dataset. Managing multiple languages under the wide data format can be quite cumbersome, leading to multiplication of columns and data documentation. Under the long data format, the English text could be used in the main data file together with a column indicating in which language a given question was asked. The translations of the question may then be compactly stored in dedicated Question and Option tables that can be joined using keys (e.g., question_id).
 
 
 ### Combining multiple questionnaires
 
-Combining data from multiple questionnaires completed by a common set of participants is comparatively much easier under the long than under the wide data format. We already mentioned the issues regarding the efficiency of data representation (see Figure 1) and data documentation (see Figure 4). The additional problem we describe here is that data from different questionnaires may use different data models, and it may therefore not be possible to join them directly: the columns and values of the data may first need to be recoded for consistency. For example, one data table may encode the question id using an index (e.g., `q1_response`) while another may use some sort of code (e.g., `sleep_response`) or the same question_id may exist in two different tables but refer to different questions. Harmonizing questionnaire data (as well the corresponding codebooks) is much easier under the long format than under the wide format because there are fewer columns to change. In fact, it is generally recommended to transform the wide data into the long format when attempting to combine data across multiple questionnaires [@kolczynska2022]. 
+Combining data from multiple questionnaires completed by a common set of participants is comparatively much easier under the long than under the wide data format. We already mentioned the issues regarding the efficiency of data representation (see @fig-1) and data documentation (see @fig-4). The additional problem we describe here is that data from different questionnaires may use different data models, and it may therefore not be possible to join them directly: the columns and values of the data may first need to be recoded for consistency. For example, one data table may encode the question id using an index (e.g., `q1_response`) while another may use some sort of code (e.g., `sleep_response`) or the same question_id may exist in two different tables but refer to different questions. Harmonizing questionnaire data (as well the corresponding codebooks) is much easier under the long format than under the wide format because there are fewer columns to change. In fact, it is generally recommended to transform the wide data into the long format when attempting to combine data across multiple questionnaires [@kolczynska2022]. 
 
 
 
@@ -355,6 +355,8 @@ In the previous section we demonstrated the clear advantages of the long over th
 
 
 ```{r}
+#| eval: false
+
 # create toy dataset
 quiz_data <- tribble(
   ~subject_id, ~question_id, ~question_text, ~answer, ~score,   
