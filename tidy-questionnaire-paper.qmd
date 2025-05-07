@@ -122,6 +122,9 @@ There are general recommendations for how to structure tabular data to facilitat
 
 
 ```{r}
+#| echo: fenced
+#| eval: false
+
 # load package
 library(tidyverse)
 
@@ -187,6 +190,9 @@ There are of course cases where one needs to combine data from separate tables (
 
 
 ```{r}
+#| echo: fenced
+#| eval: false
+
 # ... continued
 demographics <- tribble(
   ~subject_id, ~age, ~gender, ~ses_level, 
@@ -244,6 +250,7 @@ When the data is sparse—participants are exposed only to a small set of possib
 @fig-2 illustrates the fact that selecting variables related to a particular question is much harder under the wide than under the long, tidy format. Indeed, under the wide format, assuming the naming of the columns follows a clear pattern (e.g., "q1_response_r2" to refer to the response on question q1 on its second occurrence), accessing for example all the data corresponding to one particular questions (i.e., all "q1_" prefixed variables) will typically require some form of regular expression matching. This regular expression will be both specific to the column naming convention used (without which each column will need to be named in extenso, typically requiring to keep a codebook at hand at all times) and the specific subset of requested data (e.g., grabbing all data related to first time questions). In contrast, filtering data in the long data format is easier and more consistent (for an example of code in R using the tidyverse library, see code chunk 3). 
 
 ```{r}
+#| echo: fenced
 #| eval: false
 
 # create toy dataset
@@ -355,6 +362,7 @@ In the previous section we demonstrated the clear advantages of the long over th
 
 
 ```{r}
+#| echo: fenced
 #| eval: false
 
 # create toy dataset

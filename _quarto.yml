@@ -6,18 +6,12 @@ manuscript:
 
 format:
   scientific-data-pdf: default
-#format:
-#  html:
-#    comments:
-#      hypothesis: true
-#  docx: default
-#  jats: default
 
-  # (other formats)
-  # pdf: default
+notebook-links: false
+execute:
+  echo: fenced
+  eval: false
 
-# execute:
-#   freeze: true
 
 
 
