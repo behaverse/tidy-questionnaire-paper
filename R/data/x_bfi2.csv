@@ -1,0 +1,306 @@
+agent_id,instrument_id,stimulus_id,iteration,trial_index,stimulus_type,stimulus_description,response_option_index,response_description,response_numeric,response_time,response_validation_time
+002,x_bfi2,bfi-2_m_1,1,1,message,"Here are a number of characteristics that may or may not apply to you.<br />For example, do you agree that you are someone who *likes to spend time with others?*<br /><br />Please indicate the extent to which you agree or disagree with each of the following statements.",NA,NA,NA,8.242,8.242
+002,x_bfi2,bfi-2_q_1,1,2,question,"is outgoing, sociable.",6,agree,0.66,2.858,4.111
+002,x_bfi2,bfi-2_q_2,1,3,question,"is compassionate, has a soft heart.",7,strongly agree,1,2.713,3.361
+002,x_bfi2,bfi-2_q_3,1,4,question,tends to be disorganized.,5,somewhat agree,0.33,2.9130000000000003,3.49
+002,x_bfi2,bfi-2_q_4,1,5,question,"is relaxed, handles stress well.",3,somewhat disagree,-0.33,2.865,3.623
+002,x_bfi2,bfi-2_q_5,1,6,question,has few artistic interests.,2,disagree,-0.66,1.414,2.018
+002,x_bfi2,bfi-2_q_6,1,7,question,has an assertive personality.,3,somewhat disagree,-0.33,1.746,2.346
+002,x_bfi2,bfi-2_q_7,1,8,question,"is respectful, treats others with respect.",6,agree,0.66,4.064,4.682
+002,x_bfi2,bfi-2_q_8,1,9,question,tends to be lazy.,5,somewhat agree,0.33,1.605,2.195
+002,x_bfi2,bfi-2_q_9,1,10,question,stays optimistic after experiencing a setback.,5,somewhat agree,0.33,2.634,3.2
+002,x_bfi2,bfi-2_q_10,1,11,question,is curious about many different things.,6,agree,0.66,33.635,34.385
+002,x_bfi2,bfi-2_q_11,1,12,question,rarely feels excited or eager.,2,disagree,-0.66,6.17,6.878
+002,x_bfi2,bfi-2_q_12,1,13,question,tends to find fault with others.,5,somewhat agree,0.33,1.751,2.225
+002,x_bfi2,bfi-2_q_13,1,14,question,"is dependable, steady.",5,somewhat agree,0.33,1.386,1.83
+002,x_bfi2,bfi-2_q_14,1,15,question,"is moody, has up and down mood swings.",4,neither agree nor disagree,0,1.748,2.231
+002,x_bfi2,bfi-2_q_15,1,16,question,"is inventive, finds clever ways to do things.",5,somewhat agree,0.33,1.91,2.736
+002,x_bfi2,bfi-2_q_16,1,17,question,tends to be quiet.,4,neither agree nor disagree,0,2.339,2.765
+002,x_bfi2,bfi-2_q_17,1,18,question,feels little sympathy for others.,2,disagree,-0.66,3.54,4.162
+002,x_bfi2,bfi-2_q_18,1,19,question,"is systematic, likes to keep things in order.",3,somewhat disagree,-0.33,2.611,3.053
+002,x_bfi2,bfi-2_q_19,1,20,question,can be tense.,5,somewhat agree,0.33,1.096,1.544
+002,x_bfi2,bfi-2_q_20,1,21,question,"is fascinated by art, music, or literature.",3,somewhat disagree,-0.33,2.606,3.008
+002,x_bfi2,bfi-2_q_21,1,22,question,"is dominant, acts as a leader.",4,neither agree nor disagree,0,1.497,1.929
+002,x_bfi2,bfi-2_q_22,1,23,question,starts arguments with others.,2,disagree,-0.66,2.259,2.846
+002,x_bfi2,bfi-2_q_23,1,24,question,has difficulty getting started on tasks.,5,somewhat agree,0.33,3.295,3.861
+002,x_bfi2,bfi-2_q_24,1,25,question,"feels secure, comfortable with self.",3,somewhat disagree,-0.33,2.555,3.135
+002,x_bfi2,bfi-2_q_25,1,26,question,"avoids intellectual, philosophical discussions.",3,somewhat disagree,-0.33,183.024,183.52
+002,x_bfi2,bfi-2_q_26,1,27,question,is less active than other people.,1,strongly disagree,-1,2.154,2.697
+002,x_bfi2,bfi-2_q_27,1,28,question,has a forgiving nature.,6,agree,0.66,1.968,2.55
+002,x_bfi2,bfi-2_q_28,1,29,question,can be somewhat careless.,5,somewhat agree,0.33,1.648,2.454
+002,x_bfi2,bfi-2_q_29,1,30,question,"is emotionally stable, not easily upset.",4,neither agree nor disagree,0,1.913,2.402
+002,x_bfi2,bfi-2_q_30,1,31,question,has little creativity.,2,disagree,-0.66,1.429,1.919
+002,x_bfi2,bfi-2_q_31,1,32,question,"is sometimes shy, introverted.",5,somewhat agree,0.33,2.264,2.916
+002,x_bfi2,bfi-2_q_32,1,33,question,is helpful and unselfish with others.,6,agree,0.66,2.332,7.163
+002,x_bfi2,bfi-2_q_33,1,34,question,keeps things neat and tidy.,3,somewhat disagree,-0.33,4.9879999999999995,5.531
+002,x_bfi2,bfi-2_q_34,1,35,question,worries a lot.,2,disagree,-0.66,1.683,2.206
+002,x_bfi2,bfi-2_q_35,1,36,question,values art and beauty.,5,somewhat agree,0.33,1.598,2.159
+002,x_bfi2,bfi-2_q_36,1,37,question,finds it hard to influence people.,3,somewhat disagree,-0.33,2.609,3.119
+002,x_bfi2,bfi-2_q_37,1,38,question,is sometimes rude to others.,2,disagree,-0.66,3.164,3.721
+002,x_bfi2,bfi-2_q_38,1,39,question,"is efficient, gets things done.",4,neither agree nor disagree,0,3.222,3.687
+002,x_bfi2,bfi-2_q_39,1,40,question,often feels sad.,6,agree,0.66,1.258,1.857
+002,x_bfi2,bfi-2_q_40,1,41,question,"is complex, a deep thinker.",5,somewhat agree,0.33,4.766,5.425
+002,x_bfi2,bfi-2_q_41,1,42,question,is full of energy.,5,somewhat agree,0.33,1.264,1.748
+002,x_bfi2,bfi-2_q_42,1,43,question,is suspicious of others' intentions.,5,somewhat agree,0.33,1.565,2.002
+002,x_bfi2,bfi-2_q_43,1,44,question,"is reliable, can always be counted on.",4,neither agree nor disagree,0,9.07,9.618
+002,x_bfi2,bfi-2_q_44,1,45,question,keeps their emotions under control.,3,somewhat disagree,-0.33,1.9,2.341
+002,x_bfi2,bfi-2_q_45,1,46,question,has difficulty imagining things.,2,disagree,-0.66,3.251,3.741
+002,x_bfi2,bfi-2_q_46,1,47,question,is talkative.,5,somewhat agree,0.33,115.834,116.641
+002,x_bfi2,bfi-2_q_47,1,48,question,can be cold and uncaring.,4,neither agree nor disagree,0,3.565,4.155
+002,x_bfi2,bfi-2_q_48,1,49,question,"leaves a mess, doesn't clean up.",3,somewhat disagree,-0.33,2.101,2.599
+002,x_bfi2,bfi-2_q_49,1,50,question,rarely feels anxious or afraid.,3,somewhat disagree,-0.33,2.174,2.919
+002,x_bfi2,bfi-2_q_50,1,51,question,thinks poetry and plays are boring.,2,disagree,-0.66,1.795,2.437
+002,x_bfi2,bfi-2_q_51,1,52,question,prefers to have others take charge.,5,somewhat agree,0.33,1.554,2.04
+002,x_bfi2,bfi-2_q_52,1,53,question,"is polite, courteous to others.",6,agree,0.66,1.433,1.925
+002,x_bfi2,bfi-2_q_53,1,54,question,"is persistent, works until the task is finished.",5,somewhat agree,0.33,3.176,3.694
+002,x_bfi2,bfi-2_q_54,1,55,question,"tends to feel depressed, blue.",6,agree,0.66,1.6909999999999998,2.226
+002,x_bfi2,bfi-2_q_55,1,56,question,has little interest in abstract ideas.,2,disagree,-0.66,1.404,1.924
+002,x_bfi2,bfi-2_q_56,1,57,question,shows a lot of enthusiasm.,5,somewhat agree,0.33,1.591,2.187
+002,x_bfi2,bfi-2_q_57,1,58,question,assumes the best about people.,3,somewhat disagree,-0.33,29.157,29.646
+002,x_bfi2,bfi-2_q_58,1,59,question,sometimes behaves irresponsibly.,4,neither agree nor disagree,0,2.334,2.818
+002,x_bfi2,bfi-2_q_59,1,60,question,"is temperamental, gets emotional easily.",5,somewhat agree,0.33,1.59,2.066
+002,x_bfi2,bfi-2_q_60,1,61,question,"is original, comes up with new ideas.",4,neither agree nor disagree,0,2.082,2.55
+002,x_bfi2,bfi-2_m_1,2,1,message,"Here are a number of characteristics that may or may not apply to you.<br />For example, do you agree that you are someone who *likes to spend time with others?*<br /><br />Please indicate the extent to which you agree or disagree with each of the following statements.",NA,NA,NA,4.008,4.008
+002,x_bfi2,bfi-2_q_1,2,2,question,"is outgoing, sociable.",5,somewhat agree,0.33,1.571,2.153
+002,x_bfi2,bfi-2_q_2,2,3,question,"is compassionate, has a soft heart.",7,strongly agree,1,2.148,2.754
+002,x_bfi2,bfi-2_q_3,2,4,question,tends to be disorganized.,5,somewhat agree,0.33,1.662,2.195
+002,x_bfi2,bfi-2_q_4,2,5,question,"is relaxed, handles stress well.",3,somewhat disagree,-0.33,1.802,2.724
+002,x_bfi2,bfi-2_q_5,2,6,question,has few artistic interests.,5,somewhat agree,0.33,3.005,3.485
+002,x_bfi2,bfi-2_q_6,2,7,question,has an assertive personality.,3,somewhat disagree,-0.33,1.733,2.179
+002,x_bfi2,bfi-2_q_7,2,8,question,"is respectful, treats others with respect.",6,agree,0.66,2.259,3.015
+002,x_bfi2,bfi-2_q_8,2,9,question,tends to be lazy.,5,somewhat agree,0.33,1.31,1.994
+002,x_bfi2,bfi-2_q_9,2,10,question,stays optimistic after experiencing a setback.,3,somewhat disagree,-0.33,2.577,4.017
+002,x_bfi2,bfi-2_q_10,2,11,question,is curious about many different things.,6,agree,0.66,3.416,4.045
+002,x_bfi2,bfi-2_q_11,2,12,question,rarely feels excited or eager.,2,disagree,-0.66,2.8369999999999997,3.48
+002,x_bfi2,bfi-2_q_12,2,13,question,tends to find fault with others.,5,somewhat agree,0.33,3.034,3.714
+002,x_bfi2,bfi-2_q_13,2,14,question,"is dependable, steady.",5,somewhat agree,0.33,5.9,6.346
+002,x_bfi2,bfi-2_q_14,2,15,question,"is moody, has up and down mood swings.",5,somewhat agree,0.33,1.925,2.388
+002,x_bfi2,bfi-2_q_15,2,16,question,"is inventive, finds clever ways to do things.",5,somewhat agree,0.33,2.593,3.063
+002,x_bfi2,bfi-2_q_16,2,17,question,tends to be quiet.,3,somewhat disagree,-0.33,4.75,5.438
+002,x_bfi2,bfi-2_q_17,2,18,question,feels little sympathy for others.,5,somewhat agree,0.33,5.699,6.171
+002,x_bfi2,bfi-2_q_18,2,19,question,"is systematic, likes to keep things in order.",4,neither agree nor disagree,0,2.653,3.297
+002,x_bfi2,bfi-2_q_19,2,20,question,can be tense.,6,agree,0.66,1.833,2.395
+002,x_bfi2,bfi-2_q_20,2,21,question,"is fascinated by art, music, or literature.",3,somewhat disagree,-0.33,1.766,2.165
+002,x_bfi2,bfi-2_q_21,2,22,question,"is dominant, acts as a leader.",4,neither agree nor disagree,0,2.437,2.853
+002,x_bfi2,bfi-2_q_22,2,23,question,starts arguments with others.,2,disagree,-0.66,1.924,2.414
+002,x_bfi2,bfi-2_q_23,2,24,question,has difficulty getting started on tasks.,5,somewhat agree,0.33,2.044,2.492
+002,x_bfi2,bfi-2_q_24,2,25,question,"feels secure, comfortable with self.",3,somewhat disagree,-0.33,2.203,2.661
+002,x_bfi2,bfi-2_q_25,2,26,question,"avoids intellectual, philosophical discussions.",3,somewhat disagree,-0.33,2.582,3.02
+002,x_bfi2,bfi-2_q_26,2,27,question,is less active than other people.,2,disagree,-0.66,1.6,2.062
+002,x_bfi2,bfi-2_q_27,2,28,question,has a forgiving nature.,6,agree,0.66,1.516,1.987
+002,x_bfi2,bfi-2_q_28,2,29,question,can be somewhat careless.,5,somewhat agree,0.33,1.667,2.087
+002,x_bfi2,bfi-2_q_29,2,30,question,"is emotionally stable, not easily upset.",3,somewhat disagree,-0.33,2.872,3.526
+002,x_bfi2,bfi-2_q_30,2,31,question,has little creativity.,3,somewhat disagree,-0.33,2.416,2.84
+002,x_bfi2,bfi-2_q_31,2,32,question,"is sometimes shy, introverted.",5,somewhat agree,0.33,1.681,2.157
+002,x_bfi2,bfi-2_q_32,2,33,question,is helpful and unselfish with others.,6,agree,0.66,1.685,2.278
+002,x_bfi2,bfi-2_q_33,2,34,question,keeps things neat and tidy.,3,somewhat disagree,-0.33,2,2.396
+002,x_bfi2,bfi-2_q_34,2,35,question,worries a lot.,5,somewhat agree,0.33,2.45,2.898
+002,x_bfi2,bfi-2_q_35,2,36,question,values art and beauty.,5,somewhat agree,0.33,1.478,1.868
+002,x_bfi2,bfi-2_q_36,2,37,question,finds it hard to influence people.,3,somewhat disagree,-0.33,2.044,2.5540000000000003
+002,x_bfi2,bfi-2_q_37,2,38,question,is sometimes rude to others.,5,somewhat agree,0.33,1.83,2.358
+002,x_bfi2,bfi-2_q_38,2,39,question,"is efficient, gets things done.",5,somewhat agree,0.33,3.96,4.712
+002,x_bfi2,bfi-2_q_39,2,40,question,often feels sad.,6,agree,0.66,1.77,2.421
+002,x_bfi2,bfi-2_q_40,2,41,question,"is complex, a deep thinker.",6,agree,0.66,1.423,1.91
+002,x_bfi2,bfi-2_q_41,2,42,question,is full of energy.,5,somewhat agree,0.33,1.266,1.916
+002,x_bfi2,bfi-2_q_42,2,43,question,is suspicious of others' intentions.,5,somewhat agree,0.33,1.334,1.73
+002,x_bfi2,bfi-2_q_43,2,44,question,"is reliable, can always be counted on.",5,somewhat agree,0.33,1.974,2.421
+002,x_bfi2,bfi-2_q_44,2,45,question,keeps their emotions under control.,3,somewhat disagree,-0.33,1.799,2.239
+002,x_bfi2,bfi-2_q_45,2,46,question,has difficulty imagining things.,2,disagree,-0.66,2.003,2.477
+002,x_bfi2,bfi-2_q_46,2,47,question,is talkative.,5,somewhat agree,0.33,1.536,2.008
+002,x_bfi2,bfi-2_q_47,2,48,question,can be cold and uncaring.,2,disagree,-0.66,2.521,3.314
+002,x_bfi2,bfi-2_q_48,2,49,question,"leaves a mess, doesn't clean up.",3,somewhat disagree,-0.33,1.932,2.406
+002,x_bfi2,bfi-2_q_49,2,50,question,rarely feels anxious or afraid.,3,somewhat disagree,-0.33,1.981,2.445
+002,x_bfi2,bfi-2_q_50,2,51,question,thinks poetry and plays are boring.,3,somewhat disagree,-0.33,2.456,2.958
+002,x_bfi2,bfi-2_q_51,2,52,question,prefers to have others take charge.,5,somewhat agree,0.33,1.798,2.266
+002,x_bfi2,bfi-2_q_52,2,53,question,"is polite, courteous to others.",6,agree,0.66,1.444,2.49
+002,x_bfi2,bfi-2_q_53,2,54,question,"is persistent, works until the task is finished.",5,somewhat agree,0.33,1.736,2.375
+002,x_bfi2,bfi-2_q_54,2,55,question,"tends to feel depressed, blue.",6,agree,0.66,2.311,2.944
+002,x_bfi2,bfi-2_q_55,2,56,question,has little interest in abstract ideas.,2,disagree,-0.66,1.465,2.007
+002,x_bfi2,bfi-2_q_56,2,57,question,shows a lot of enthusiasm.,5,somewhat agree,0.33,1.298,1.965
+002,x_bfi2,bfi-2_q_57,2,58,question,assumes the best about people.,3,somewhat disagree,-0.33,1.482,1.981
+002,x_bfi2,bfi-2_q_58,2,59,question,sometimes behaves irresponsibly.,5,somewhat agree,0.33,4.214,4.761
+002,x_bfi2,bfi-2_q_59,2,60,question,"is temperamental, gets emotional easily.",5,somewhat agree,0.33,5.905,6.632
+002,x_bfi2,bfi-2_q_60,2,61,question,"is original, comes up with new ideas.",5,somewhat agree,0.33,1.861,2.319
+019,x_bfi2,bfi-2_m_1,1,1,message,"Here are a number of characteristics that may or may not apply to you.<br />For example, do you agree that you are someone who *likes to spend time with others?*<br /><br />Please indicate the extent to which you agree or disagree with each of the following statements.",NA,NA,NA,2.332,2.332
+019,x_bfi2,bfi-2_q_1,1,2,question,"is outgoing, sociable.",6,agree,0.66,2.064,2.949
+019,x_bfi2,bfi-2_q_2,1,3,question,"is compassionate, has a soft heart.",6,agree,0.66,1.594,2.244
+019,x_bfi2,bfi-2_q_3,1,4,question,tends to be disorganized.,2,disagree,-0.66,1.858,2.525
+019,x_bfi2,bfi-2_q_4,1,5,question,"is relaxed, handles stress well.",5,somewhat agree,0.33,1.872,2.47
+019,x_bfi2,bfi-2_q_5,1,6,question,has few artistic interests.,3,somewhat disagree,-0.33,1.705,2.809
+019,x_bfi2,bfi-2_q_6,1,7,question,has an assertive personality.,5,somewhat agree,0.33,1.349,2.5540000000000003
+019,x_bfi2,bfi-2_q_7,1,8,question,"is respectful, treats others with respect.",6,agree,0.66,1.557,2.648
+019,x_bfi2,bfi-2_q_8,1,9,question,tends to be lazy.,2,disagree,-0.66,1.909,2.56
+019,x_bfi2,bfi-2_q_9,1,10,question,stays optimistic after experiencing a setback.,6,agree,0.66,1.565,2.096
+019,x_bfi2,bfi-2_q_10,1,11,question,is curious about many different things.,6,agree,0.66,2.071,2.6879999999999997
+019,x_bfi2,bfi-2_q_11,1,12,question,rarely feels excited or eager.,2,disagree,-0.66,2.997,3.661
+019,x_bfi2,bfi-2_q_12,1,13,question,tends to find fault with others.,4,neither agree nor disagree,0,2.077,2.576
+019,x_bfi2,bfi-2_q_13,1,14,question,"is dependable, steady.",7,strongly agree,1,2.115,2.614
+019,x_bfi2,bfi-2_q_14,1,15,question,"is moody, has up and down mood swings.",2,disagree,-0.66,1.5590000000000002,2.192
+019,x_bfi2,bfi-2_q_15,1,16,question,"is inventive, finds clever ways to do things.",6,agree,0.66,3.249,3.965
+019,x_bfi2,bfi-2_q_16,1,17,question,tends to be quiet.,2,disagree,-0.66,1.552,2.072
+019,x_bfi2,bfi-2_q_17,1,18,question,feels little sympathy for others.,6,agree,0.66,1.506,2.129
+019,x_bfi2,bfi-2_q_18,1,19,question,"is systematic, likes to keep things in order.",6,agree,0.66,1.683,2.349
+019,x_bfi2,bfi-2_q_19,1,20,question,can be tense.,4,neither agree nor disagree,0,1.529,2.132
+019,x_bfi2,bfi-2_q_20,1,21,question,"is fascinated by art, music, or literature.",3,somewhat disagree,-0.33,1.655,2.548
+019,x_bfi2,bfi-2_q_21,1,22,question,"is dominant, acts as a leader.",6,agree,0.66,1.858,2.441
+019,x_bfi2,bfi-2_q_22,1,23,question,starts arguments with others.,2,disagree,-0.66,2.272,3.155
+019,x_bfi2,bfi-2_q_23,1,24,question,has difficulty getting started on tasks.,2,disagree,-0.66,1.843,2.61
+019,x_bfi2,bfi-2_q_24,1,25,question,"feels secure, comfortable with self.",6,agree,0.66,2.652,3.337
+019,x_bfi2,bfi-2_q_25,1,26,question,"avoids intellectual, philosophical discussions.",4,neither agree nor disagree,0,2.098,2.668
+019,x_bfi2,bfi-2_q_26,1,27,question,is less active than other people.,2,disagree,-0.66,1.987,3.747
+019,x_bfi2,bfi-2_q_27,1,28,question,has a forgiving nature.,6,agree,0.66,1.587,3.011
+019,x_bfi2,bfi-2_q_28,1,29,question,can be somewhat careless.,2,disagree,-0.66,1.937,2.835
+019,x_bfi2,bfi-2_q_29,1,30,question,"is emotionally stable, not easily upset.",6,agree,0.66,2.786,3.71
+019,x_bfi2,bfi-2_q_30,1,31,question,has little creativity.,6,agree,0.66,2.411,3.114
+019,x_bfi2,bfi-2_q_31,1,32,question,"is sometimes shy, introverted.",5,somewhat agree,0.33,2.664,3.38
+019,x_bfi2,bfi-2_q_32,1,33,question,is helpful and unselfish with others.,6,agree,0.66,2.953,3.638
+019,x_bfi2,bfi-2_q_33,1,34,question,keeps things neat and tidy.,7,strongly agree,1,1.991,2.722
+019,x_bfi2,bfi-2_q_34,1,35,question,worries a lot.,3,somewhat disagree,-0.33,1.539,2.328
+019,x_bfi2,bfi-2_q_35,1,36,question,values art and beauty.,4,neither agree nor disagree,0,2.333,3.139
+019,x_bfi2,bfi-2_q_36,1,37,question,finds it hard to influence people.,3,somewhat disagree,-0.33,2.299,3.558
+019,x_bfi2,bfi-2_q_37,1,38,question,is sometimes rude to others.,4,neither agree nor disagree,0,1.712,2.568
+019,x_bfi2,bfi-2_q_38,1,39,question,"is efficient, gets things done.",6,agree,0.66,1.815,3.135
+019,x_bfi2,bfi-2_q_39,1,40,question,often feels sad.,2,disagree,-0.66,3.257,4.107
+019,x_bfi2,bfi-2_q_40,1,41,question,"is complex, a deep thinker.",6,agree,0.66,2.288,3.046
+019,x_bfi2,bfi-2_q_41,1,42,question,is full of energy.,6,agree,0.66,2.392,3.064
+019,x_bfi2,bfi-2_q_42,1,43,question,is suspicious of others' intentions.,5,somewhat agree,0.33,1.714,2.5380000000000003
+019,x_bfi2,bfi-2_q_43,1,44,question,"is reliable, can always be counted on.",6,agree,0.66,2.606,3.148
+019,x_bfi2,bfi-2_q_44,1,45,question,keeps their emotions under control.,6,agree,0.66,2.799,3.629
+019,x_bfi2,bfi-2_q_45,1,46,question,has difficulty imagining things.,3,somewhat disagree,-0.33,6.237,7.02
+019,x_bfi2,bfi-2_q_46,1,47,question,is talkative.,6,agree,0.66,1.682,2.548
+019,x_bfi2,bfi-2_q_47,1,48,question,can be cold and uncaring.,2,disagree,-0.66,1.656,2.309
+019,x_bfi2,bfi-2_q_48,1,49,question,"leaves a mess, doesn't clean up.",1,strongly disagree,-1,2.233,3.066
+019,x_bfi2,bfi-2_q_49,1,50,question,rarely feels anxious or afraid.,3,somewhat disagree,-0.33,4.982,5.5
+019,x_bfi2,bfi-2_q_50,1,51,question,thinks poetry and plays are boring.,6,agree,0.66,2.763,3.412
+019,x_bfi2,bfi-2_q_51,1,52,question,prefers to have others take charge.,3,somewhat disagree,-0.33,2.426,3.129
+019,x_bfi2,bfi-2_q_52,1,53,question,"is polite, courteous to others.",7,strongly agree,1,3.743,4.686
+019,x_bfi2,bfi-2_q_53,1,54,question,"is persistent, works until the task is finished.",7,strongly agree,1,2.185,3.073
+019,x_bfi2,bfi-2_q_54,1,55,question,"tends to feel depressed, blue.",2,disagree,-0.66,2.042,2.892
+019,x_bfi2,bfi-2_q_55,1,56,question,has little interest in abstract ideas.,5,somewhat agree,0.33,3.266,4.15
+019,x_bfi2,bfi-2_q_56,1,57,question,shows a lot of enthusiasm.,6,agree,0.66,2.55,14.957
+019,x_bfi2,bfi-2_q_57,1,58,question,assumes the best about people.,5,somewhat agree,0.33,1.7970000000000002,2.463
+019,x_bfi2,bfi-2_q_58,1,59,question,sometimes behaves irresponsibly.,3,somewhat disagree,-0.33,3.698,4.566
+019,x_bfi2,bfi-2_q_59,1,60,question,"is temperamental, gets emotional easily.",2,disagree,-0.66,17.601,18.499
+019,x_bfi2,bfi-2_q_60,1,61,question,"is original, comes up with new ideas.",6,agree,0.66,29.808,30.713
+019,x_bfi2,bfi-2_m_1,2,1,message,"Here are a number of characteristics that may or may not apply to you.<br />For example, do you agree that you are someone who *likes to spend time with others?*<br /><br />Please indicate the extent to which you agree or disagree with each of the following statements.",NA,NA,NA,3.497,3.497
+019,x_bfi2,bfi-2_q_1,2,2,question,"is outgoing, sociable.",6,agree,0.66,4.469,5.368
+019,x_bfi2,bfi-2_q_2,2,3,question,"is compassionate, has a soft heart.",6,agree,0.66,34.742,36.135
+019,x_bfi2,bfi-2_q_3,2,4,question,tends to be disorganized.,2,disagree,-0.66,2.733,3.985
+019,x_bfi2,bfi-2_q_4,2,5,question,"is relaxed, handles stress well.",4,neither agree nor disagree,0,19.614,20.216
+019,x_bfi2,bfi-2_q_5,2,6,question,has few artistic interests.,6,agree,0.66,20.247,21.056
+019,x_bfi2,bfi-2_q_6,2,7,question,has an assertive personality.,4,neither agree nor disagree,0,1.868,2.501
+019,x_bfi2,bfi-2_q_7,2,8,question,"is respectful, treats others with respect.",6,agree,0.66,57.411,58.095
+019,x_bfi2,bfi-2_q_8,2,9,question,tends to be lazy.,2,disagree,-0.66,1.73,2.269
+019,x_bfi2,bfi-2_q_9,2,10,question,stays optimistic after experiencing a setback.,6,agree,0.66,21.664,22.58
+019,x_bfi2,bfi-2_q_10,2,11,question,is curious about many different things.,5,somewhat agree,0.33,1.522,2.205
+019,x_bfi2,bfi-2_q_11,2,12,question,rarely feels excited or eager.,2,disagree,-0.66,3.221,4.655
+019,x_bfi2,bfi-2_q_12,2,13,question,tends to find fault with others.,3,somewhat disagree,-0.33,14.14,14.777
+019,x_bfi2,bfi-2_q_13,2,14,question,"is dependable, steady.",7,strongly agree,1,3.175,3.887
+019,x_bfi2,bfi-2_q_14,2,15,question,"is moody, has up and down mood swings.",2,disagree,-0.66,2.733,3.95
+019,x_bfi2,bfi-2_q_15,2,16,question,"is inventive, finds clever ways to do things.",5,somewhat agree,0.33,4.773,5.447
+019,x_bfi2,bfi-2_q_16,2,17,question,tends to be quiet.,2,disagree,-0.66,20.006,20.696
+019,x_bfi2,bfi-2_q_17,2,18,question,feels little sympathy for others.,6,agree,0.66,1.948,2.5709999999999997
+019,x_bfi2,bfi-2_q_18,2,19,question,"is systematic, likes to keep things in order.",6,agree,0.66,10.045,11.218
+019,x_bfi2,bfi-2_q_19,2,20,question,can be tense.,4,neither agree nor disagree,0,1.9,2.651
+019,x_bfi2,bfi-2_q_20,2,21,question,"is fascinated by art, music, or literature.",3,somewhat disagree,-0.33,1.561,2.286
+019,x_bfi2,bfi-2_q_21,2,22,question,"is dominant, acts as a leader.",6,agree,0.66,3.003,3.853
+019,x_bfi2,bfi-2_q_22,2,23,question,starts arguments with others.,2,disagree,-0.66,1.747,3.062
+019,x_bfi2,bfi-2_q_23,2,24,question,has difficulty getting started on tasks.,2,disagree,-0.66,6.073,6.938
+019,x_bfi2,bfi-2_q_24,2,25,question,"feels secure, comfortable with self.",6,agree,0.66,3.647,4.413
+019,x_bfi2,bfi-2_q_25,2,26,question,"avoids intellectual, philosophical discussions.",4,neither agree nor disagree,0,50.767,51.92
+019,x_bfi2,bfi-2_q_26,2,27,question,is less active than other people.,3,somewhat disagree,-0.33,1.415,2.577
+019,x_bfi2,bfi-2_q_27,2,28,question,has a forgiving nature.,4,neither agree nor disagree,0,2.147,2.914
+019,x_bfi2,bfi-2_q_28,2,29,question,can be somewhat careless.,2,disagree,-0.66,53.265,53.967
+019,x_bfi2,bfi-2_q_29,2,30,question,"is emotionally stable, not easily upset.",6,agree,0.66,30.599,31.449
+019,x_bfi2,bfi-2_q_30,2,31,question,has little creativity.,5,somewhat agree,0.33,5.339,6.106
+019,x_bfi2,bfi-2_q_31,2,32,question,"is sometimes shy, introverted.",6,agree,0.66,2.012,2.678
+019,x_bfi2,bfi-2_q_32,2,33,question,is helpful and unselfish with others.,6,agree,0.66,113.545,114.397
+019,x_bfi2,bfi-2_q_33,2,34,question,keeps things neat and tidy.,6,agree,0.66,1.714,2.762
+019,x_bfi2,bfi-2_q_34,2,35,question,worries a lot.,5,somewhat agree,0.33,28.745,29.462
+019,x_bfi2,bfi-2_q_35,2,36,question,values art and beauty.,5,somewhat agree,0.33,5.079,5.945
+019,x_bfi2,bfi-2_q_36,2,37,question,finds it hard to influence people.,5,somewhat agree,0.33,2.213,3.255
+019,x_bfi2,bfi-2_q_37,2,38,question,is sometimes rude to others.,2,disagree,-0.66,73.207,73.93
+019,x_bfi2,bfi-2_q_38,2,39,question,"is efficient, gets things done.",6,agree,0.66,1.901,2.568
+019,x_bfi2,bfi-2_q_39,2,40,question,often feels sad.,2,disagree,-0.66,1.603,2.319
+019,x_bfi2,bfi-2_q_40,2,41,question,"is complex, a deep thinker.",6,agree,0.66,3.369,4.101
+019,x_bfi2,bfi-2_q_41,2,42,question,is full of energy.,6,agree,0.66,1.746,2.481
+019,x_bfi2,bfi-2_q_42,2,43,question,is suspicious of others' intentions.,5,somewhat agree,0.33,2.032,2.782
+019,x_bfi2,bfi-2_q_43,2,44,question,"is reliable, can always be counted on.",6,agree,0.66,1.877,2.592
+019,x_bfi2,bfi-2_q_44,2,45,question,keeps their emotions under control.,5,somewhat agree,0.33,2.182,2.799
+019,x_bfi2,bfi-2_q_45,2,46,question,has difficulty imagining things.,3,somewhat disagree,-0.33,3.074,3.644
+019,x_bfi2,bfi-2_q_46,2,47,question,is talkative.,6,agree,0.66,2.49,3.24
+019,x_bfi2,bfi-2_q_47,2,48,question,can be cold and uncaring.,5,somewhat agree,0.33,8.628,9.279
+019,x_bfi2,bfi-2_q_48,2,49,question,"leaves a mess, doesn't clean up.",2,disagree,-0.66,155.826,156.823
+019,x_bfi2,bfi-2_q_49,2,50,question,rarely feels anxious or afraid.,2,disagree,-0.66,6.017,6.933
+019,x_bfi2,bfi-2_q_50,2,51,question,thinks poetry and plays are boring.,5,somewhat agree,0.33,5.874,6.475
+019,x_bfi2,bfi-2_q_51,2,52,question,prefers to have others take charge.,3,somewhat disagree,-0.33,83.297,83.913
+019,x_bfi2,bfi-2_q_52,2,53,question,"is polite, courteous to others.",6,agree,0.66,1.949,2.682
+019,x_bfi2,bfi-2_q_53,2,54,question,"is persistent, works until the task is finished.",6,agree,0.66,2.217,2.899
+019,x_bfi2,bfi-2_q_54,2,55,question,"tends to feel depressed, blue.",2,disagree,-0.66,13.061,13.958
+019,x_bfi2,bfi-2_q_55,2,56,question,has little interest in abstract ideas.,2,disagree,-0.66,2.479,3.062
+019,x_bfi2,bfi-2_q_56,2,57,question,shows a lot of enthusiasm.,6,agree,0.66,36.618,37.555
+019,x_bfi2,bfi-2_q_57,2,58,question,assumes the best about people.,6,agree,0.66,2.287,4.741
+019,x_bfi2,bfi-2_q_58,2,59,question,sometimes behaves irresponsibly.,3,somewhat disagree,-0.33,7.325,8.144
+019,x_bfi2,bfi-2_q_59,2,60,question,"is temperamental, gets emotional easily.",5,somewhat agree,0.33,2.27,2.957
+019,x_bfi2,bfi-2_q_60,2,61,question,"is original, comes up with new ideas.",5,somewhat agree,0.33,73.183,74.217
+030,x_bfi2,bfi-2_m_1,1,1,message,"Here are a number of characteristics that may or may not apply to you.<br />For example, do you agree that you are someone who *likes to spend time with others?*<br /><br />Please indicate the extent to which you agree or disagree with each of the following statements.",NA,NA,NA,5.804,5.804
+030,x_bfi2,bfi-2_q_1,1,2,question,"is outgoing, sociable.",5,somewhat agree,0.33,2.363,3.48
+030,x_bfi2,bfi-2_q_2,1,3,question,"is compassionate, has a soft heart.",5,somewhat agree,0.33,1.443,2.104
+030,x_bfi2,bfi-2_q_3,1,4,question,tends to be disorganized.,1,strongly disagree,-1,1.973,3.145
+030,x_bfi2,bfi-2_q_4,1,5,question,"is relaxed, handles stress well.",3,somewhat disagree,-0.33,3.349,4.004
+030,x_bfi2,bfi-2_q_5,1,6,question,has few artistic interests.,7,strongly agree,1,2.408,3.318
+030,x_bfi2,bfi-2_q_6,1,7,question,has an assertive personality.,6,agree,0.66,1.74,2.348
+030,x_bfi2,bfi-2_q_7,1,8,question,"is respectful, treats others with respect.",5,somewhat agree,0.33,2.379,3.083
+030,x_bfi2,bfi-2_q_8,1,9,question,tends to be lazy.,5,somewhat agree,0.33,2.61,3.426
+030,x_bfi2,bfi-2_q_9,1,10,question,stays optimistic after experiencing a setback.,3,somewhat disagree,-0.33,3.004,3.612
+030,x_bfi2,bfi-2_q_10,1,11,question,is curious about many different things.,6,agree,0.66,1.804,3.051
+030,x_bfi2,bfi-2_q_11,1,12,question,rarely feels excited or eager.,3,somewhat disagree,-0.33,1.812,2.5
+030,x_bfi2,bfi-2_q_12,1,13,question,tends to find fault with others.,5,somewhat agree,0.33,1.355,2.026
+030,x_bfi2,bfi-2_q_13,1,14,question,"is dependable, steady.",6,agree,0.66,1.384,1.979
+030,x_bfi2,bfi-2_q_14,1,15,question,"is moody, has up and down mood swings.",4,neither agree nor disagree,0,3.421,4.046
+030,x_bfi2,bfi-2_q_15,1,16,question,"is inventive, finds clever ways to do things.",6,agree,0.66,1.642,2.57
+030,x_bfi2,bfi-2_q_16,1,17,question,tends to be quiet.,5,somewhat agree,0.33,1.406,2.963
+030,x_bfi2,bfi-2_q_17,1,18,question,feels little sympathy for others.,7,strongly agree,1,1.569,2.326
+030,x_bfi2,bfi-2_q_18,1,19,question,"is systematic, likes to keep things in order.",6,agree,0.66,2.095,2.739
+030,x_bfi2,bfi-2_q_19,1,20,question,can be tense.,5,somewhat agree,0.33,1.223,1.865
+030,x_bfi2,bfi-2_q_20,1,21,question,"is fascinated by art, music, or literature.",1,strongly disagree,-1,1.367,2.359
+030,x_bfi2,bfi-2_q_21,1,22,question,"is dominant, acts as a leader.",6,agree,0.66,1.591,2.199
+030,x_bfi2,bfi-2_q_22,1,23,question,starts arguments with others.,5,somewhat agree,0.33,1.329,2.085
+030,x_bfi2,bfi-2_q_23,1,24,question,has difficulty getting started on tasks.,2,disagree,-0.66,1.576,2.199
+030,x_bfi2,bfi-2_q_24,1,25,question,"feels secure, comfortable with self.",5,somewhat agree,0.33,1.269,1.844
+030,x_bfi2,bfi-2_q_25,1,26,question,"avoids intellectual, philosophical discussions.",1,strongly disagree,-1,2.141,2.988
+030,x_bfi2,bfi-2_q_26,1,27,question,is less active than other people.,3,somewhat disagree,-0.33,2.75,3.438
+030,x_bfi2,bfi-2_q_27,1,28,question,has a forgiving nature.,3,somewhat disagree,-0.33,2.403,3.01
+030,x_bfi2,bfi-2_q_28,1,29,question,can be somewhat careless.,4,neither agree nor disagree,0,3.254,3.834
+030,x_bfi2,bfi-2_q_29,1,30,question,"is emotionally stable, not easily upset.",5,somewhat agree,0.33,3.109,3.893
+030,x_bfi2,bfi-2_q_30,1,31,question,has little creativity.,5,somewhat agree,0.33,2.181,2.933
+030,x_bfi2,bfi-2_q_31,1,32,question,"is sometimes shy, introverted.",6,agree,0.66,1.66,2.235
+030,x_bfi2,bfi-2_q_32,1,33,question,is helpful and unselfish with others.,5,somewhat agree,0.33,2.318,3.022
+030,x_bfi2,bfi-2_q_33,1,34,question,keeps things neat and tidy.,5,somewhat agree,0.33,1.658,2.365
+030,x_bfi2,bfi-2_q_34,1,35,question,worries a lot.,5,somewhat agree,0.33,1.097,1.721
+030,x_bfi2,bfi-2_q_35,1,36,question,values art and beauty.,2,disagree,-0.66,1.726,2.519
+030,x_bfi2,bfi-2_q_36,1,37,question,finds it hard to influence people.,3,somewhat disagree,-0.33,1.93,2.618
+030,x_bfi2,bfi-2_q_37,1,38,question,is sometimes rude to others.,5,somewhat agree,0.33,1.36,2.228
+030,x_bfi2,bfi-2_q_38,1,39,question,"is efficient, gets things done.",7,strongly agree,1,2.154,2.767
+030,x_bfi2,bfi-2_q_39,1,40,question,often feels sad.,3,somewhat disagree,-0.33,1.937,2.549
+030,x_bfi2,bfi-2_q_40,1,41,question,"is complex, a deep thinker.",5,somewhat agree,0.33,1.249,2.209
+030,x_bfi2,bfi-2_q_41,1,42,question,is full of energy.,5,somewhat agree,0.33,1.181,1.885
+030,x_bfi2,bfi-2_q_42,1,43,question,is suspicious of others' intentions.,5,somewhat agree,0.33,4.203,4.783
+030,x_bfi2,bfi-2_q_43,1,44,question,"is reliable, can always be counted on.",6,agree,0.66,2.007,2.651
+030,x_bfi2,bfi-2_q_44,1,45,question,keeps their emotions under control.,3,somewhat disagree,-0.33,2.002,2.658
+030,x_bfi2,bfi-2_q_45,1,46,question,has difficulty imagining things.,1,strongly disagree,-1,2.074,2.73
+030,x_bfi2,bfi-2_q_46,1,47,question,is talkative.,5,somewhat agree,0.33,1.258,1.954
+030,x_bfi2,bfi-2_q_47,1,48,question,can be cold and uncaring.,6,agree,0.66,2.214,3.111
+030,x_bfi2,bfi-2_q_48,1,49,question,"leaves a mess, doesn't clean up.",2,disagree,-0.66,1.725,2.366
+030,x_bfi2,bfi-2_q_49,1,50,question,rarely feels anxious or afraid.,4,neither agree nor disagree,0,3.435,4.075
+030,x_bfi2,bfi-2_q_50,1,51,question,thinks poetry and plays are boring.,6,agree,0.66,2.245,2.95
+030,x_bfi2,bfi-2_q_51,1,52,question,prefers to have others take charge.,2,disagree,-0.66,1.681,2.289
+030,x_bfi2,bfi-2_q_52,1,53,question,"is polite, courteous to others.",5,somewhat agree,0.33,1.258,2.042
+030,x_bfi2,bfi-2_q_53,1,54,question,"is persistent, works until the task is finished.",7,strongly agree,1,2.708,3.332
+030,x_bfi2,bfi-2_q_54,1,55,question,"tends to feel depressed, blue.",2,disagree,-0.66,1.385,2.124
+030,x_bfi2,bfi-2_q_55,1,56,question,has little interest in abstract ideas.,3,somewhat disagree,-0.33,2.153,2.893
+030,x_bfi2,bfi-2_q_56,1,57,question,shows a lot of enthusiasm.,5,somewhat agree,0.33,1.783,2.424
+030,x_bfi2,bfi-2_q_57,1,58,question,assumes the best about people.,5,somewhat agree,0.33,1.582,2.366
+030,x_bfi2,bfi-2_q_58,1,59,question,sometimes behaves irresponsibly.,5,somewhat agree,0.33,2.093,2.733
+030,x_bfi2,bfi-2_q_59,1,60,question,"is temperamental, gets emotional easily.",4,neither agree nor disagree,0,3.451,4.063
+030,x_bfi2,bfi-2_q_60,1,61,question,"is original, comes up with new ideas.",5,somewhat agree,0.33,1.409,2.064

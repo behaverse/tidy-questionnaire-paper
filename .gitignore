@@ -6,3 +6,5 @@ _manuscript
 
 _freeze/
 .DS_Store
+.Rproj.user
+/R/data_tmp/

@@ -1,0 +1,496 @@
+"","agent_id","instrument_id","stimulus_id","iteration","trial_index","stimulus_type","stimulus_description","response_option_index","response_description","response_numeric","response_time","response_validation_time"
+"1","002","x_bfi2","bfi-2_m_1",1,1,"message","Here are a number of characteristics that may or may not apply to you.<br />For example, do you agree that you are someone who *likes to spend time with others?*<br /><br />Please indicate the extent to which you agree or disagree with each of the following statements.",NA,NA,NA,8.242,8.242
+"2","002","x_bfi2","bfi-2_q_1",1,2,"question","is outgoing, sociable.",6,"agree",0.66,2.858,4.111
+"3","002","x_bfi2","bfi-2_q_2",1,3,"question","is compassionate, has a soft heart.",7,"strongly agree",1,2.713,3.361
+"4","002","x_bfi2","bfi-2_q_3",1,4,"question","tends to be disorganized.",5,"somewhat agree",0.33,2.913,3.49
+"5","002","x_bfi2","bfi-2_q_4",1,5,"question","is relaxed, handles stress well.",3,"somewhat disagree",-0.33,2.865,3.623
+"6","002","x_bfi2","bfi-2_q_5",1,6,"question","has few artistic interests.",2,"disagree",-0.66,1.414,2.018
+"7","002","x_bfi2","bfi-2_q_6",1,7,"question","has an assertive personality.",3,"somewhat disagree",-0.33,1.746,2.346
+"8","002","x_bfi2","bfi-2_q_7",1,8,"question","is respectful, treats others with respect.",6,"agree",0.66,4.064,4.682
+"9","002","x_bfi2","bfi-2_q_8",1,9,"question","tends to be lazy.",5,"somewhat agree",0.33,1.605,2.195
+"10","002","x_bfi2","bfi-2_q_9",1,10,"question","stays optimistic after experiencing a setback.",5,"somewhat agree",0.33,2.634,3.2
+"11","002","x_bfi2","bfi-2_q_10",1,11,"question","is curious about many different things.",6,"agree",0.66,33.635,34.385
+"12","002","x_bfi2","bfi-2_q_11",1,12,"question","rarely feels excited or eager.",2,"disagree",-0.66,6.17,6.878
+"13","002","x_bfi2","bfi-2_q_12",1,13,"question","tends to find fault with others.",5,"somewhat agree",0.33,1.751,2.225
+"14","002","x_bfi2","bfi-2_q_13",1,14,"question","is dependable, steady.",5,"somewhat agree",0.33,1.386,1.83
+"15","002","x_bfi2","bfi-2_q_14",1,15,"question","is moody, has up and down mood swings.",4,"neither agree nor disagree",0,1.748,2.231
+"16","002","x_bfi2","bfi-2_q_15",1,16,"question","is inventive, finds clever ways to do things.",5,"somewhat agree",0.33,1.91,2.736
+"17","002","x_bfi2","bfi-2_q_16",1,17,"question","tends to be quiet.",4,"neither agree nor disagree",0,2.339,2.765
+"18","002","x_bfi2","bfi-2_q_17",1,18,"question","feels little sympathy for others.",2,"disagree",-0.66,3.54,4.162
+"19","002","x_bfi2","bfi-2_q_18",1,19,"question","is systematic, likes to keep things in order.",3,"somewhat disagree",-0.33,2.611,3.053
+"20","002","x_bfi2","bfi-2_q_19",1,20,"question","can be tense.",5,"somewhat agree",0.33,1.096,1.544
+"21","002","x_bfi2","bfi-2_q_20",1,21,"question","is fascinated by art, music, or literature.",3,"somewhat disagree",-0.33,2.606,3.008
+"22","002","x_bfi2","bfi-2_q_21",1,22,"question","is dominant, acts as a leader.",4,"neither agree nor disagree",0,1.497,1.929
+"23","002","x_bfi2","bfi-2_q_22",1,23,"question","starts arguments with others.",2,"disagree",-0.66,2.259,2.846
+"24","002","x_bfi2","bfi-2_q_23",1,24,"question","has difficulty getting started on tasks.",5,"somewhat agree",0.33,3.295,3.861
+"25","002","x_bfi2","bfi-2_q_24",1,25,"question","feels secure, comfortable with self.",3,"somewhat disagree",-0.33,2.555,3.135
+"26","002","x_bfi2","bfi-2_q_25",1,26,"question","avoids intellectual, philosophical discussions.",3,"somewhat disagree",-0.33,183.024,183.52
+"27","002","x_bfi2","bfi-2_q_26",1,27,"question","is less active than other people.",1,"strongly disagree",-1,2.154,2.697
+"28","002","x_bfi2","bfi-2_q_27",1,28,"question","has a forgiving nature.",6,"agree",0.66,1.968,2.55
+"29","002","x_bfi2","bfi-2_q_28",1,29,"question","can be somewhat careless.",5,"somewhat agree",0.33,1.648,2.454
+"30","002","x_bfi2","bfi-2_q_29",1,30,"question","is emotionally stable, not easily upset.",4,"neither agree nor disagree",0,1.913,2.402
+"31","002","x_bfi2","bfi-2_q_30",1,31,"question","has little creativity.",2,"disagree",-0.66,1.429,1.919
+"32","002","x_bfi2","bfi-2_q_31",1,32,"question","is sometimes shy, introverted.",5,"somewhat agree",0.33,2.264,2.916
+"33","002","x_bfi2","bfi-2_q_32",1,33,"question","is helpful and unselfish with others.",6,"agree",0.66,2.332,7.163
+"34","002","x_bfi2","bfi-2_q_33",1,34,"question","keeps things neat and tidy.",3,"somewhat disagree",-0.33,4.988,5.531
+"35","002","x_bfi2","bfi-2_q_34",1,35,"question","worries a lot.",2,"disagree",-0.66,1.683,2.206
+"36","002","x_bfi2","bfi-2_q_35",1,36,"question","values art and beauty.",5,"somewhat agree",0.33,1.598,2.159
+"37","002","x_bfi2","bfi-2_q_36",1,37,"question","finds it hard to influence people.",3,"somewhat disagree",-0.33,2.609,3.119
+"38","002","x_bfi2","bfi-2_q_37",1,38,"question","is sometimes rude to others.",2,"disagree",-0.66,3.164,3.721
+"39","002","x_bfi2","bfi-2_q_38",1,39,"question","is efficient, gets things done.",4,"neither agree nor disagree",0,3.222,3.687
+"40","002","x_bfi2","bfi-2_q_39",1,40,"question","often feels sad.",6,"agree",0.66,1.258,1.857
+"41","002","x_bfi2","bfi-2_q_40",1,41,"question","is complex, a deep thinker.",5,"somewhat agree",0.33,4.766,5.425
+"42","002","x_bfi2","bfi-2_q_41",1,42,"question","is full of energy.",5,"somewhat agree",0.33,1.264,1.748
+"43","002","x_bfi2","bfi-2_q_42",1,43,"question","is suspicious of others' intentions.",5,"somewhat agree",0.33,1.565,2.002
+"44","002","x_bfi2","bfi-2_q_43",1,44,"question","is reliable, can always be counted on.",4,"neither agree nor disagree",0,9.07,9.618
+"45","002","x_bfi2","bfi-2_q_44",1,45,"question","keeps their emotions under control.",3,"somewhat disagree",-0.33,1.9,2.341
+"46","002","x_bfi2","bfi-2_q_45",1,46,"question","has difficulty imagining things.",2,"disagree",-0.66,3.251,3.741
+"47","002","x_bfi2","bfi-2_q_46",1,47,"question","is talkative.",5,"somewhat agree",0.33,115.834,116.641
+"48","002","x_bfi2","bfi-2_q_47",1,48,"question","can be cold and uncaring.",4,"neither agree nor disagree",0,3.565,4.155
+"49","002","x_bfi2","bfi-2_q_48",1,49,"question","leaves a mess, doesn't clean up.",3,"somewhat disagree",-0.33,2.101,2.599
+"50","002","x_bfi2","bfi-2_q_49",1,50,"question","rarely feels anxious or afraid.",3,"somewhat disagree",-0.33,2.174,2.919
+"51","002","x_bfi2","bfi-2_q_50",1,51,"question","thinks poetry and plays are boring.",2,"disagree",-0.66,1.795,2.437
+"52","002","x_bfi2","bfi-2_q_51",1,52,"question","prefers to have others take charge.",5,"somewhat agree",0.33,1.554,2.04
+"53","002","x_bfi2","bfi-2_q_52",1,53,"question","is polite, courteous to others.",6,"agree",0.66,1.433,1.925
+"54","002","x_bfi2","bfi-2_q_53",1,54,"question","is persistent, works until the task is finished.",5,"somewhat agree",0.33,3.176,3.694
+"55","002","x_bfi2","bfi-2_q_54",1,55,"question","tends to feel depressed, blue.",6,"agree",0.66,1.691,2.226
+"56","002","x_bfi2","bfi-2_q_55",1,56,"question","has little interest in abstract ideas.",2,"disagree",-0.66,1.404,1.924
+"57","002","x_bfi2","bfi-2_q_56",1,57,"question","shows a lot of enthusiasm.",5,"somewhat agree",0.33,1.591,2.187
+"58","002","x_bfi2","bfi-2_q_57",1,58,"question","assumes the best about people.",3,"somewhat disagree",-0.33,29.157,29.646
+"59","002","x_bfi2","bfi-2_q_58",1,59,"question","sometimes behaves irresponsibly.",4,"neither agree nor disagree",0,2.334,2.818
+"60","002","x_bfi2","bfi-2_q_59",1,60,"question","is temperamental, gets emotional easily.",5,"somewhat agree",0.33,1.59,2.066
+"61","002","x_bfi2","bfi-2_q_60",1,61,"question","is original, comes up with new ideas.",4,"neither agree nor disagree",0,2.082,2.55
+"62","002","x_bfi2","bfi-2_m_1",2,1,"message","Here are a number of characteristics that may or may not apply to you.<br />For example, do you agree that you are someone who *likes to spend time with others?*<br /><br />Please indicate the extent to which you agree or disagree with each of the following statements.",NA,NA,NA,4.008,4.008
+"63","002","x_bfi2","bfi-2_q_1",2,2,"question","is outgoing, sociable.",5,"somewhat agree",0.33,1.571,2.153
+"64","002","x_bfi2","bfi-2_q_2",2,3,"question","is compassionate, has a soft heart.",7,"strongly agree",1,2.148,2.754
+"65","002","x_bfi2","bfi-2_q_3",2,4,"question","tends to be disorganized.",5,"somewhat agree",0.33,1.662,2.195
+"66","002","x_bfi2","bfi-2_q_4",2,5,"question","is relaxed, handles stress well.",3,"somewhat disagree",-0.33,1.802,2.724
+"67","002","x_bfi2","bfi-2_q_5",2,6,"question","has few artistic interests.",5,"somewhat agree",0.33,3.005,3.485
+"68","002","x_bfi2","bfi-2_q_6",2,7,"question","has an assertive personality.",3,"somewhat disagree",-0.33,1.733,2.179
+"69","002","x_bfi2","bfi-2_q_7",2,8,"question","is respectful, treats others with respect.",6,"agree",0.66,2.259,3.015
+"70","002","x_bfi2","bfi-2_q_8",2,9,"question","tends to be lazy.",5,"somewhat agree",0.33,1.31,1.994
+"71","002","x_bfi2","bfi-2_q_9",2,10,"question","stays optimistic after experiencing a setback.",3,"somewhat disagree",-0.33,2.577,4.017
+"72","002","x_bfi2","bfi-2_q_10",2,11,"question","is curious about many different things.",6,"agree",0.66,3.416,4.045
+"73","002","x_bfi2","bfi-2_q_11",2,12,"question","rarely feels excited or eager.",2,"disagree",-0.66,2.837,3.48
+"74","002","x_bfi2","bfi-2_q_12",2,13,"question","tends to find fault with others.",5,"somewhat agree",0.33,3.034,3.714
+"75","002","x_bfi2","bfi-2_q_13",2,14,"question","is dependable, steady.",5,"somewhat agree",0.33,5.9,6.346
+"76","002","x_bfi2","bfi-2_q_14",2,15,"question","is moody, has up and down mood swings.",5,"somewhat agree",0.33,1.925,2.388
+"77","002","x_bfi2","bfi-2_q_15",2,16,"question","is inventive, finds clever ways to do things.",5,"somewhat agree",0.33,2.593,3.063
+"78","002","x_bfi2","bfi-2_q_16",2,17,"question","tends to be quiet.",3,"somewhat disagree",-0.33,4.75,5.438
+"79","002","x_bfi2","bfi-2_q_17",2,18,"question","feels little sympathy for others.",5,"somewhat agree",0.33,5.699,6.171
+"80","002","x_bfi2","bfi-2_q_18",2,19,"question","is systematic, likes to keep things in order.",4,"neither agree nor disagree",0,2.653,3.297
+"81","002","x_bfi2","bfi-2_q_19",2,20,"question","can be tense.",6,"agree",0.66,1.833,2.395
+"82","002","x_bfi2","bfi-2_q_20",2,21,"question","is fascinated by art, music, or literature.",3,"somewhat disagree",-0.33,1.766,2.165
+"83","002","x_bfi2","bfi-2_q_21",2,22,"question","is dominant, acts as a leader.",4,"neither agree nor disagree",0,2.437,2.853
+"84","002","x_bfi2","bfi-2_q_22",2,23,"question","starts arguments with others.",2,"disagree",-0.66,1.924,2.414
+"85","002","x_bfi2","bfi-2_q_23",2,24,"question","has difficulty getting started on tasks.",5,"somewhat agree",0.33,2.044,2.492
+"86","002","x_bfi2","bfi-2_q_24",2,25,"question","feels secure, comfortable with self.",3,"somewhat disagree",-0.33,2.203,2.661
+"87","002","x_bfi2","bfi-2_q_25",2,26,"question","avoids intellectual, philosophical discussions.",3,"somewhat disagree",-0.33,2.582,3.02
+"88","002","x_bfi2","bfi-2_q_26",2,27,"question","is less active than other people.",2,"disagree",-0.66,1.6,2.062
+"89","002","x_bfi2","bfi-2_q_27",2,28,"question","has a forgiving nature.",6,"agree",0.66,1.516,1.987
+"90","002","x_bfi2","bfi-2_q_28",2,29,"question","can be somewhat careless.",5,"somewhat agree",0.33,1.667,2.087
+"91","002","x_bfi2","bfi-2_q_29",2,30,"question","is emotionally stable, not easily upset.",3,"somewhat disagree",-0.33,2.872,3.526
+"92","002","x_bfi2","bfi-2_q_30",2,31,"question","has little creativity.",3,"somewhat disagree",-0.33,2.416,2.84
+"93","002","x_bfi2","bfi-2_q_31",2,32,"question","is sometimes shy, introverted.",5,"somewhat agree",0.33,1.681,2.157
+"94","002","x_bfi2","bfi-2_q_32",2,33,"question","is helpful and unselfish with others.",6,"agree",0.66,1.685,2.278
+"95","002","x_bfi2","bfi-2_q_33",2,34,"question","keeps things neat and tidy.",3,"somewhat disagree",-0.33,2,2.396
+"96","002","x_bfi2","bfi-2_q_34",2,35,"question","worries a lot.",5,"somewhat agree",0.33,2.45,2.898
+"97","002","x_bfi2","bfi-2_q_35",2,36,"question","values art and beauty.",5,"somewhat agree",0.33,1.478,1.868
+"98","002","x_bfi2","bfi-2_q_36",2,37,"question","finds it hard to influence people.",3,"somewhat disagree",-0.33,2.044,2.554
+"99","002","x_bfi2","bfi-2_q_37",2,38,"question","is sometimes rude to others.",5,"somewhat agree",0.33,1.83,2.358
+"100","002","x_bfi2","bfi-2_q_38",2,39,"question","is efficient, gets things done.",5,"somewhat agree",0.33,3.96,4.712
+"101","002","x_bfi2","bfi-2_q_39",2,40,"question","often feels sad.",6,"agree",0.66,1.77,2.421
+"102","002","x_bfi2","bfi-2_q_40",2,41,"question","is complex, a deep thinker.",6,"agree",0.66,1.423,1.91
+"103","002","x_bfi2","bfi-2_q_41",2,42,"question","is full of energy.",5,"somewhat agree",0.33,1.266,1.916
+"104","002","x_bfi2","bfi-2_q_42",2,43,"question","is suspicious of others' intentions.",5,"somewhat agree",0.33,1.334,1.73
+"105","002","x_bfi2","bfi-2_q_43",2,44,"question","is reliable, can always be counted on.",5,"somewhat agree",0.33,1.974,2.421
+"106","002","x_bfi2","bfi-2_q_44",2,45,"question","keeps their emotions under control.",3,"somewhat disagree",-0.33,1.799,2.239
+"107","002","x_bfi2","bfi-2_q_45",2,46,"question","has difficulty imagining things.",2,"disagree",-0.66,2.003,2.477
+"108","002","x_bfi2","bfi-2_q_46",2,47,"question","is talkative.",5,"somewhat agree",0.33,1.536,2.008
+"109","002","x_bfi2","bfi-2_q_47",2,48,"question","can be cold and uncaring.",2,"disagree",-0.66,2.521,3.314
+"110","002","x_bfi2","bfi-2_q_48",2,49,"question","leaves a mess, doesn't clean up.",3,"somewhat disagree",-0.33,1.932,2.406
+"111","002","x_bfi2","bfi-2_q_49",2,50,"question","rarely feels anxious or afraid.",3,"somewhat disagree",-0.33,1.981,2.445
+"112","002","x_bfi2","bfi-2_q_50",2,51,"question","thinks poetry and plays are boring.",3,"somewhat disagree",-0.33,2.456,2.958
+"113","002","x_bfi2","bfi-2_q_51",2,52,"question","prefers to have others take charge.",5,"somewhat agree",0.33,1.798,2.266
+"114","002","x_bfi2","bfi-2_q_52",2,53,"question","is polite, courteous to others.",6,"agree",0.66,1.444,2.49
+"115","002","x_bfi2","bfi-2_q_53",2,54,"question","is persistent, works until the task is finished.",5,"somewhat agree",0.33,1.736,2.375
+"116","002","x_bfi2","bfi-2_q_54",2,55,"question","tends to feel depressed, blue.",6,"agree",0.66,2.311,2.944
+"117","002","x_bfi2","bfi-2_q_55",2,56,"question","has little interest in abstract ideas.",2,"disagree",-0.66,1.465,2.007
+"118","002","x_bfi2","bfi-2_q_56",2,57,"question","shows a lot of enthusiasm.",5,"somewhat agree",0.33,1.298,1.965
+"119","002","x_bfi2","bfi-2_q_57",2,58,"question","assumes the best about people.",3,"somewhat disagree",-0.33,1.482,1.981
+"120","002","x_bfi2","bfi-2_q_58",2,59,"question","sometimes behaves irresponsibly.",5,"somewhat agree",0.33,4.214,4.761
+"121","002","x_bfi2","bfi-2_q_59",2,60,"question","is temperamental, gets emotional easily.",5,"somewhat agree",0.33,5.905,6.632
+"122","002","x_bfi2","bfi-2_q_60",2,61,"question","is original, comes up with new ideas.",5,"somewhat agree",0.33,1.861,2.319
+"123","019","x_bfi2","bfi-2_m_1",1,1,"message","Here are a number of characteristics that may or may not apply to you.<br />For example, do you agree that you are someone who *likes to spend time with others?*<br /><br />Please indicate the extent to which you agree or disagree with each of the following statements.",NA,NA,NA,2.332,2.332
+"124","019","x_bfi2","bfi-2_q_1",1,2,"question","is outgoing, sociable.",6,"agree",0.66,2.064,2.949
+"125","019","x_bfi2","bfi-2_q_2",1,3,"question","is compassionate, has a soft heart.",6,"agree",0.66,1.594,2.244
+"126","019","x_bfi2","bfi-2_q_3",1,4,"question","tends to be disorganized.",2,"disagree",-0.66,1.858,2.525
+"127","019","x_bfi2","bfi-2_q_4",1,5,"question","is relaxed, handles stress well.",5,"somewhat agree",0.33,1.872,2.47
+"128","019","x_bfi2","bfi-2_q_5",1,6,"question","has few artistic interests.",3,"somewhat disagree",-0.33,1.705,2.809
+"129","019","x_bfi2","bfi-2_q_6",1,7,"question","has an assertive personality.",5,"somewhat agree",0.33,1.349,2.554
+"130","019","x_bfi2","bfi-2_q_7",1,8,"question","is respectful, treats others with respect.",6,"agree",0.66,1.557,2.648
+"131","019","x_bfi2","bfi-2_q_8",1,9,"question","tends to be lazy.",2,"disagree",-0.66,1.909,2.56
+"132","019","x_bfi2","bfi-2_q_9",1,10,"question","stays optimistic after experiencing a setback.",6,"agree",0.66,1.565,2.096
+"133","019","x_bfi2","bfi-2_q_10",1,11,"question","is curious about many different things.",6,"agree",0.66,2.071,2.688
+"134","019","x_bfi2","bfi-2_q_11",1,12,"question","rarely feels excited or eager.",2,"disagree",-0.66,2.997,3.661
+"135","019","x_bfi2","bfi-2_q_12",1,13,"question","tends to find fault with others.",4,"neither agree nor disagree",0,2.077,2.576
+"136","019","x_bfi2","bfi-2_q_13",1,14,"question","is dependable, steady.",7,"strongly agree",1,2.115,2.614
+"137","019","x_bfi2","bfi-2_q_14",1,15,"question","is moody, has up and down mood swings.",2,"disagree",-0.66,1.559,2.192
+"138","019","x_bfi2","bfi-2_q_15",1,16,"question","is inventive, finds clever ways to do things.",6,"agree",0.66,3.249,3.965
+"139","019","x_bfi2","bfi-2_q_16",1,17,"question","tends to be quiet.",2,"disagree",-0.66,1.552,2.072
+"140","019","x_bfi2","bfi-2_q_17",1,18,"question","feels little sympathy for others.",6,"agree",0.66,1.506,2.129
+"141","019","x_bfi2","bfi-2_q_18",1,19,"question","is systematic, likes to keep things in order.",6,"agree",0.66,1.683,2.349
+"142","019","x_bfi2","bfi-2_q_19",1,20,"question","can be tense.",4,"neither agree nor disagree",0,1.529,2.132
+"143","019","x_bfi2","bfi-2_q_20",1,21,"question","is fascinated by art, music, or literature.",3,"somewhat disagree",-0.33,1.655,2.548
+"144","019","x_bfi2","bfi-2_q_21",1,22,"question","is dominant, acts as a leader.",6,"agree",0.66,1.858,2.441
+"145","019","x_bfi2","bfi-2_q_22",1,23,"question","starts arguments with others.",2,"disagree",-0.66,2.272,3.155
+"146","019","x_bfi2","bfi-2_q_23",1,24,"question","has difficulty getting started on tasks.",2,"disagree",-0.66,1.843,2.61
+"147","019","x_bfi2","bfi-2_q_24",1,25,"question","feels secure, comfortable with self.",6,"agree",0.66,2.652,3.337
+"148","019","x_bfi2","bfi-2_q_25",1,26,"question","avoids intellectual, philosophical discussions.",4,"neither agree nor disagree",0,2.098,2.668
+"149","019","x_bfi2","bfi-2_q_26",1,27,"question","is less active than other people.",2,"disagree",-0.66,1.987,3.747
+"150","019","x_bfi2","bfi-2_q_27",1,28,"question","has a forgiving nature.",6,"agree",0.66,1.587,3.011
+"151","019","x_bfi2","bfi-2_q_28",1,29,"question","can be somewhat careless.",2,"disagree",-0.66,1.937,2.835
+"152","019","x_bfi2","bfi-2_q_29",1,30,"question","is emotionally stable, not easily upset.",6,"agree",0.66,2.786,3.71
+"153","019","x_bfi2","bfi-2_q_30",1,31,"question","has little creativity.",6,"agree",0.66,2.411,3.114
+"154","019","x_bfi2","bfi-2_q_31",1,32,"question","is sometimes shy, introverted.",5,"somewhat agree",0.33,2.664,3.38
+"155","019","x_bfi2","bfi-2_q_32",1,33,"question","is helpful and unselfish with others.",6,"agree",0.66,2.953,3.638
+"156","019","x_bfi2","bfi-2_q_33",1,34,"question","keeps things neat and tidy.",7,"strongly agree",1,1.991,2.722
+"157","019","x_bfi2","bfi-2_q_34",1,35,"question","worries a lot.",3,"somewhat disagree",-0.33,1.539,2.328
+"158","019","x_bfi2","bfi-2_q_35",1,36,"question","values art and beauty.",4,"neither agree nor disagree",0,2.333,3.139
+"159","019","x_bfi2","bfi-2_q_36",1,37,"question","finds it hard to influence people.",3,"somewhat disagree",-0.33,2.299,3.558
+"160","019","x_bfi2","bfi-2_q_37",1,38,"question","is sometimes rude to others.",4,"neither agree nor disagree",0,1.712,2.568
+"161","019","x_bfi2","bfi-2_q_38",1,39,"question","is efficient, gets things done.",6,"agree",0.66,1.815,3.135
+"162","019","x_bfi2","bfi-2_q_39",1,40,"question","often feels sad.",2,"disagree",-0.66,3.257,4.107
+"163","019","x_bfi2","bfi-2_q_40",1,41,"question","is complex, a deep thinker.",6,"agree",0.66,2.288,3.046
+"164","019","x_bfi2","bfi-2_q_41",1,42,"question","is full of energy.",6,"agree",0.66,2.392,3.064
+"165","019","x_bfi2","bfi-2_q_42",1,43,"question","is suspicious of others' intentions.",5,"somewhat agree",0.33,1.714,2.538
+"166","019","x_bfi2","bfi-2_q_43",1,44,"question","is reliable, can always be counted on.",6,"agree",0.66,2.606,3.148
+"167","019","x_bfi2","bfi-2_q_44",1,45,"question","keeps their emotions under control.",6,"agree",0.66,2.799,3.629
+"168","019","x_bfi2","bfi-2_q_45",1,46,"question","has difficulty imagining things.",3,"somewhat disagree",-0.33,6.237,7.02
+"169","019","x_bfi2","bfi-2_q_46",1,47,"question","is talkative.",6,"agree",0.66,1.682,2.548
+"170","019","x_bfi2","bfi-2_q_47",1,48,"question","can be cold and uncaring.",2,"disagree",-0.66,1.656,2.309
+"171","019","x_bfi2","bfi-2_q_48",1,49,"question","leaves a mess, doesn't clean up.",1,"strongly disagree",-1,2.233,3.066
+"172","019","x_bfi2","bfi-2_q_49",1,50,"question","rarely feels anxious or afraid.",3,"somewhat disagree",-0.33,4.982,5.5
+"173","019","x_bfi2","bfi-2_q_50",1,51,"question","thinks poetry and plays are boring.",6,"agree",0.66,2.763,3.412
+"174","019","x_bfi2","bfi-2_q_51",1,52,"question","prefers to have others take charge.",3,"somewhat disagree",-0.33,2.426,3.129
+"175","019","x_bfi2","bfi-2_q_52",1,53,"question","is polite, courteous to others.",7,"strongly agree",1,3.743,4.686
+"176","019","x_bfi2","bfi-2_q_53",1,54,"question","is persistent, works until the task is finished.",7,"strongly agree",1,2.185,3.073
+"177","019","x_bfi2","bfi-2_q_54",1,55,"question","tends to feel depressed, blue.",2,"disagree",-0.66,2.042,2.892
+"178","019","x_bfi2","bfi-2_q_55",1,56,"question","has little interest in abstract ideas.",5,"somewhat agree",0.33,3.266,4.15
+"179","019","x_bfi2","bfi-2_q_56",1,57,"question","shows a lot of enthusiasm.",6,"agree",0.66,2.55,14.957
+"180","019","x_bfi2","bfi-2_q_57",1,58,"question","assumes the best about people.",5,"somewhat agree",0.33,1.797,2.463
+"181","019","x_bfi2","bfi-2_q_58",1,59,"question","sometimes behaves irresponsibly.",3,"somewhat disagree",-0.33,3.698,4.566
+"182","019","x_bfi2","bfi-2_q_59",1,60,"question","is temperamental, gets emotional easily.",2,"disagree",-0.66,17.601,18.499
+"183","019","x_bfi2","bfi-2_q_60",1,61,"question","is original, comes up with new ideas.",6,"agree",0.66,29.808,30.713
+"184","019","x_bfi2","bfi-2_m_1",2,1,"message","Here are a number of characteristics that may or may not apply to you.<br />For example, do you agree that you are someone who *likes to spend time with others?*<br /><br />Please indicate the extent to which you agree or disagree with each of the following statements.",NA,NA,NA,3.497,3.497
+"185","019","x_bfi2","bfi-2_q_1",2,2,"question","is outgoing, sociable.",6,"agree",0.66,4.469,5.368
+"186","019","x_bfi2","bfi-2_q_2",2,3,"question","is compassionate, has a soft heart.",6,"agree",0.66,34.742,36.135
+"187","019","x_bfi2","bfi-2_q_3",2,4,"question","tends to be disorganized.",2,"disagree",-0.66,2.733,3.985
+"188","019","x_bfi2","bfi-2_q_4",2,5,"question","is relaxed, handles stress well.",4,"neither agree nor disagree",0,19.614,20.216
+"189","019","x_bfi2","bfi-2_q_5",2,6,"question","has few artistic interests.",6,"agree",0.66,20.247,21.056
+"190","019","x_bfi2","bfi-2_q_6",2,7,"question","has an assertive personality.",4,"neither agree nor disagree",0,1.868,2.501
+"191","019","x_bfi2","bfi-2_q_7",2,8,"question","is respectful, treats others with respect.",6,"agree",0.66,57.411,58.095
+"192","019","x_bfi2","bfi-2_q_8",2,9,"question","tends to be lazy.",2,"disagree",-0.66,1.73,2.269
+"193","019","x_bfi2","bfi-2_q_9",2,10,"question","stays optimistic after experiencing a setback.",6,"agree",0.66,21.664,22.58
+"194","019","x_bfi2","bfi-2_q_10",2,11,"question","is curious about many different things.",5,"somewhat agree",0.33,1.522,2.205
+"195","019","x_bfi2","bfi-2_q_11",2,12,"question","rarely feels excited or eager.",2,"disagree",-0.66,3.221,4.655
+"196","019","x_bfi2","bfi-2_q_12",2,13,"question","tends to find fault with others.",3,"somewhat disagree",-0.33,14.14,14.777
+"197","019","x_bfi2","bfi-2_q_13",2,14,"question","is dependable, steady.",7,"strongly agree",1,3.175,3.887
+"198","019","x_bfi2","bfi-2_q_14",2,15,"question","is moody, has up and down mood swings.",2,"disagree",-0.66,2.733,3.95
+"199","019","x_bfi2","bfi-2_q_15",2,16,"question","is inventive, finds clever ways to do things.",5,"somewhat agree",0.33,4.773,5.447
+"200","019","x_bfi2","bfi-2_q_16",2,17,"question","tends to be quiet.",2,"disagree",-0.66,20.006,20.696
+"201","019","x_bfi2","bfi-2_q_17",2,18,"question","feels little sympathy for others.",6,"agree",0.66,1.948,2.571
+"202","019","x_bfi2","bfi-2_q_18",2,19,"question","is systematic, likes to keep things in order.",6,"agree",0.66,10.045,11.218
+"203","019","x_bfi2","bfi-2_q_19",2,20,"question","can be tense.",4,"neither agree nor disagree",0,1.9,2.651
+"204","019","x_bfi2","bfi-2_q_20",2,21,"question","is fascinated by art, music, or literature.",3,"somewhat disagree",-0.33,1.561,2.286
+"205","019","x_bfi2","bfi-2_q_21",2,22,"question","is dominant, acts as a leader.",6,"agree",0.66,3.003,3.853
+"206","019","x_bfi2","bfi-2_q_22",2,23,"question","starts arguments with others.",2,"disagree",-0.66,1.747,3.062
+"207","019","x_bfi2","bfi-2_q_23",2,24,"question","has difficulty getting started on tasks.",2,"disagree",-0.66,6.073,6.938
+"208","019","x_bfi2","bfi-2_q_24",2,25,"question","feels secure, comfortable with self.",6,"agree",0.66,3.647,4.413
+"209","019","x_bfi2","bfi-2_q_25",2,26,"question","avoids intellectual, philosophical discussions.",4,"neither agree nor disagree",0,50.767,51.92
+"210","019","x_bfi2","bfi-2_q_26",2,27,"question","is less active than other people.",3,"somewhat disagree",-0.33,1.415,2.577
+"211","019","x_bfi2","bfi-2_q_27",2,28,"question","has a forgiving nature.",4,"neither agree nor disagree",0,2.147,2.914
+"212","019","x_bfi2","bfi-2_q_28",2,29,"question","can be somewhat careless.",2,"disagree",-0.66,53.265,53.967
+"213","019","x_bfi2","bfi-2_q_29",2,30,"question","is emotionally stable, not easily upset.",6,"agree",0.66,30.599,31.449
+"214","019","x_bfi2","bfi-2_q_30",2,31,"question","has little creativity.",5,"somewhat agree",0.33,5.339,6.106
+"215","019","x_bfi2","bfi-2_q_31",2,32,"question","is sometimes shy, introverted.",6,"agree",0.66,2.012,2.678
+"216","019","x_bfi2","bfi-2_q_32",2,33,"question","is helpful and unselfish with others.",6,"agree",0.66,113.545,114.397
+"217","019","x_bfi2","bfi-2_q_33",2,34,"question","keeps things neat and tidy.",6,"agree",0.66,1.714,2.762
+"218","019","x_bfi2","bfi-2_q_34",2,35,"question","worries a lot.",5,"somewhat agree",0.33,28.745,29.462
+"219","019","x_bfi2","bfi-2_q_35",2,36,"question","values art and beauty.",5,"somewhat agree",0.33,5.079,5.945
+"220","019","x_bfi2","bfi-2_q_36",2,37,"question","finds it hard to influence people.",5,"somewhat agree",0.33,2.213,3.255
+"221","019","x_bfi2","bfi-2_q_37",2,38,"question","is sometimes rude to others.",2,"disagree",-0.66,73.207,73.93
+"222","019","x_bfi2","bfi-2_q_38",2,39,"question","is efficient, gets things done.",6,"agree",0.66,1.901,2.568
+"223","019","x_bfi2","bfi-2_q_39",2,40,"question","often feels sad.",2,"disagree",-0.66,1.603,2.319
+"224","019","x_bfi2","bfi-2_q_40",2,41,"question","is complex, a deep thinker.",6,"agree",0.66,3.369,4.101
+"225","019","x_bfi2","bfi-2_q_41",2,42,"question","is full of energy.",6,"agree",0.66,1.746,2.481
+"226","019","x_bfi2","bfi-2_q_42",2,43,"question","is suspicious of others' intentions.",5,"somewhat agree",0.33,2.032,2.782
+"227","019","x_bfi2","bfi-2_q_43",2,44,"question","is reliable, can always be counted on.",6,"agree",0.66,1.877,2.592
+"228","019","x_bfi2","bfi-2_q_44",2,45,"question","keeps their emotions under control.",5,"somewhat agree",0.33,2.182,2.799
+"229","019","x_bfi2","bfi-2_q_45",2,46,"question","has difficulty imagining things.",3,"somewhat disagree",-0.33,3.074,3.644
+"230","019","x_bfi2","bfi-2_q_46",2,47,"question","is talkative.",6,"agree",0.66,2.49,3.24
+"231","019","x_bfi2","bfi-2_q_47",2,48,"question","can be cold and uncaring.",5,"somewhat agree",0.33,8.628,9.279
+"232","019","x_bfi2","bfi-2_q_48",2,49,"question","leaves a mess, doesn't clean up.",2,"disagree",-0.66,155.826,156.823
+"233","019","x_bfi2","bfi-2_q_49",2,50,"question","rarely feels anxious or afraid.",2,"disagree",-0.66,6.017,6.933
+"234","019","x_bfi2","bfi-2_q_50",2,51,"question","thinks poetry and plays are boring.",5,"somewhat agree",0.33,5.874,6.475
+"235","019","x_bfi2","bfi-2_q_51",2,52,"question","prefers to have others take charge.",3,"somewhat disagree",-0.33,83.297,83.913
+"236","019","x_bfi2","bfi-2_q_52",2,53,"question","is polite, courteous to others.",6,"agree",0.66,1.949,2.682
+"237","019","x_bfi2","bfi-2_q_53",2,54,"question","is persistent, works until the task is finished.",6,"agree",0.66,2.217,2.899
+"238","019","x_bfi2","bfi-2_q_54",2,55,"question","tends to feel depressed, blue.",2,"disagree",-0.66,13.061,13.958
+"239","019","x_bfi2","bfi-2_q_55",2,56,"question","has little interest in abstract ideas.",2,"disagree",-0.66,2.479,3.062
+"240","019","x_bfi2","bfi-2_q_56",2,57,"question","shows a lot of enthusiasm.",6,"agree",0.66,36.618,37.555
+"241","019","x_bfi2","bfi-2_q_57",2,58,"question","assumes the best about people.",6,"agree",0.66,2.287,4.741
+"242","019","x_bfi2","bfi-2_q_58",2,59,"question","sometimes behaves irresponsibly.",3,"somewhat disagree",-0.33,7.325,8.144
+"243","019","x_bfi2","bfi-2_q_59",2,60,"question","is temperamental, gets emotional easily.",5,"somewhat agree",0.33,2.27,2.957
+"244","019","x_bfi2","bfi-2_q_60",2,61,"question","is original, comes up with new ideas.",5,"somewhat agree",0.33,73.183,74.217
+"245","030","x_bfi2","bfi-2_m_1",1,1,"message","Here are a number of characteristics that may or may not apply to you.<br />For example, do you agree that you are someone who *likes to spend time with others?*<br /><br />Please indicate the extent to which you agree or disagree with each of the following statements.",NA,NA,NA,5.804,5.804
+"246","030","x_bfi2","bfi-2_q_1",1,2,"question","is outgoing, sociable.",5,"somewhat agree",0.33,2.363,3.48
+"247","030","x_bfi2","bfi-2_q_2",1,3,"question","is compassionate, has a soft heart.",5,"somewhat agree",0.33,1.443,2.104
+"248","030","x_bfi2","bfi-2_q_3",1,4,"question","tends to be disorganized.",1,"strongly disagree",-1,1.973,3.145
+"249","030","x_bfi2","bfi-2_q_4",1,5,"question","is relaxed, handles stress well.",3,"somewhat disagree",-0.33,3.349,4.004
+"250","030","x_bfi2","bfi-2_q_5",1,6,"question","has few artistic interests.",7,"strongly agree",1,2.408,3.318
+"251","030","x_bfi2","bfi-2_q_6",1,7,"question","has an assertive personality.",6,"agree",0.66,1.74,2.348
+"252","030","x_bfi2","bfi-2_q_7",1,8,"question","is respectful, treats others with respect.",5,"somewhat agree",0.33,2.379,3.083
+"253","030","x_bfi2","bfi-2_q_8",1,9,"question","tends to be lazy.",5,"somewhat agree",0.33,2.61,3.426
+"254","030","x_bfi2","bfi-2_q_9",1,10,"question","stays optimistic after experiencing a setback.",3,"somewhat disagree",-0.33,3.004,3.612
+"255","030","x_bfi2","bfi-2_q_10",1,11,"question","is curious about many different things.",6,"agree",0.66,1.804,3.051
+"256","030","x_bfi2","bfi-2_q_11",1,12,"question","rarely feels excited or eager.",3,"somewhat disagree",-0.33,1.812,2.5
+"257","030","x_bfi2","bfi-2_q_12",1,13,"question","tends to find fault with others.",5,"somewhat agree",0.33,1.355,2.026
+"258","030","x_bfi2","bfi-2_q_13",1,14,"question","is dependable, steady.",6,"agree",0.66,1.384,1.979
+"259","030","x_bfi2","bfi-2_q_14",1,15,"question","is moody, has up and down mood swings.",4,"neither agree nor disagree",0,3.421,4.046
+"260","030","x_bfi2","bfi-2_q_15",1,16,"question","is inventive, finds clever ways to do things.",6,"agree",0.66,1.642,2.57
+"261","030","x_bfi2","bfi-2_q_16",1,17,"question","tends to be quiet.",5,"somewhat agree",0.33,1.406,2.963
+"262","030","x_bfi2","bfi-2_q_17",1,18,"question","feels little sympathy for others.",7,"strongly agree",1,1.569,2.326
+"263","030","x_bfi2","bfi-2_q_18",1,19,"question","is systematic, likes to keep things in order.",6,"agree",0.66,2.095,2.739
+"264","030","x_bfi2","bfi-2_q_19",1,20,"question","can be tense.",5,"somewhat agree",0.33,1.223,1.865
+"265","030","x_bfi2","bfi-2_q_20",1,21,"question","is fascinated by art, music, or literature.",1,"strongly disagree",-1,1.367,2.359
+"266","030","x_bfi2","bfi-2_q_21",1,22,"question","is dominant, acts as a leader.",6,"agree",0.66,1.591,2.199
+"267","030","x_bfi2","bfi-2_q_22",1,23,"question","starts arguments with others.",5,"somewhat agree",0.33,1.329,2.085
+"268","030","x_bfi2","bfi-2_q_23",1,24,"question","has difficulty getting started on tasks.",2,"disagree",-0.66,1.576,2.199
+"269","030","x_bfi2","bfi-2_q_24",1,25,"question","feels secure, comfortable with self.",5,"somewhat agree",0.33,1.269,1.844
+"270","030","x_bfi2","bfi-2_q_25",1,26,"question","avoids intellectual, philosophical discussions.",1,"strongly disagree",-1,2.141,2.988
+"271","030","x_bfi2","bfi-2_q_26",1,27,"question","is less active than other people.",3,"somewhat disagree",-0.33,2.75,3.438
+"272","030","x_bfi2","bfi-2_q_27",1,28,"question","has a forgiving nature.",3,"somewhat disagree",-0.33,2.403,3.01
+"273","030","x_bfi2","bfi-2_q_28",1,29,"question","can be somewhat careless.",4,"neither agree nor disagree",0,3.254,3.834
+"274","030","x_bfi2","bfi-2_q_29",1,30,"question","is emotionally stable, not easily upset.",5,"somewhat agree",0.33,3.109,3.893
+"275","030","x_bfi2","bfi-2_q_30",1,31,"question","has little creativity.",5,"somewhat agree",0.33,2.181,2.933
+"276","030","x_bfi2","bfi-2_q_31",1,32,"question","is sometimes shy, introverted.",6,"agree",0.66,1.66,2.235
+"277","030","x_bfi2","bfi-2_q_32",1,33,"question","is helpful and unselfish with others.",5,"somewhat agree",0.33,2.318,3.022
+"278","030","x_bfi2","bfi-2_q_33",1,34,"question","keeps things neat and tidy.",5,"somewhat agree",0.33,1.658,2.365
+"279","030","x_bfi2","bfi-2_q_34",1,35,"question","worries a lot.",5,"somewhat agree",0.33,1.097,1.721
+"280","030","x_bfi2","bfi-2_q_35",1,36,"question","values art and beauty.",2,"disagree",-0.66,1.726,2.519
+"281","030","x_bfi2","bfi-2_q_36",1,37,"question","finds it hard to influence people.",3,"somewhat disagree",-0.33,1.93,2.618
+"282","030","x_bfi2","bfi-2_q_37",1,38,"question","is sometimes rude to others.",5,"somewhat agree",0.33,1.36,2.228
+"283","030","x_bfi2","bfi-2_q_38",1,39,"question","is efficient, gets things done.",7,"strongly agree",1,2.154,2.767
+"284","030","x_bfi2","bfi-2_q_39",1,40,"question","often feels sad.",3,"somewhat disagree",-0.33,1.937,2.549
+"285","030","x_bfi2","bfi-2_q_40",1,41,"question","is complex, a deep thinker.",5,"somewhat agree",0.33,1.249,2.209
+"286","030","x_bfi2","bfi-2_q_41",1,42,"question","is full of energy.",5,"somewhat agree",0.33,1.181,1.885
+"287","030","x_bfi2","bfi-2_q_42",1,43,"question","is suspicious of others' intentions.",5,"somewhat agree",0.33,4.203,4.783
+"288","030","x_bfi2","bfi-2_q_43",1,44,"question","is reliable, can always be counted on.",6,"agree",0.66,2.007,2.651
+"289","030","x_bfi2","bfi-2_q_44",1,45,"question","keeps their emotions under control.",3,"somewhat disagree",-0.33,2.002,2.658
+"290","030","x_bfi2","bfi-2_q_45",1,46,"question","has difficulty imagining things.",1,"strongly disagree",-1,2.074,2.73
+"291","030","x_bfi2","bfi-2_q_46",1,47,"question","is talkative.",5,"somewhat agree",0.33,1.258,1.954
+"292","030","x_bfi2","bfi-2_q_47",1,48,"question","can be cold and uncaring.",6,"agree",0.66,2.214,3.111
+"293","030","x_bfi2","bfi-2_q_48",1,49,"question","leaves a mess, doesn't clean up.",2,"disagree",-0.66,1.725,2.366
+"294","030","x_bfi2","bfi-2_q_49",1,50,"question","rarely feels anxious or afraid.",4,"neither agree nor disagree",0,3.435,4.075
+"295","030","x_bfi2","bfi-2_q_50",1,51,"question","thinks poetry and plays are boring.",6,"agree",0.66,2.245,2.95
+"296","030","x_bfi2","bfi-2_q_51",1,52,"question","prefers to have others take charge.",2,"disagree",-0.66,1.681,2.289
+"297","030","x_bfi2","bfi-2_q_52",1,53,"question","is polite, courteous to others.",5,"somewhat agree",0.33,1.258,2.042
+"298","030","x_bfi2","bfi-2_q_53",1,54,"question","is persistent, works until the task is finished.",7,"strongly agree",1,2.708,3.332
+"299","030","x_bfi2","bfi-2_q_54",1,55,"question","tends to feel depressed, blue.",2,"disagree",-0.66,1.385,2.124
+"300","030","x_bfi2","bfi-2_q_55",1,56,"question","has little interest in abstract ideas.",3,"somewhat disagree",-0.33,2.153,2.893
+"301","030","x_bfi2","bfi-2_q_56",1,57,"question","shows a lot of enthusiasm.",5,"somewhat agree",0.33,1.783,2.424
+"302","030","x_bfi2","bfi-2_q_57",1,58,"question","assumes the best about people.",5,"somewhat agree",0.33,1.582,2.366
+"303","030","x_bfi2","bfi-2_q_58",1,59,"question","sometimes behaves irresponsibly.",5,"somewhat agree",0.33,2.093,2.733
+"304","030","x_bfi2","bfi-2_q_59",1,60,"question","is temperamental, gets emotional easily.",4,"neither agree nor disagree",0,3.451,4.063
+"305","030","x_bfi2","bfi-2_q_60",1,61,"question","is original, comes up with new ideas.",5,"somewhat agree",0.33,1.409,2.064
+"306","008","psqi","psqi_v2021.03_psqi_m_1",1,1,"message","The following questions relate to your usual sleep habits during the past month *only*. <br />Your answers should indicate the most accurate reply for the *majority* of days and nights in the past month.<br /><br />Please answer all questions.",NA,NA,NA,5.956,5.956
+"307","008","psqi","psqi_q_1",1,2,"question","When have you usually gone to bed at night?",NA,"22:00",NA,19.977,20.054
+"308","008","psqi","psqi_q_2",1,3,"question","How long (in minutes) has it usually taken you to fall asleep each night?",NA,"20",20,5.229,5.355
+"309","008","psqi","psqi_q_3",1,4,"question","When have you usually gotten up in the morning?",NA,"06:00",NA,6.157,6.227
+"310","008","psqi","psqi_q_4",1,5,"question","How many hours of *actual sleep* did you get at night? (This may be different than the number of hours you spend in bed.)",NA,"6:30",NA,22.275,22.884
+"311","008","psqi","frequency_trouble_sleep_because;psqi-past_q_6",1,6,"question","Could not get to sleep within 30 minutes",3,"once or twice a week",2,6.223,7.184
+"312","008","psqi","frequency_trouble_sleep_because;psqi-past_q_7",1,7,"question","Woke up in the middle of the night or early morning",3,"once or twice a week",2,5.423,6.29
+"313","008","psqi","frequency_trouble_sleep_because;psqi-past_q_8",1,8,"question","Had to get up to use the bathroom",3,"once or twice a week",2,4.846,5.763
+"314","008","psqi","frequency_trouble_sleep_because;psqi-past_q_9",1,9,"question","Could not breathe comfortably",1,"not during the past month",0,3.564,4.543
+"315","008","psqi","frequency_trouble_sleep_because;psqi-past_q_10",1,10,"question","Coughed or snored loudly",4,"three or more times a week",3,4.044,4.949
+"316","008","psqi","frequency_trouble_sleep_because;psqi-past_q_11",1,11,"question","Felt too cold",3,"once or twice a week",2,3.08,4.044
+"317","008","psqi","frequency_trouble_sleep_because;psqi-past_q_12",1,12,"question","Felt too hot",3,"once or twice a week",2,1.213,2.218
+"318","008","psqi","frequency_trouble_sleep_because;psqi-past_q_13",1,13,"question","Had bad dreams",3,"once or twice a week",2,2.605,3.53
+"319","008","psqi","frequency_trouble_sleep_because;psqi-past_q_14",1,14,"question","Had pain",1,"not during the past month",0,2.798,3.732
+"320","008","psqi","frequency_trouble_sleep;psqi_q_15",1,15,"question","for other reasons",1,"not during the past month",0,2.133,3.048
+"321","008","psqi","psqi_q_19",1,16,"question","How would you rate your sleep quality overall?",3,"fairly bad",2,2.845,3.623
+"322","008","psqi","psqi_q_16",1,17,"question","How often have you taken medicine (prescribed or ""over the counter"") to help you sleep?",1,"not during the past month",0,4.041,5.031
+"323","008","psqi","psqi_q_17",1,18,"question","How often have you had trouble staying awake while driving, eating meals, or engaging in social activity?",3,"once or twice a week",2,6.534,7.47
+"324","008","psqi","psqi_q_18",1,19,"question","How much of a problem has it been for you to keep up enough enthusiasm to get things done?",3,"somewhat a problem",2,3.452,4.283
+"325","008","psqi","psqi_v2021.03_psqi_m_1",2,1,"message","The following questions relate to your usual sleep habits during the past month *only*. <br />Your answers should indicate the most accurate reply for the *majority* of days and nights in the past month.<br /><br />Please answer all questions.",NA,NA,NA,4.651,4.651
+"326","008","psqi","psqi_q_1",2,2,"question","When have you usually gone to bed at night?",NA,"10:00",NA,13.579,13.72
+"327","008","psqi","psqi_q_2",2,3,"question","How long (in minutes) has it usually taken you to fall asleep each night?",NA,"60",60,7.896,8.013
+"328","008","psqi","psqi_q_3",2,4,"question","When have you usually gotten up in the morning?",NA,"06:00",NA,8.35,8.486
+"329","008","psqi","psqi_q_4",2,5,"question","How many hours of *actual sleep* did you get at night? (This may be different than the number of hours you spend in bed.)",NA,"07:00",NA,9.159,9.254
+"330","008","psqi","frequency_trouble_sleep_because;psqi-past_q_6",2,6,"question","Could not get to sleep within 30 minutes",4,"three or more times a week",3,8.006,8.946
+"331","008","psqi","frequency_trouble_sleep_because;psqi-past_q_7",2,7,"question","Woke up in the middle of the night or early morning",3,"once or twice a week",2,6.541,7.728
+"332","008","psqi","frequency_trouble_sleep_because;psqi-past_q_8",2,8,"question","Had to get up to use the bathroom",2,"less than once a week",1,5.247,6.075
+"333","008","psqi","frequency_trouble_sleep_because;psqi-past_q_9",2,9,"question","Could not breathe comfortably",3,"once or twice a week",2,2.74,3.321
+"334","008","psqi","frequency_trouble_sleep_because;psqi-past_q_10",2,10,"question","Coughed or snored loudly",4,"three or more times a week",3,3.078,3.647
+"335","008","psqi","frequency_trouble_sleep_because;psqi-past_q_11",2,11,"question","Felt too cold",3,"once or twice a week",2,2.783,3.948
+"336","008","psqi","frequency_trouble_sleep_because;psqi-past_q_12",2,12,"question","Felt too hot",3,"once or twice a week",2,1.286,2.358
+"337","008","psqi","frequency_trouble_sleep_because;psqi-past_q_13",2,13,"question","Had bad dreams",3,"once or twice a week",2,2.93,3.69
+"338","008","psqi","frequency_trouble_sleep_because;psqi-past_q_14",2,14,"question","Had pain",3,"once or twice a week",2,5.702,6.486
+"339","008","psqi","frequency_trouble_sleep;psqi_q_15",2,15,"question","for other reasons",1,"not during the past month",0,4.907,5.955
+"340","008","psqi","psqi_q_19",2,16,"question","How would you rate your sleep quality overall?",3,"fairly bad",2,4.918,5.733
+"341","008","psqi","psqi_q_16",2,17,"question","How often have you taken medicine (prescribed or ""over the counter"") to help you sleep?",1,"not during the past month",0,5.711,6.787
+"342","008","psqi","psqi_q_17",2,18,"question","How often have you had trouble staying awake while driving, eating meals, or engaging in social activity?",4,"three or more times a week",3,5.272,6.215
+"343","008","psqi","psqi_q_18",2,19,"question","How much of a problem has it been for you to keep up enough enthusiasm to get things done?",4,"a very big problem",3,3.443,4.225
+"344","012","psqi","psqi_v2021.03_psqi_m_1",1,1,"message","The following questions relate to your usual sleep habits during the past month *only*. <br />Your answers should indicate the most accurate reply for the *majority* of days and nights in the past month.<br /><br />Please answer all questions.",NA,NA,NA,4.639,4.639
+"345","012","psqi","psqi_q_1",1,2,"question","When have you usually gone to bed at night?",NA,"22:30",NA,9.673,9.745
+"346","012","psqi","psqi_q_2",1,3,"question","How long (in minutes) has it usually taken you to fall asleep each night?",NA,"25",25,20.649,20.749
+"347","012","psqi","psqi_q_3",1,4,"question","When have you usually gotten up in the morning?",NA,"08:30",NA,7.735,7.811
+"348","012","psqi","psqi_q_4",1,5,"question","How many hours of *actual sleep* did you get at night? (This may be different than the number of hours you spend in bed.)",NA,"9:00",NA,8.692,8.784
+"349","012","psqi","frequency_trouble_sleep_because;psqi-past_q_6",1,6,"question","Could not get to sleep within 30 minutes",3,"once or twice a week",2,5.666,6.488
+"350","012","psqi","frequency_trouble_sleep_because;psqi-past_q_7",1,7,"question","Woke up in the middle of the night or early morning",3,"once or twice a week",2,3.735,4.264
+"351","012","psqi","frequency_trouble_sleep_because;psqi-past_q_8",1,8,"question","Had to get up to use the bathroom",1,"not during the past month",0,2.63,3.494
+"352","012","psqi","frequency_trouble_sleep_because;psqi-past_q_9",1,9,"question","Could not breathe comfortably",1,"not during the past month",0,2.385,3.201
+"353","012","psqi","frequency_trouble_sleep_because;psqi-past_q_10",1,10,"question","Coughed or snored loudly",1,"not during the past month",0,1.889,2.961
+"354","012","psqi","frequency_trouble_sleep_because;psqi-past_q_11",1,11,"question","Felt too cold",1,"not during the past month",0,1.656,2.272
+"355","012","psqi","frequency_trouble_sleep_because;psqi-past_q_12",1,12,"question","Felt too hot",2,"less than once a week",1,2.314,2.97
+"356","012","psqi","frequency_trouble_sleep_because;psqi-past_q_13",1,13,"question","Had bad dreams",1,"not during the past month",0,3.266,3.866
+"357","012","psqi","frequency_trouble_sleep_because;psqi-past_q_14",1,14,"question","Had pain",1,"not during the past month",0,1.313,1.801
+"358","012","psqi","frequency_trouble_sleep;psqi_q_15",1,15,"question","for other reasons",1,"not during the past month",0,3.01,3.626
+"359","012","psqi","psqi_q_19",1,16,"question","How would you rate your sleep quality overall?",2,"fairly good",1,1.985,2.569
+"360","012","psqi","psqi_q_16",1,17,"question","How often have you taken medicine (prescribed or ""over the counter"") to help you sleep?",1,"not during the past month",0,2.466,3.394
+"361","012","psqi","psqi_q_17",1,18,"question","How often have you had trouble staying awake while driving, eating meals, or engaging in social activity?",1,"not during the past month",0,2.45,2.946
+"362","012","psqi","psqi_q_18",1,19,"question","How much of a problem has it been for you to keep up enough enthusiasm to get things done?",3,"somewhat a problem",2,2.969,4.273
+"363","012","psqi","psqi_v2021.03_psqi_m_1",2,1,"message","The following questions relate to your usual sleep habits during the past month *only*. <br />Your answers should indicate the most accurate reply for the *majority* of days and nights in the past month.<br /><br />Please answer all questions.",NA,NA,NA,2.226,2.226
+"364","012","psqi","psqi_q_1",2,2,"question","When have you usually gone to bed at night?",NA,"22:30",NA,5.324,5.384
+"365","012","psqi","psqi_q_2",2,3,"question","How long (in minutes) has it usually taken you to fall asleep each night?",NA,"20",20,7.315,7.401
+"366","012","psqi","psqi_q_3",2,4,"question","When have you usually gotten up in the morning?",NA,"08:30",NA,9.329,9.413
+"367","012","psqi","psqi_q_4",2,5,"question","How many hours of *actual sleep* did you get at night? (This may be different than the number of hours you spend in bed.)",NA,"09:00",NA,6.002,6.128
+"368","012","psqi","frequency_trouble_sleep_because;psqi-past_q_6",2,6,"question","Could not get to sleep within 30 minutes",1,"not during the past month",0,3.366,4.647
+"369","012","psqi","frequency_trouble_sleep_because;psqi-past_q_7",2,7,"question","Woke up in the middle of the night or early morning",2,"less than once a week",1,2.462,3.486
+"370","012","psqi","frequency_trouble_sleep_because;psqi-past_q_8",2,8,"question","Had to get up to use the bathroom",1,"not during the past month",0,2.017,2.593
+"371","012","psqi","frequency_trouble_sleep_because;psqi-past_q_9",2,9,"question","Could not breathe comfortably",1,"not during the past month",0,1.511,1.992
+"372","012","psqi","frequency_trouble_sleep_because;psqi-past_q_10",2,10,"question","Coughed or snored loudly",1,"not during the past month",0,1.535,2.16
+"373","012","psqi","frequency_trouble_sleep_because;psqi-past_q_11",2,11,"question","Felt too cold",1,"not during the past month",0,1.321,1.913
+"374","012","psqi","frequency_trouble_sleep_because;psqi-past_q_12",2,12,"question","Felt too hot",1,"not during the past month",0,1.185,1.713
+"375","012","psqi","frequency_trouble_sleep_because;psqi-past_q_13",2,13,"question","Had bad dreams",1,"not during the past month",0,1.377,2.018
+"376","012","psqi","frequency_trouble_sleep_because;psqi-past_q_14",2,14,"question","Had pain",1,"not during the past month",0,1.081,1.617
+"377","012","psqi","frequency_trouble_sleep;psqi_q_15",2,15,"question","for other reasons",1,"not during the past month",0,1.161,1.618
+"378","012","psqi","psqi_q_19",2,16,"question","How would you rate your sleep quality overall?",2,"fairly good",1,1.953,2.417
+"379","012","psqi","psqi_q_16",2,17,"question","How often have you taken medicine (prescribed or ""over the counter"") to help you sleep?",1,"not during the past month",0,1.666,2.25
+"380","012","psqi","psqi_q_17",2,18,"question","How often have you had trouble staying awake while driving, eating meals, or engaging in social activity?",1,"not during the past month",0,2.459,3.402
+"381","012","psqi","psqi_q_18",2,19,"question","How much of a problem has it been for you to keep up enough enthusiasm to get things done?",2,"only a very slightly problem",1,4.162,4.755
+"382","026","psqi","psqi_v2021.03_psqi_m_1",1,1,"message","The following questions relate to your usual sleep habits during the past month *only*. <br />Your answers should indicate the most accurate reply for the *majority* of days and nights in the past month.<br /><br />Please answer all questions.",NA,NA,NA,4.947,4.947
+"383","026","psqi","psqi_q_1",1,2,"question","When have you usually gone to bed at night?",NA,"11:15",NA,7.535,7.641
+"384","026","psqi","psqi_q_2",1,3,"question","How long (in minutes) has it usually taken you to fall asleep each night?",NA,"40",40,7.536,7.968
+"385","026","psqi","psqi_q_3",1,4,"question","When have you usually gotten up in the morning?",NA,"08:30",NA,12.629,12.768
+"386","026","psqi","psqi_q_4",1,5,"question","How many hours of *actual sleep* did you get at night? (This may be different than the number of hours you spend in bed.)",NA,"6:30",NA,15.57,17.154
+"387","026","psqi","frequency_trouble_sleep_because;psqi-past_q_6",1,6,"question","Could not get to sleep within 30 minutes",4,"three or more times a week",3,13.553,14.179
+"388","026","psqi","frequency_trouble_sleep_because;psqi-past_q_7",1,7,"question","Woke up in the middle of the night or early morning",3,"once or twice a week",2,4.769,5.295
+"389","026","psqi","frequency_trouble_sleep_because;psqi-past_q_8",1,8,"question","Had to get up to use the bathroom",1,"not during the past month",0,2.982,4.624
+"390","026","psqi","frequency_trouble_sleep_because;psqi-past_q_9",1,9,"question","Could not breathe comfortably",3,"once or twice a week",2,3.057,3.697
+"391","026","psqi","frequency_trouble_sleep_because;psqi-past_q_10",1,10,"question","Coughed or snored loudly",1,"not during the past month",0,2.455,3.617
+"392","026","psqi","frequency_trouble_sleep_because;psqi-past_q_11",1,11,"question","Felt too cold",2,"less than once a week",1,2.52,3.048
+"393","026","psqi","frequency_trouble_sleep_because;psqi-past_q_12",1,12,"question","Felt too hot",3,"once or twice a week",2,2.528,3.279
+"394","026","psqi","frequency_trouble_sleep_because;psqi-past_q_13",1,13,"question","Had bad dreams",2,"less than once a week",1,7.065,7.643
+"395","026","psqi","frequency_trouble_sleep_because;psqi-past_q_14",1,14,"question","Had pain",3,"once or twice a week",2,2.517,3.157
+"396","026","psqi","frequency_trouble_sleep;psqi_q_15",1,15,"question","for other reasons",3,"once or twice a week",2,2.405,2.981
+"397","026","psqi","psqi_q_19",1,16,"question","How would you rate your sleep quality overall?",3,"fairly bad",2,2,2.576
+"398","026","psqi","psqi_q_16",1,17,"question","How often have you taken medicine (prescribed or ""over the counter"") to help you sleep?",3,"once or twice a week",2,3.844,4.774
+"399","026","psqi","psqi_q_17",1,18,"question","How often have you had trouble staying awake while driving, eating meals, or engaging in social activity?",4,"three or more times a week",3,3.591,4.135
+"400","026","psqi","psqi_q_18",1,19,"question","How much of a problem has it been for you to keep up enough enthusiasm to get things done?",4,"a very big problem",3,6.55,7.222
+"401","026","psqi","psqi_v2021.03_psqi_m_1",2,1,"message","The following questions relate to your usual sleep habits during the past month *only*. <br />Your answers should indicate the most accurate reply for the *majority* of days and nights in the past month.<br /><br />Please answer all questions.",NA,NA,NA,1.954,1.954
+"402","026","psqi","psqi_q_1",2,2,"question","When have you usually gone to bed at night?",NA,"23:00",NA,8.727,8.864
+"403","026","psqi","psqi_q_2",2,3,"question","How long (in minutes) has it usually taken you to fall asleep each night?",NA,"30",30,5.923,6.127
+"404","026","psqi","psqi_q_3",2,4,"question","When have you usually gotten up in the morning?",NA,"08:30",NA,5.35,5.455
+"405","026","psqi","psqi_q_4",2,5,"question","How many hours of *actual sleep* did you get at night? (This may be different than the number of hours you spend in bed.)",NA,"8:00",NA,5.778,5.977
+"406","026","psqi","frequency_trouble_sleep_because;psqi-past_q_6",2,6,"question","Could not get to sleep within 30 minutes",3,"once or twice a week",2,4.832,5.379
+"407","026","psqi","frequency_trouble_sleep_because;psqi-past_q_7",2,7,"question","Woke up in the middle of the night or early morning",4,"three or more times a week",3,9.068,9.741
+"408","026","psqi","frequency_trouble_sleep_because;psqi-past_q_8",2,8,"question","Had to get up to use the bathroom",2,"less than once a week",1,247.445,247.941
+"409","026","psqi","frequency_trouble_sleep_because;psqi-past_q_9",2,9,"question","Could not breathe comfortably",2,"less than once a week",1,4.674,5.137
+"410","026","psqi","frequency_trouble_sleep_because;psqi-past_q_10",2,10,"question","Coughed or snored loudly",3,"once or twice a week",2,3.568,4.192
+"411","026","psqi","frequency_trouble_sleep_because;psqi-past_q_11",2,11,"question","Felt too cold",2,"less than once a week",1,1.69,2.09
+"412","026","psqi","frequency_trouble_sleep_because;psqi-past_q_12",2,12,"question","Felt too hot",4,"three or more times a week",3,4.499,5.011
+"413","026","psqi","frequency_trouble_sleep_because;psqi-past_q_13",2,13,"question","Had bad dreams",3,"once or twice a week",2,2.414,3.006
+"414","026","psqi","frequency_trouble_sleep_because;psqi-past_q_14",2,14,"question","Had pain",1,"not during the past month",0,2.079,2.783
+"415","026","psqi","frequency_trouble_sleep;psqi_q_15",2,15,"question","for other reasons",2,"less than once a week",1,1.51,2.023
+"416","026","psqi","psqi_q_19",2,16,"question","How would you rate your sleep quality overall?",3,"fairly bad",2,1.809,2.357
+"417","026","psqi","psqi_q_16",2,17,"question","How often have you taken medicine (prescribed or ""over the counter"") to help you sleep?",3,"once or twice a week",2,2.674,3.254
+"418","026","psqi","psqi_q_17",2,18,"question","How often have you had trouble staying awake while driving, eating meals, or engaging in social activity?",4,"three or more times a week",3,7.952,8.496
+"419","026","psqi","psqi_q_18",2,19,"question","How much of a problem has it been for you to keep up enough enthusiasm to get things done?",4,"a very big problem",3,3.21,3.787
+"420","030","psqi","psqi_v2021.03_psqi_m_1",1,1,"message","The following questions relate to your usual sleep habits during the past month *only*. <br />Your answers should indicate the most accurate reply for the *majority* of days and nights in the past month.<br /><br />Please answer all questions.",NA,NA,NA,64.71,64.71
+"421","030","psqi","psqi_q_1",1,2,"question","When have you usually gone to bed at night?",NA,"23:00",NA,9.045,9.117
+"422","030","psqi","psqi_q_2",1,3,"question","How long (in minutes) has it usually taken you to fall asleep each night?",NA,"30",30,3.907,4.018
+"423","030","psqi","psqi_q_3",1,4,"question","When have you usually gotten up in the morning?",NA,"07:30",NA,4.865,5.016
+"424","030","psqi","psqi_q_4",1,5,"question","How many hours of *actual sleep* did you get at night? (This may be different than the number of hours you spend in bed.)",NA,"8:00",NA,11.629,11.775
+"425","030","psqi","frequency_trouble_sleep_because;psqi-past_q_6",1,6,"question","Could not get to sleep within 30 minutes",2,"less than once a week",1,3.479,4.694
+"426","030","psqi","frequency_trouble_sleep_because;psqi-past_q_7",1,7,"question","Woke up in the middle of the night or early morning",2,"less than once a week",1,6.06,7.624
+"427","030","psqi","frequency_trouble_sleep_because;psqi-past_q_8",1,8,"question","Had to get up to use the bathroom",2,"less than once a week",1,2.438,4.809
+"428","030","psqi","frequency_trouble_sleep_because;psqi-past_q_9",1,9,"question","Could not breathe comfortably",2,"less than once a week",1,3.477,4.165
+"429","030","psqi","frequency_trouble_sleep_because;psqi-past_q_10",1,10,"question","Coughed or snored loudly",2,"less than once a week",1,1.853,2.734
+"430","030","psqi","frequency_trouble_sleep_because;psqi-past_q_11",1,11,"question","Felt too cold",1,"not during the past month",0,2.122,2.713
+"431","030","psqi","frequency_trouble_sleep_because;psqi-past_q_12",1,12,"question","Felt too hot",2,"less than once a week",1,1.253,1.955
+"432","030","psqi","frequency_trouble_sleep_because;psqi-past_q_13",1,13,"question","Had bad dreams",1,"not during the past month",0,1.756,2.732
+"433","030","psqi","frequency_trouble_sleep_because;psqi-past_q_14",1,14,"question","Had pain",1,"not during the past month",0,1.774,2.509
+"434","030","psqi","frequency_trouble_sleep;psqi_q_15",1,15,"question","for other reasons",2,"less than once a week",1,1.89,2.926
+"435","030","psqi","psqi_q_19",1,16,"question","How would you rate your sleep quality overall?",2,"fairly good",1,1.618,2.47
+"436","030","psqi","psqi_q_16",1,17,"question","How often have you taken medicine (prescribed or ""over the counter"") to help you sleep?",1,"not during the past month",0,1.814,2.73
+"437","030","psqi","psqi_q_17",1,18,"question","How often have you had trouble staying awake while driving, eating meals, or engaging in social activity?",2,"less than once a week",1,6.278,6.982
+"438","030","psqi","psqi_q_18",1,19,"question","How much of a problem has it been for you to keep up enough enthusiasm to get things done?",2,"only a very slightly problem",1,4.977,7.492
+"439","030","psqi","psqi_v2021.03_psqi_m_1",2,1,"message","The following questions relate to your usual sleep habits during the past month *only*. <br />Your answers should indicate the most accurate reply for the *majority* of days and nights in the past month.<br /><br />Please answer all questions.",NA,NA,NA,5.187,5.187
+"440","030","psqi","psqi_q_1",2,2,"question","When have you usually gone to bed at night?",NA,"11:00",NA,6.128,6.334
+"441","030","psqi","psqi_q_2",2,3,"question","How long (in minutes) has it usually taken you to fall asleep each night?",NA,"30",30,17.859,17.972
+"442","030","psqi","psqi_q_3",2,4,"question","When have you usually gotten up in the morning?",NA,"07:30",NA,5.083,5.175
+"443","030","psqi","psqi_q_4",2,5,"question","How many hours of *actual sleep* did you get at night? (This may be different than the number of hours you spend in bed.)",NA,"7:30",NA,7.35,7.404
+"444","030","psqi","frequency_trouble_sleep_because;psqi-past_q_6",2,6,"question","Could not get to sleep within 30 minutes",2,"less than once a week",1,2.148,2.708
+"445","030","psqi","frequency_trouble_sleep_because;psqi-past_q_7",2,7,"question","Woke up in the middle of the night or early morning",2,"less than once a week",1,0.929,2.228
+"446","030","psqi","frequency_trouble_sleep_because;psqi-past_q_8",2,8,"question","Had to get up to use the bathroom",2,"less than once a week",1,0.791,1.766
+"447","030","psqi","frequency_trouble_sleep_because;psqi-past_q_9",2,9,"question","Could not breathe comfortably",2,"less than once a week",1,0.776,1.588
+"448","030","psqi","frequency_trouble_sleep_because;psqi-past_q_10",2,10,"question","Coughed or snored loudly",2,"less than once a week",1,2.036,2.741
+"449","030","psqi","frequency_trouble_sleep_because;psqi-past_q_11",2,11,"question","Felt too cold",2,"less than once a week",1,1.304,2.025
+"450","030","psqi","frequency_trouble_sleep_because;psqi-past_q_12",2,12,"question","Felt too hot",2,"less than once a week",1,2.827,3.614
+"451","030","psqi","frequency_trouble_sleep_because;psqi-past_q_13",2,13,"question","Had bad dreams",1,"not during the past month",0,1.371,2.832
+"452","030","psqi","frequency_trouble_sleep_because;psqi-past_q_14",2,14,"question","Had pain",2,"less than once a week",1,1.363,1.938
+"453","030","psqi","frequency_trouble_sleep;psqi_q_15",2,15,"question","for other reasons",2,"less than once a week",1,0.685,1.517
+"454","030","psqi","psqi_q_19",2,16,"question","How would you rate your sleep quality overall?",2,"fairly good",1,1.361,2.018
+"455","030","psqi","psqi_q_16",2,17,"question","How often have you taken medicine (prescribed or ""over the counter"") to help you sleep?",1,"not during the past month",0,93.822,94.542
+"456","030","psqi","psqi_q_17",2,18,"question","How often have you had trouble staying awake while driving, eating meals, or engaging in social activity?",2,"less than once a week",1,4.395,50.534
+"457","030","psqi","psqi_q_18",2,19,"question","How much of a problem has it been for you to keep up enough enthusiasm to get things done?",1,"no problem at all",0,3.183,4.063
+"458","031","psqi","psqi_v2021.03_psqi_m_1",1,1,"message","The following questions relate to your usual sleep habits during the past month *only*. <br />Your answers should indicate the most accurate reply for the *majority* of days and nights in the past month.<br /><br />Please answer all questions.",NA,NA,NA,10.564,10.564
+"459","031","psqi","psqi_q_1",1,2,"question","When have you usually gone to bed at night?",NA,"22:00",NA,32.274,32.59
+"460","031","psqi","psqi_q_2",1,3,"question","How long (in minutes) has it usually taken you to fall asleep each night?",NA,"20",20,27.356,27.892
+"461","031","psqi","psqi_q_3",1,4,"question","When have you usually gotten up in the morning?",NA,"07:00",NA,45.032,45.469
+"462","031","psqi","psqi_q_4",1,5,"question","How many hours of *actual sleep* did you get at night? (This may be different than the number of hours you spend in bed.)",NA,"07:00",NA,18.105,18.33
+"463","031","psqi","frequency_trouble_sleep_because;psqi-past_q_6",1,6,"question","Could not get to sleep within 30 minutes",2,"less than once a week",1,19.57,20.502
+"464","031","psqi","frequency_trouble_sleep_because;psqi-past_q_7",1,7,"question","Woke up in the middle of the night or early morning",1,"not during the past month",0,9.74,10.688
+"465","031","psqi","frequency_trouble_sleep_because;psqi-past_q_8",1,8,"question","Had to get up to use the bathroom",1,"not during the past month",0,9.715,10.603
+"466","031","psqi","frequency_trouble_sleep_because;psqi-past_q_9",1,9,"question","Could not breathe comfortably",1,"not during the past month",0,5.367,7.474
+"467","031","psqi","frequency_trouble_sleep_because;psqi-past_q_10",1,10,"question","Coughed or snored loudly",1,"not during the past month",0,8.638,9.894
+"468","031","psqi","frequency_trouble_sleep_because;psqi-past_q_11",1,11,"question","Felt too cold",1,"not during the past month",0,4.852,5.72
+"469","031","psqi","frequency_trouble_sleep_because;psqi-past_q_12",1,12,"question","Felt too hot",1,"not during the past month",0,5.867,7.734
+"470","031","psqi","frequency_trouble_sleep_because;psqi-past_q_13",1,13,"question","Had bad dreams",1,"not during the past month",0,5.542,6.858
+"471","031","psqi","frequency_trouble_sleep_because;psqi-past_q_14",1,14,"question","Had pain",1,"not during the past month",0,3.084,5.828
+"472","031","psqi","frequency_trouble_sleep;psqi_q_15",1,15,"question","for other reasons",2,"less than once a week",1,6.25,7.05
+"473","031","psqi","psqi_q_19",1,16,"question","How would you rate your sleep quality overall?",2,"fairly good",1,8.953,10.041
+"474","031","psqi","psqi_q_16",1,17,"question","How often have you taken medicine (prescribed or ""over the counter"") to help you sleep?",1,"not during the past month",0,5.362,6.449
+"475","031","psqi","psqi_q_17",1,18,"question","How often have you had trouble staying awake while driving, eating meals, or engaging in social activity?",1,"not during the past month",0,15.218,17.034
+"476","031","psqi","psqi_q_18",1,19,"question","How much of a problem has it been for you to keep up enough enthusiasm to get things done?",2,"only a very slightly problem",1,14.093,15.161
+"477","031","psqi","psqi_v2021.03_psqi_m_1",2,1,"message","The following questions relate to your usual sleep habits during the past month *only*. <br />Your answers should indicate the most accurate reply for the *majority* of days and nights in the past month.<br /><br />Please answer all questions.",NA,NA,NA,37.042,37.042
+"478","031","psqi","psqi_q_1",2,2,"question","When have you usually gone to bed at night?",NA,"22:00",NA,36.741,37.448
+"479","031","psqi","psqi_q_2",2,3,"question","How long (in minutes) has it usually taken you to fall asleep each night?",NA,"15",15,13.266,19.144
+"480","031","psqi","psqi_q_3",2,4,"question","When have you usually gotten up in the morning?",NA,"07:00",NA,20.96,21.61
+"481","031","psqi","psqi_q_4",2,5,"question","How many hours of *actual sleep* did you get at night? (This may be different than the number of hours you spend in bed.)",NA,"08:00",NA,39.256,39.575
+"482","031","psqi","frequency_trouble_sleep_because;psqi-past_q_6",2,6,"question","Could not get to sleep within 30 minutes",1,"not during the past month",0,18.334,19.248
+"483","031","psqi","frequency_trouble_sleep_because;psqi-past_q_7",2,7,"question","Woke up in the middle of the night or early morning",1,"not during the past month",0,9.351,10.167
+"484","031","psqi","frequency_trouble_sleep_because;psqi-past_q_8",2,8,"question","Had to get up to use the bathroom",1,"not during the past month",0,14.477,15.585
+"485","031","psqi","frequency_trouble_sleep_because;psqi-past_q_9",2,9,"question","Could not breathe comfortably",1,"not during the past month",0,7.37,8.338
+"486","031","psqi","frequency_trouble_sleep_because;psqi-past_q_10",2,10,"question","Coughed or snored loudly",1,"not during the past month",0,5.569,6.817
+"487","031","psqi","frequency_trouble_sleep_because;psqi-past_q_11",2,11,"question","Felt too cold",1,"not during the past month",0,6.019,6.835
+"488","031","psqi","frequency_trouble_sleep_because;psqi-past_q_12",2,12,"question","Felt too hot",1,"not during the past month",0,4.882,5.743
+"489","031","psqi","frequency_trouble_sleep_because;psqi-past_q_13",2,13,"question","Had bad dreams",1,"not during the past month",0,59.666,69.277
+"490","031","psqi","frequency_trouble_sleep_because;psqi-past_q_14",2,14,"question","Had pain",1,"not during the past month",0,7.927,9.151
+"491","031","psqi","frequency_trouble_sleep;psqi_q_15",2,15,"question","for other reasons",1,"not during the past month",0,8.475,9.667
+"492","031","psqi","psqi_q_19",2,16,"question","How would you rate your sleep quality overall?",1,"very good",0,36.074,37.818
+"493","031","psqi","psqi_q_16",2,17,"question","How often have you taken medicine (prescribed or ""over the counter"") to help you sleep?",2,"less than once a week",1,23.521,24.593
+"494","031","psqi","psqi_q_17",2,18,"question","How often have you had trouble staying awake while driving, eating meals, or engaging in social activity?",1,"not during the past month",0,23.241,25.237
+"495","031","psqi","psqi_q_18",2,19,"question","How much of a problem has it been for you to keep up enough enthusiasm to get things done?",2,"only a very slightly problem",1,13.59,18.437

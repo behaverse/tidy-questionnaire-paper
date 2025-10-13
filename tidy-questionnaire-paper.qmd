@@ -17,8 +17,7 @@ format:
   scientific-data-pdf: default
 date: last-modified
 abstract: |
-  Questionnaires are foundational tools in social, behavioral and cognitive sciences. While the past century witnessed significant advances in the design and deployment of questionnaires, comparatively little attention was paid on how to structure the resulting data. The ubiquitous current practice consists in adopting the “wide data format”, where each row in a table represents a respondent and each column a specific questions, responses or other attributes. The wide format has clear advantages when applied to small datasets.
-  However--as we show in here--when dealing with more complex datasets, this format quickly becomes impractical, error prone and difficult to reuse. Furthermore, this format prevents questionnaire research from taking advantage of modern digital technologies, multi-modal assessment and advanced data analytic methods. As a potential solution we recommend instead the long data format, and show it can handle most of the limitations posed to the wide data format. This change of format reflects a deeper change in perspectives: focusing on the person-by-question interaction as being the key observational unit rather than the person-by-  questionnaire(s). It also makes it more apparent that the same data model could in principle be used to structure questionnaire data and data from computerized cognitive tests where the long format is widely used (i.e., each row in such tables typically representing a “trial” which typically refers to a person x stimulus interaction).  A shared data model for behavioral and questionnaire data--as proposed by the [PROJECT data model](https://PROJECT/data-model/)--simplifies data documentation and reuse, the sharing of data analysis methods across both types of instruments (e.g., analysis of response times in questionnaires), but also affords the development of a new generation of software tools, data analytic methods, and research questions, which will ultimately improve scientific research quality and yield novel insights about the human mind. 
+  Questionnaires are foundational tools in social, behavioral and cognitive sciences. While the past century witnessed significant advances in the design and deployment of questionnaires, comparatively little attention was paid on how to structure the resulting data. The ubiquitous current practice consists in adopting a tabular data format, where each row in a table represents a respondent and each column a specific question, response or other attribute. This format has clear advantages when applied to small datasets. However, when dealing with more complex datasets, this format quickly becomes impractical, error prone and difficult to reuse. Furthermore, it prevents questionnaire research from taking advantage of modern digital technologies, multi-modal assessment and advanced data analytic methods. As an alternative, we recommend instead the tidy data format and show how it can handle most of those limitations. This change of format reflects a deeper change in perspectives: focusing on the person-by-question interaction as being the key observational unit rather than the person-by-questionnaire(s). The tidy format also makes it more apparent that the same data model could in principle be used to structure data not only from a wide range of questionnaires but also from computerized cognitive tests where the tidy format is already commonly used (i.e., each row in such tables representing a “trial”, referring to a person x stimulus interaction). A shared data model for behavioral and questionnaire data--as proposed by the [PROJECT data model](https://PROJECT/data-model/)--simplifies data documentation and reuse, the sharing of data analysis methods across both types of instruments (e.g., analysis of response times in questionnaires), but also affords the development of a new generation of software tools, data analytic methods, and research questions, which may ultimately improve scientific research quality and yield novel insights about the human mind. 
 
 bibliography: 
   - bibliography.bib
@@ -41,7 +40,7 @@ Questionnaires[^1] have been a main research instrument in social sciences since
 The long history of questionnaire based research is marked by improvements in the design, distribution and analysis of questionnaires [@krosnick1999]. Yet, questionnaires remain underrated and their full potential unexploited. Indeed, most questionnaires today appear still grounded in the pen and paper medium of the past century. Digital technologies now permit a rapid and wide distribution of questionnaires via the Internet, the collection of datasets that are not only more voluminous but also much richer than in the past. Modern technologies allow for adaptive questionnaires well beyond the simple branching structures seen today (e.g., hiding or showing questions depending on previous responses). Questionnaires could be considerably more versatile by  adjusting the difficulty of the language to the reading level of the respondent or the granularity of the response options to their cognitive abilities, for example. Digital technologies facilitate the collection of rich behavioral data beyond simple answers to questions. Variables like date and time of day (i.e., timestamp), response times (i.e., how long it took a person to answer a question), changes of mind (i.e., changing responses before submitting) or geo-location are already straightforward to collect. Additional measurements, such as facial emotion recognition, gaze tracking, heart rate and blinking rate (e.g., using webcam video recordings while people fill out questionnaires)--collected separately for each question--may offer new insights and could significantly augment our understanding of respondents. Clearly, current practices in questionnaire based research have not yet taken full advantage of the possibilities modern technologies offer. One of the impediments to such advancements, we believe, is the ineffective management and processing of questionnaire data which typically do not scale up and prevent automation. 
 
 
-The goal of this work is to contribute to a more consistent and effective use of questionnaires by offering recommendations for better structuring their data. This work is part of a larger initiative aiming to improve data practices in behavioral sciences and raise research quality (for more details, see the PROJECT website https://PROJECT/standards/). 
+The goal of this work is to contribute to a more consistent and effective use of questionnaires by offering recommendations for structuring their data. This work is part of a larger initiative aiming to improve data practices in behavioral sciences and raise research quality (for more details, see the PROJECT website https://PROJECT/standards/). 
 
 
 
@@ -49,13 +48,34 @@ The goal of this work is to contribute to a more consistent and effective use of
 
 # How to structure questionnaire data?
 
-While there are many resources on how to design better questionnaires [e.g., @vannette2014;\ @krosnick2009], or analyze questionnaire data [e.g.,  @falissard2012], there are surprisingly few guidelines on how to best structure and save questionnaire data [e.g., @netscher2018] despite the fact that there are many benefits to standardized data models [e.g., @poldrack2024;\ @defossez2020], including facilitating the use and reuse of data, its documentation and enabling the development of automated data processing and visualization tools. In general, standardized data structures are an integral part of scientific quality assurance.  
+
+> “Standards are like toothbrushes. Everybody wants one but nobody wants to use anybody else’s.”
+
+> --Connie Morella
 
 
-Standardizing questionnaire data however is challenging because data from questionnaires can be quite complex. A “question” can have many different formats (e.g., text, images, sounds) and offer participants a wide range of input options (e.g., radio buttons, numeric text fields) that may lead to different kinds of data types (e.g., numeric, text, ordered, nominal). Because questionnaires typically use a mixture of question types, it can be challenging to represent all that information consistently (in a data modeling sense). Furthermore, how best to organize and structure questionnaire data depends in part on the specific use for that data and the current data processing practices. For example, online questionnaire software may use a relational database to record questionnaire data (e.g., [LimeSurvey](https://www.limesurvey.org/)). However, such relational databases are not typically shared “as is” and are much harder to manipulate and process than the simple individual tabular data files that seem to be the default adopted by most data analysts today [@wickham2014]--those software solutions therefore generally offer a means to export the data as a single table or spreadsheet. 
+
+While there are many resources on how to design better questionnaires [e.g., @vannette2014;\ @krosnick2009], or analyze questionnaire data [e.g.,  @falissard2012], there are surprisingly few guidelines on how to best structure and save questionnaire data [e.g., @netscher2018]. Yet, there are many benefits to standardized data models [e.g., @poldrack2024;\ @defossez2020], including facilitating the use and reuse of data, its documentation and enabling the development of automated data processing and visualization tools. In general, standardized data structures are an integral part of scientific quality assurance.  
 
 
-In this paper, we focus on how to structure questionnaire data to facilitate their analysis given current practices and in accord with open science principles (e.g., no proprietary data formats). We will first describe how questionnaire data is typically shared today. We will then introduce the concept of tidy data and describe its benefits. Finally, we will introduce our recommendations for structuring questionnaire data and use concrete examples to illustrate our points. 
+Standardizing questionnaire data however poses several challenges. For starters, it is more challenging to standardize questionnaire data than other types of data because of their potential increased complexity. A “question” can have many different formats (e.g., text, images, sounds) and offer participants a wide range of input options (e.g., radio buttons, numeric text fields) that may lead to different kinds of data types (e.g., numeric, text, ordered, nominal). Because questionnaires typically use a mixture of question types, it can be challenging to represent all that information consistently (in a data modeling sense). This being said, the challenge is not insurmountable as computer scientists and data enginners have long developped strong models and technologies for organizing, managing and processing very large datasets (see for example https://en.wikipedia.org/wiki/Database_normalization), and those technologies seamlessly support all the data intenstive digital applications used by billions of people today (e.g., Wikipeadia, Netflix, Facebook).  
+
+
+The existence of good technical solutions however is not sufficient; among the many reasons why it's difficult for a community (of researchers) to converge and adopt a specific standard, is that different people will have different ideas on what it means to organize data "best"[^2]. Indeed, what counts as "best" may dependent for example, on how the data is collected, how the data will be processed, the software used to process that data, the expertise and familiarity of the data analysts with different data formats, the size and complexity of the data, whether or not the data is intendend to be shared, integrated with other datasets or whether or not the data will be used to drive applications. For example, online questionnaire software may use a relational database to record questionnaire data (e.g., [LimeSurvey](https://www.limesurvey.org/)). However, such relational databases are not typically shared “as is” and are much harder to manipulate and process than the simple individual tabular data files that seem to be the default adopted by most data analysts today [@wickham2014]--those data collection platforms therefore generally offer a means to export the data as a single table or spreadsheet. Also, certain statistical procedures (e.g. mixed effects models) require data to be in one format (i.e., the tidy/long format described below) while some statistical software only accept data in another specific format (i.e., the "wide" format described below).  
+
+
+[^2]: And even if people would agree on a such a definition, there are certainly many options that relate to convention and personal preference rather than objective critiera (e.g., long explicit vs short variable names, expressing durations in seconds vs milliseconds). 
+
+
+Nevertheless, while it is true that what counts as "best" may be a moving target for practitionners, is is also true that some ways of organizing data are clearly inadequate and that there are certain minimal principles that most researchers and data analysts, in particular those adhering to the open science ideals, would undoubtly agree with. These criteria include for example that the data should be readable without having to pay for propriety software, that the data is complete (i.e., relevant variables have not been accidentally omitted), consistent (e.g., the same concept is always named and encoded in the same way) and documented well enough that someone else could, at least *in principle* (but ideally easily), reuse that data (for example, to reproduce a published data analysis; for a more detailed list of such criteria, see e.g., the FAIR principles: https://www.go-fair.org/fair-principles/). Following *any* standard would allow to enforce those principles and possibly ascertain that those principles are indeed fulfilled without having to bet many hours of work to figure that out. 
+
+
+It is important to note that a given dataset will almost always have to be transformed in one way or another during its processing: the data may be filtered, transformed, combined with other data, and reshaped multiple times depending on the specific data analysis needs. The central question therefore is not so much what is the best standard for all of those uses cases but rather how to structure the data that is meant to serve as a *good starting point* and that would be adequate for sharing with other people, supporing a large variety of software and data analysis approaches.  
+
+
+Here we propose to discuss how to organize questionnaire data for that initial state (e.g., the data that one would share within a research paper). We will describe what seems to currently be the most common practice for organizing questionnaire data. We will explain some key issues this format has and present the tidy data format, which is widely used by data scientists. We will argue and illustrate with concrete examples several key benefits the tidy data format offers. We acknowledge however that the tidy data format for questonnaire data has its own limitations and will discuss in particular the challenge of handing mixtures of response data types (e.g., Likert scales, text input) in the tidy questionnaire data format. We also want to point out that many of the benefits of the tidy questionnaire data format we present below may be apparent only for data analysts that use programming (e.g., R, python) to perform their analyses; for those who instead use specific data analysis software (e.g., Excel, SPSS), the situation may be quite different.  
+
+Finally, while most of the paper focuses on the comparison between these two data formats for questionnaire data and highlighting important data organization principles that we believe are relevant for anyone organizing such data, at the end of the paper we also present a *specific* way to organize questionnaire data (including how to name specific columns) that we have adopted in our research and which we believe can accomodate in a consistent way a wide range of questionnaires. 
 
 
 
@@ -64,7 +84,14 @@ In this paper, we focus on how to structure questionnaire data to facilitate the
 
 ### The wide data format
 
-In our experience, researchers rarely refer to standards or guidelines when formatting or sharing questionnaire data. Yet, there seems to be an implicit consensus in that questionnaire data often appear to be formatted in similar ways. More specifically, the vast majority of questionnaire data is organized in a **wide format**, where each row contains all the data from one respondent and where the columns refer to the questions, the answers to questions or to other types of information (for a toy example of such data, see Table 1.) 
+In our experience, researchers rarely refer to standards or guidelines when formatting or sharing questionnaire data. Yet, there seems to be an implicit consensus in that questionnaire data often appear to be formatted in similar ways. More specifically, the vast majority of questionnaire data is organized in a table where each row contains all the data from one respondent and where the columns refer to the questions, the answers to questions or to other types of information (for a toy example of such data, see Table 1.) For brevity, we will refer to this format as the "wide" data format because the resulting table tends to have a large number of columns (the table is wider[^wide_format]). 
+
+[^wide_format]: A given questionnaire dataset tends to look wider and shorter (i.e., more columns, less rows) when organized in a one-row-per-person table, and to look longer and thinner (i.e., more rows, less columns) when organized in a one-row-per-response table (as is the case for the tidy questionnaire data format we introduce later). This is however not necessarily the case (e.g., the tidy version could in some cases be wider). Also, "wide" and "long" do not refer to specific data formats but are rather descriptive terms of the shape of tables that can be used in a relative but not in an absolute way (i.e., "this table is wider than that one" as opposed to "this is *the* wide format"). Here, for brevity and in the specific context of questionnaire tabular data, we use the term "wide" to refer exclusively to the "one-row-per-person table format", and use the term "long" for the "one-row-per-response table format". 
+
+
+
+
+
 
 
 
@@ -80,21 +107,21 @@ In our experience, researchers rarely refer to standards or guidelines when form
 
 ### Key limitations of the wide data format
 
-The wide format for questionnaire data often has the advantage of being human-friendly when datasets are small. More specifically, because in the wide format each row represents all the responses collected from one participant, it is easy to inspect all the responses made by a given participant. Furthermore, because each question is represented as a column, it is also convenient to explore how overall participants responded to a particular question. The wide format also has the advantage of having variables that are semantically consistent and well-defined (e.g., all values within a column of the wide table are of the same type). While these are important benefits of the wide data format, it is important to note its severe limitations. Below we present the main limitations of the wide data format before introducing the tidy data format as a better alternative.
+The wide format for questionnaire data often has the advantage of being human-friendly when datasets are small. More specifically, because in the wide format each row represents all the responses collected from one participant, it is easy to *visually* inspect all the responses made by a given participant. Furthermore, because each question is represented as a column, it is also convenient to explore how overall participants responded to a particular question. The wide format also has the advantage of having variables that are semantically consistent and well-defined (e.g., all values within a column of the wide table are of the same type). While these are important benefits of the wide data format, it is important to also note its limitations. Below we present the main limitations of the wide data format before introducing the tidy data format as an alternative.
 
 
 #### Uncoupling of data that belong to the same questions.
 
 It is typically the case that more than one variable is needed to describe the response to a question. For example, in addition to the actual question and a person's response to it (e.g., the choice of a particular option on a Likert scale), one might also want to record how long it took the person to respond (i.e., the response time; e.g., to evaluate if people actually read the question or clicked randomly), how often people changed their mind before validating their response, a timestamp, a geolocation tag or a code to ascertain that the collected data is genuine and has not been post-processed. When using the wide format for questionnaire data, the multiple attributes describing a given response are stored across separate columns (e.g., `q1_text`, `q1_response`, `q1_response_time`). Furthermore, there are situations where each participant may be asked the same question multiple times. In those cases, under the wide data format, one would typically append a repetition index to the variable names (e.g., `q1_text_r1`, `q1_text_r2`, `q1_text_r3`). It is easy to see then that when a questionnaire has hundreds of questions, with each question being described by a handful of attributes and the questionnaire being repeated multiple times, that the result is a very large number of columns with somewhat long and complex names.
 
-This state of affairs is problematic for several reasons [@wickham2014]. First, because the intrinsic coupling of the attributes about a given response is not preserved in the data structure, there is a risk to incorrectly map attributes to questions and thus to report invalid results (e.g., incorrectly grouping `q1_text_r2` with `q2_response_r2`). Second, because data is encoded in the variable names rather than in the values of a dedicated column (i.e., the `_r1` suffix in the column name as opposed to separate column named e.g., `repetition_index`), accessing and using that data is comparatively harder and requires different data manipulation processes (i.e., parsing columns names). Thus, the wide format is inconvenient, error-prone, and does not scale up. 
+This state of affairs is problematic for several reasons [@wickham2014]. First, because the intrinsic coupling of the attributes about a given response is not preserved in the data structure, it becomes the responsability of the data analyst to keep track of which columns go togehter (i.e., map to the same question or response) based on the column names. There is consequently a greater risk to incorrectly map attributes to questions and thus to report invalid results (e.g., incorrectly grouping `q1_text_r2` with `q2_response_r2`). Second, because data is encoded in the variable names rather than in the values of a dedicated column (i.e., the `_r1` suffix in the column name as opposed to separate column named e.g., `repetition_index`), accessing and using that data is comparatively harder and requires different data manipulation processes (i.e., parsing columns names). Thus, the wide format is inconvenient, error-prone, and does not scale up. 
 
 
 
 
 #### Sparsity and missing values
 
-When people complete multiple questionnaires, with different people possibly completing different subsets of questionnaires, the wide data format quickly becomes impractical and inefficient. Indeed, if a question was asked even to a single person in the sample, that question will generate multiple columns that need to be filled with NA values for all the participants in the table that did not respond to that question. The sparser the data, the more inefficient the wide data format will be. This issue may not be apparent for small questionnaires that are almost completely filled out by all participants, but it is obvious when combining multiple questionnaires or when questionnaires are longer and contain branching structures[@kolczynska2022]. 
+When people complete multiple questionnaires, with different people possibly completing different subsets of questionnaires, the wide data format quickly becomes impractical and inefficient. Indeed, if a question was asked even to a single person in the sample, that question will generate multiple columns that need to be filled with NA values for all the participants in the table that did not respond to that question. The sparser the data, the more inefficient the wide data format will be. This issue may not be apparent for small questionnaires that are almost completely filled out by all participants, but it is obvious when combining multiple questionnaires or when questionnaires are longer and contain branching structures [@kolczynska2022]. 
 
 Furthermore, when NA values are “artificially” introduced to conform with the wide data format it can become impossible to determine for example if a given missing value results from a person not having been exposed to a question or instead having been exposed but decided not to answer. One may use different “codes” to represent different types of missing values, but such codes are not widely supported by programming languages. Thus, the wide format is inefficient and possibly misleading. 
 
@@ -106,48 +133,21 @@ Furthermore, when NA values are “artificially” introduced to conform with th
 Nobody will know what the column `q2_response_r1` in the data table means without additional explanations--data without metadata is often useless. One way to provide such explanations is via a codebook, a document that lists and explains all the columns in a data table as well as all the possible values that cells within those columns can take. 
 
 
-Consider the case where the same question is asked on three different occasions (r1, r2, r3) and on each occasion, we record the person's response and response time. As stated earlier, under the typical wide format, we would need to encode this data using 9 columns (e.g., `q1_text_r1`,  `q1_response_r1`, `q1_response_time_r1`). In addition to the mental gymnastics required to keep track of how to group the various columns, there is also quite an overload to document what these variables represent. Indeed, for each of these variables, the codebook needs to explain what they refer to (e.g., "`q2_response_r2`  is the answer made to the question: "Do you like cinnamon?", the second time it was asked. This question offers respondents two response options: "yes" and "no".) It is easy to see then that the same text needs to be repeated, almost exactly, over and over again to describe each of the columns that refer to the same question (e.g. "... the third time it was asked...."). In this toy example, we present only one question; in real-life examples, where questionnaires can have hundreds of questions, managing this type of metadata manually is error-prone and can quickly grow out of control.
+Consider the case where the same question is asked on three different occasions (r1, r2, r3) and on each occasion, we record the person's response and response time. As stated earlier, under the typical wide format, we would need to encode this data using 9 columns (e.g., `q1_text_r1`,  `q1_response_r1`, `q1_response_time_r1`). In addition to the mental gymnastics required to keep track of how to group the various columns, there is also quite an overload to document what these variables represent. Indeed, for each of these variables, the codebook needs to explain what they refer to (e.g., "`q2_response_r2`  is the answer made to the question: "Do you like cinnamon\?", the second time it was asked. This question offers respondents two response options: "yes" and "no".) It is easy to see then that the same text needs to be repeated, almost exactly, over and over again to describe each of the columns that refer to the same question (e.g., "... the third time it was asked...."). In this toy example, we present only one question; in real-life examples, where questionnaires can have hundreds of questions, managing this type of metadata manually is error-prone and can quickly grow out of control.
 
 
 These are, we believe, the main issues of the wide data format. Still other issues concern the difficulty to create good column names that encode information consistently when the data collection protocol is complex or the risk to have information in the column names that could identify participants and thus infringe data privacy [@netscher2018]. 
 
-To sum up, the wide data format for questionnaire data may be convenient in a limited--although rather common--use case where participants all complete the same small set of questions once and where only their choices are recorded. However, if we are to tackle more advanced research designs and to exploit the potential of questionnaires as a research instrument, it is clear that we will quickly hit the limitations of the wide data format and that an alternative is needed. Below we present the key principles behind *tidy data* before showing how they overcome the limitations of the wide format listed above.
+To sum up, the wide data format for questionnaire data may be convenient in a limited--although currently rather common--use case where participants all complete the same small set of questions once and where only their choices are recorded. However, if we are to tackle more advanced research designs and to further exploit the potential of questionnaires as a research instrument, it is clear that we will quickly hit the limitations of the wide data format and that an alternative is needed. Below we present the key principles behind *tidy data* before showing how they overcome the limitations of the wide format listed above.
 
 
 
 ## Tidy data
 
-There are general recommendations for how to structure tabular data to facilitate their analysis. The concept of *tidy data* [@wickham2014;\ see also @broman2018] has caught a lot of traction within the R community and led to the development of a suite of elegantly designed software packages that greatly facilitate data manipulation, modeling and visualization [@wickham2019].  Two points need to be stressed before presenting the key principles behind tidy data. First, there are many ways to organize a given dataset as a table. While some of these ways are clearly inadequate, others may be useful for particular operations (e.g., creating a new column by summing the values of two other columns). The tidy way is the best *default* state for that data table (for a toy example of such data, see Table 2.) Second, the tidy table is not adequate for all possible operations--it is therefore *expected* and even unavoidable that data analysts will have to reshape their data tables in various ways to serve specific purposes (for an example of sample code in R using the tidyverse package to convert the long format into a wide one, see code chunk 1). 
+There are general recommendations for how to structure tabular data to facilitate their analysis. The concept of *tidy data* [@wickham2014;\ see also @broman2018] has caught a lot of traction within the R community and led to the development of a suite of elegantly designed software packages that greatly facilitate data manipulation, modeling and visualization [@wickham2019].  Two points need to be stressed before presenting the key principles behind tidy data. First, there are many ways to organize a given dataset as a table. While some of these ways are clearly inadequate, others may be useful for particular operations (e.g., creating a new column by summing the values of two other columns). The tidy way is the best *default* state for that data table (for a toy example of such data, see Table 2.) Second, the tidy table is not adequate for all possible operations--it is therefore *expected* and often unavoidable that data analysts will have to reshape their data tables in various ways to serve specific purposes. 
 
 
-
-```{r}
-#| echo: fenced
-#| eval: false
-
-# load package
-library(tidyverse)
-
-# define toy dataset in the long data format
-df <- tribble(
-    ~subject_id, ~question_id, ~question_text, ~answer, 
-    "s001",   1, "How old are you?", "23", 
-    "s001",   2, "Do you like cinnamon?", "yes", 
-    "s002",   1, "How old are you?", "37",
-    "s002",   2, "Do you like cinnamon?", "no", 
-)
-
-# reshape the long data into the wide data format 
-df_wide <- df %>% pivot_wider(id_cols = subject_id, 
-                   names_from = question_id, 
-                   values_from = c(question_text, answer))
-```
-
-**Code Chunk 1.** Reshaping data from long to wide is a breeze with the `pivot_wider()` function from the tidyverse package. Note that there is also a `pivot_longer()` function for the reverse reshaping operation.
-
-
-
-**Table 2.** Example of long data format for questionnaire data. Contrast this table with Table 1.
+**Table 2.** Example of tidy data format for questionnaire data. Contrast this table with Table 1.
 
 | subject_id | questions_id | question_repetition | question_test           | response | response_time |
 | ---------- | ------------ | ------------------- | ----------------------- | -------- | ------------- |
@@ -163,19 +163,17 @@ df_wide <- df %>% pivot_wider(id_cols = subject_id,
 
 A core concept to organize data tables is the idea of *observational unit* which defines what the data table is about. For example, a dataset could be about students' test scores, about air travel, or car engine performance. In each of these cases, there is an entity (e.g., student) for which we have various attributes (e.g., age, gender, grade). It is important for structuring a table to be clear on what this primary entity is in order to ascertain what constitutes an observational unit. This observational unit determines what should be included in the table (or should instead be placed in a different table) and, most importantly, what constitutes a row in that table.
 
-Considering questionnaire data, if one organizes the data table so that each row represents a person (as in Table 1), one implicitly makes the statement that the observational unit is at the person level (and thus that the columns in the table describe a person). Alternatively--and this is the view that we hold--one may decide that the observational unit is the "response", which is formed by the interaction between a person and a question (as in Table 2). In this case, each row in the data table would be indexed by an instance of a person x question encounter. This implies that the data from a given person will be spread over multiple rows in the data table. This way of structuring data is less common for questionnaire data but is more typical of data in cognitive computerized testing, where each row represents a "trial" (see https://PROJECT/data-model/spec/trials/).
+Considering questionnaire data, if one organizes the data table so that each row represents a person (as in Table 1), one implicitly makes the statement that the observational unit is at the person level (and thus that the columns in the table describe a person). Alternatively--and this is the view that we hold--one may decide that the observational unit is the "response", which is formed by the interaction between a person and a question (as in Table 2). In this case, each row in the data table would be indexed by an instance of a person x question encounter. This implies that the data from a given person will be spread over multiple rows in the data table since a person will typically answer many questions. This way of structuring data is less common for questionnaire data but is more typical of data in cognitive computerized testing, where each row represents a "trial" (see https://PROJECT/data-model/spec/trials/).
 
 
 
 ### Rule 2: Each column describes an aspect of that observational unit.
 
-As each row represents an observation, each column represents an attribute or a variable that describes an aspect of that observation. Going back to our survey example, under the wide format, a value of “yes” on the `question_2` variable implicitly describes person “s001”. Under the long format, the value “yes” on the “response” variable describes instead the interaction between “s001” and the question with `question_id==2`. 
+As each row represents an observation, each column represents an attribute or a variable that describes an aspect of that observation. Going back to our survey example, under the wide format, a value of “yes” on the `question_2` variable implicitly describes person “s001”. Under the tidy format, the value “yes” on the “response” variable describes instead the interaction between “s001” and the question with `question_id==2`--which is a representation that seems semantically more accurate. 
 
 There are several points to note here. First, if a table contains columns that are *not* describing the observational unit formed by a row, those columns should be moved to a different table (see also Rule 3 below). For example, in Table 2, because the observational unit is the response, it wouldn't make sense to have a column describing the age of the participant (such a variable could however make sense in Table 1, where the observational unit is the participant.) Second, under this format, all variables describing a given observation are tied by virtue of being in the same row. This prevents the risk of incorrectly mixing descriptions from different observations. 
 
-A key property of tidy data is that each column in a data table describes a specific or "atomic" aspect of the observation. For example, `question_id`  is a valid column name. However, `question_1` and `answer_1` are inadequate since these variable names contain data in their name (i.e., the `1`  in `question_1` refers to the case where `question_id==1`; this `question_id` variable should have its own column rather than being "hidden" in the column names).  For additional concrete examples of messy datasets and how to tidy them in R, see @wickham2014.
-
-
+A key property of tidy data is that each column in a data table describes a specific or "atomic" aspect of the observation. For example, `question_id`  is a valid column name. However, `question_1` and `answer_1` are inadequate since these variable names contain data in their name (i.e., the `1`  in `question_1` refers to the case where `question_id==1`; this `question_id` variable should have its own column rather than being "hidden" in the column names). When data is both in the values of the variables and the variable names, data analysis will be more complex since it requires writing code that handles these two use cases. For additional concrete examples of messy datasets and how to tidy them in R, see @wickham2014.
 
   
 
@@ -183,55 +181,95 @@ A key property of tidy data is that each column in a data table describes a spec
 
 While it is practical to have all the data included in a single table, it is typically the case that multiple tables are needed to describe a dataset. As stated earlier, a table should contain observations that are of the same kind (i.e., describing the same observational unit); different kinds of observations should be stored in separate tables.
 
-For example, when collecting data from participants using questionnaires, in addition to collecting their responses to each question, it is common to also collect background information such as age and gender. In this example, we have two types of observations--one describing participants, the other describing how participants responded to individual questions. Consequently, we should store this data in two separate tables--the `subject_id` variable (or “key”) in both tables allows linking data across them. Note also that it is typically discouraged to have data redundancies in a relational database, because redundant data--multiple copies of the same data in different locations--has a greater risk of yielding inconsistencies across copies.
+For example, when collecting data from participants using questionnaires, in addition to collecting their responses to each question, it is common to also collect background information such as age and gender. In this example, we have two types of observations--one describing participants, the other describing how participants responded to individual questions. Consequently, we should store this data in two separate tables--the `subject_id` variable (or “key”) in both tables allows linking data across them. Note also that it is typically discouraged to have data redundancies in a relational database, because redundant data--multiple copies of the same data in different locations--has a greater risk of yielding inconsistencies across copies. It may also introduce ambiguities about the meaning of a variable (e.g., "is this a copy or a repeated measure?").
 
-There are of course cases where one needs to combine data from separate tables (e.g., did people from different ages respond differently to a given question?) With the appropriate tooling, it is straightforward to join two tables, provided they share columns (i.e., keys; for an example of code sample joining two tables in R using the tidyverse package, see code chunk 2 and its output Table 3).
 
+
+### Reshaping and joining tables
+
+Comparing Tables 1 and 2 one may appreciate that the exact same information may be organized into tabular form in various ways. As stated earlier, while the tidy data format is widely recommended as the *default* format for a tabular dataset [@wickham2014], depending on the specific needs, data analysts will have to reshape that table, for example from long to wide (or vice-versa). Modern data analysis software provide well-designed tools for reshaping data: for an example of sample code in R using the tidyverse package to convert the tidy format into a wide one, see code chunk 1.
 
 
 ```{r}
 #| echo: fenced
 #| eval: false
 
-# ... continued
+# load package
+library(tidyverse)
+
+# define toy dataset in the tidy data format
+df <- tribble(
+    ~subject_id, ~question_id, ~question_text,          ~answer, 
+    "s001",       1,            "How old are you?",      "23", 
+    "s001",       2,            "Do you like cinnamon?", "yes", 
+    "s002",       1,            "How old are you?",      "37",
+    "s002",       2,            "Do you like cinnamon?", "no", 
+)
+
+# reshape the tidy data into the wide data format 
+df_wide <- df |> pivot_wider(id_cols = subject_id, 
+                   names_from = question_id, 
+                   values_from = c(question_text, answer))
+```
+
+**Code Chunk 1.** Reshaping data from tidy to wide is a breeze with the `pivot_wider()` function from the tidyverse package. Note that there is also a `pivot_longer()` function for the reverse reshaping operation.
+
+
+Note however that while it is relatively easy to convert a tidy data table into a wide one, it is usually considerably harder to convert a wide data table into a tidy one. First, the wide data may be messy in many different ways requiring the data analysts to fully understand the data structure and typically to write custom code to tidy the data (for concrete examples, see @wickham2014). Second, even when the wide data format is organized in a systematic way (e.g., q1_r2_response), converting that data into a tidy data format requires understanding the coding scheme that was used (for example by having first to read the documentation) and then write specific code to "undo" that coding scheme and organize the data into its semantically simpler consitutents (e.g., question_id, repetition_index, response_text). 
+
+
+Rule 3 states that data about different observational units should be organized in separate tables. There are of course situations where one needs to combine data from separate tables (e.g., Does age affect how people answer this question?) Again, with the appropriate tooling, it is straightforward to join two tables, provided they share columns (i.e., keys; for an example of code sample joining two tables in R using the tidyverse package, see code chunk 2 and its output Table 3).
+
+```{r}
+#| echo: fenced
+#| eval: false
+
+# create toy datasets
+# -- people's responses
+# we'll use the "df" table defined earlier
+
+# -- demographic data
 demographics <- tribble(
-  ~subject_id, ~age, ~gender, ~ses_level, 
-  "s001",   23, "male", 4, 
-  "s002",   37, "female", 8, 
+  ~subject_id, ~is_married, ~gender, ~ses_level, 
+  "s001",       FALSE,      "male",   4, 
+  "s002",       TRUE,       "female", 8, 
 )
 
 # join data tables
-df_joined <- left_join(df_wide, demographics, by = "subject_id")
+df_joined <- left_join(df, demographics, by = "subject_id")
 ```
 
-**Code Chunk 2.** Joining data tables with shared keys. In this example we use the `left_join()` function from the tidyverse package in R to join a demographics table to a questionnaire data table (wide format) using `subject_id` as the key to map entries across the two tables. 
-
-
-
-| subject_id | question_text_1     | question_text_2         | answer_1 | answer_2 | age | gender   | ses_level | 
-| ---------- | ------------------- | ----------------------- | -------- | -------- | --- | -------- | --------- | 
-| s001       |  "How old are you?" | "Do you like cinnamon?" | 23       | "yes"    | 23  | "male"   | 4         | 
-| s002       |  "How old are you?" | "Do you like cinnamon?" | 37       | "no"     | 37  | "female" | 8         |
-
-Table 3. Output of joining two tables (i.e., results from running chunk 2).
+**Code Chunk 2.** Joining data tables with shared keys. In this example we use the `left_join()` function from the tidyverse package in R to join a demographics table to a questionnaire data table using `subject_id` as the key to map entries across the two tables. 
 
 
 
 
-## Tidy questionnaire data: advantages of the long data  format
+**Table 3.** Output of joining two tables (i.e., results from running chunk 2).
 
-Tidy data typically has a long data format (i.e., tables have few columns and many rows). Although the long format is less common, it has important advantages that we describe next. 
+| subject_id | question_id | question_text            | answer | is_married | gender   | ses_level | 
+| ---------- | ----------- | -----------------------  | ------ | ------- | -------- | --------  | 
+| s001       |  1          | "How old are you?"       | 23     | FALSE   | "male"   | 4         |
+| s001       |  2          | "Do you like cinnamon?"  | "yes   | FALSE   | "male"   | 4         | 
+| s002       |  1          | "How old are you?"       | 37     | TRUE    | "female" | 8         |
+| s002       |  2          | "Do you like cinnamon?"  | "no"   | TRUE    | "female" | 8         |
 
 
-### Effective representation of sparse data and missing values
 
 
-When the data is sparse—participants are exposed only to a small set of possible questions. Representing the data in the wide format can be highly ineffective because the data table has to be filled with missing values to complete all participant-by-column cells (see @fig-1). Instead, the long data format can represent the same data in a much more compact way, recording only the participants-questions interactions that actually occurred. Furthermore, the wide data format creates a potential issue with missing values. As shown in @fig-1, the cases where missing values are injected in the data for it to conform with the wide data format needs to be distinguished from genuine missing values, for example, when participants are exposed to a question but decided not to answer it.
+
+
+## Advantages of the tidy questionnaire data format
+
+
+### Compact representation of sparse data and missing values
+
+
+When the data is sparse (e.g., participants are exposed only to a small set of possible questions), representing the data in the wide format can be highly ineffective because the data table has to be filled with missing values to complete all participant-by-column cells (see @fig-1). Instead, the tidy data format can represent the same data more concisely, recording only the participants-questions interactions that actually occurred. Furthermore, the wide data format creates a potential issue with missing values. As shown in @fig-1, the cases where missing values are injected in the data for it to conform with the wide data format needs to be distinguished from genuine missing values, for example, when participants are exposed to a question but decided not to answer it. Note however that it is *not* true that the tidy data format will always be more compact than the wide one: using the wide format it is possible to pack a lot of information into the column names at the expense of course of making that information harder to access. While we focus here on conciseness of the data, it is worth noting that some people may nevertheless prefer the wide format because it shows the data that is missing and displays the data in a way they feel is easier to understand (i.e., grouping all the data from one person in one row).  
 
 
 
  
-![The long data format is more effective to store sparse data. This figure provides a concrete example: the exact same data is stored using 6 rows x 4 columns = 24 values when using the long data format, while it requires almost twice as much under the wide data format (5 rows x 9 columns = 45 values).
+![The tidy data format is more effective to store sparse data. This figure provides a concrete example: the exact same data is stored using 6 rows x 4 columns = 24 values when using the tidy data format, while it requires almost twice as much under the wide data format (5 rows x 9 columns = 45 values). Note that the colors in these images are only used to highlight specific elements for the reader; many data files and data analysis software do not support the “coloring” of values and even when it is possible (e.g., in Excel files) coloring data is considered a bad practice.
 ](figures/fig_1.png){#fig-1 width=100%}
 
 
@@ -242,34 +280,34 @@ When the data is sparse—participants are exposed only to a small set of possib
 
 
 
-![Selecting the data referring to a question of interest is harder under the wide than under the long data format.](figures/fig_2.png){#fig-2 width=50%}
+![Selecting the data referring to a question of interest is harder under the wide than under the tidy data format.](figures/fig_2.png){#fig-2 width=50%}
 
 
 
 
-@fig-2 illustrates the fact that selecting variables related to a particular question is much harder under the wide than under the long, tidy format. Indeed, under the wide format, assuming the naming of the columns follows a clear pattern (e.g., "q1_response_r2" to refer to the response on question q1 on its second occurrence), accessing for example all the data corresponding to one particular questions (i.e., all "q1_" prefixed variables) will typically require some form of regular expression matching. This regular expression will be both specific to the column naming convention used (without which each column will need to be named in extenso, typically requiring to keep a codebook at hand at all times) and the specific subset of requested data (e.g., grabbing all data related to first time questions). In contrast, filtering data in the long data format is easier and more consistent (for an example of code in R using the tidyverse library, see code chunk 3). 
+@fig-2 illustrates the fact that selecting variables related to a particular question is much harder under the wide than under the tidy format. Indeed, under the wide format--assuming the naming of the columns follows a clear pattern (e.g., "q1_response_r2" to refer to the response on question q1 on its second occurrence)-- accessing for example all the data corresponding to one particular questions (i.e., all "q1_" prefixed variables) will typically require some form of regular expression matching. This regular expression will be both specific to the column naming convention used (without which each column will need to be named in extenso, typically requiring to keep a codebook at hand at all times) and the specific subset of requested data (e.g., grabbing all data related to first time questions). In contrast, filtering data in the tidy data format is easier and more consistent (for an example of code in R using the tidyverse library, see code chunk 3). 
 
 ```{r}
 #| echo: fenced
 #| eval: false
 
 # create toy dataset
-df_long <- tribble(
-    ~subject_id, ~question_id, ~question, ~answer, ~repetition,
-    "s001",   1, "How old are you?", "23", 1,
-    "s001",   2, "Do you like cinnamon?", "yes", 1, 
-    "s002",   1, "How old are you?", "37", 1, 
-    "s002",   2, "Do you like cinnamon?", "no", 1, 
-    "s001",   1, "How old are you?", "23", 2, 
-    "s001",   2, "Do you like cinnamon?", "yes", 2,  
-    "s002",   1, "How old are you?", "37", 2, 
-    "s002",   2, "Do you like cinnamon?", "yes", 2, 
-    "s001",   1, "How old are you?", "23", 3, 
-    "s001",   2, "Do you like cinnamon?", "yes", 3, 
+df_tidy <- tribble(
+    ~subject_id, ~question_id, ~question,             ~answer, ~repetition,
+    "s001",       1,            "How old are you?",      "23",    1,
+    "s001",       2,            "Do you like cinnamon?", "yes",   1, 
+    "s002",       1,            "How old are you?",      "37",    1, 
+    "s002",       2,            "Do you like cinnamon?", "no",    1, 
+    "s001",       1,            "How old are you?",      "23",    2, 
+    "s001",       2,            "Do you like cinnamon?", "yes",   2,  
+    "s002",       1,            "How old are you?",      "37",    2, 
+    "s002",       2,            "Do you like cinnamon?", "yes",   2, 
+    "s001",       1,            "How old are you?",      "23",    3, 
+    "s001",       2,            "Do you like cinnamon?", "yes",   3, 
 )
 
 # create a "wide" version of the dataset
-df_wide <- df_long |> 
+df_wide <- df_tidy |> 
   mutate(question_id = paste0('q', question_id), 
          repetition = paste0('r', repetition)) |> 
   pivot_wider(names_from = c(question_id, repetition), 
@@ -283,13 +321,13 @@ df_wide <- df_long |>
 df_wide |> select(matches("^q1_"))
 df_wide |> select(matches("r2$"))
 
-# -- under the long format
-df_long |> filter(question_id == 1)
-df_long |> filter(repetition == 2)
+# -- under the tidy format
+df_tidy |> filter(question_id == 1)
+df_tidy |> filter(repetition == 2)
 
 ```
 
-**Code Chunk 3.** Selecting and filtering data under the wide vs long data format. Note that in this example, the operations remain rather simple because we used a consistent column naming scheme and tidyverse offers effective column selection tools. It is likely that when using other tools for data analysis (e.g., Excel) these difficulties will be much more salient.
+**Code Chunk 3.** Selecting and filtering data under the wide vs tidy data format. Note that in this example, the operations remain rather simple because we used a consistent column naming scheme and tidyverse offers effective column selection tools. It is likely that when using other tools for data analysis (e.g., Excel) these difficulties will be much more salient.
 
 
  
@@ -304,14 +342,14 @@ df_long |> filter(repetition == 2)
 
 
 
-![Changing or augmenting response data with additional attributes (e.g., response times) requires adding many columns in the wide data frame (one per response), with an increased risk of mistakes. In contrast, under the long data format, only a single additional column is needed per new attribute.](figures/fig_3.png){#fig-3 width=50%}
+![Changing or augmenting response data with additional attributes (e.g., response times) requires adding many columns in the wide data frame (one per response), which means more effort/code and implies an increased risk of mistakes. In contrast, under the tidy data format, only a single additional column is needed per new attribute.](figures/fig_3.png){#fig-3 width=50%}
 
 
 
 
-Adding more attributes to describe a response is straightforward when using the tidy format, but rather cumbersome when using the wide one (see @fig-3). For instance, assuming a 100 question long questionnaire, adding a `response_time` attribute to each response only adds a single column to the tidy data table while it adds 100 additional columns (with names like `q1_response_time`, `q2_response_time`, etc.) under the wide data format.  This state of affairs is of course magnified the more attributes are included to describe a given response (e.g., `timestamp`, `is_optional`, `changed_response`). These additional attributes are critical to make the most out of questionnaire data (e.g., timestamps could be used for telemetry, identify bottlenecks and in general improve the questionnaire design; `repsonse_time` could be used to determine if a question is hard or if people are just randomly pressing keys). Because in the wide data format more columns are added or created it is also much harder to check if a column is missing (e.g., is there a timestamp for the third repetition of question 42?). 
+Adding more attributes to describe a response is straightforward when using the tidy format, but rather cumbersome when using the wide one (see @fig-3). For instance, assuming a 100 item long questionnaire, adding a `response_time` attribute to each response only adds a single column to the tidy data table while it adds 100 additional columns (with names like `q1_response_time`, `q2_response_time`, etc.) under the wide data format.  This state of affairs is of course magnified the more attributes are included to describe a given response (e.g., `timestamp`, `is_optional`, `changed_response`). These additional attributes are critical to make the most out of questionnaire data (e.g., timestamps could be used for telemetry, identify bottlenecks and in general improve the questionnaire design; `repsonse_time` could be used to determine if a question is hard or if people are just randomly pressing keys). Because in the wide data format more columns are added or created it is also much harder to check if a column is missing (e.g., is there a timestamp for the third repetition of question 42?). 
 
-Finally, writing code to transform columns (i.e., use data to compute new variables) is much easier under the long format than under the wide format. Imagine for example that you want to change the units of the response-time variable from milliseconds to seconds. Under the long data format this is a trivial task that can be completed with one line of code. Under the wide data format however, this operation would be quite challenging, time consuming and error prone.  
+Finally, writing code to transform columns (i.e., use data to compute new variables) is much easier under the tidy format than under the wide format. Imagine for example that you want to change the units of the response-time variable from milliseconds to seconds. Under the tidy data format this is a trivial task that can be completed with one line of code. Under the wide data format however, this operation would be quite challenging, time consuming and error prone.  
 
 
 
@@ -319,46 +357,51 @@ Finally, writing code to transform columns (i.e., use data to compute new variab
 
 
 
-![Metadata are more concise and easier to manage under the long, tidy format than under the wide data format.](figures/fig_4.png){#fig-4 width=50%}
+![Metadata are more concise and easier to manage under the tidy format than under the wide data format.](figures/fig_4.png){#fig-4 width=50%}
 
 
 
-Describing data (e.g., with a codebook) is much easier under the long, tidy data format than it is under the typical wide data format (see @fig-4). Assuming a questionnaire with 100 questions, 3 attributes per question and 2 repetitions, the data table would have 601 columns (100x3x2 + 1 subject_index) under wide data format, each of which requiring its own entry in a codebook (i.e., 601 rows in a codebook table) generating large files with considerable redundancies and thus a higher risk for errors. Alternatively, under the long, tidy data format, the same data would have only 6 columns (subject_index, question_id, repetition_index and the three attributes). The 100 questions could have their own codebook (i.e., 100 entries, one per question) as well as the different types of response options offered for each question (e.g., with only 1 entry if all the questions used the same Likert scale).  Thus, in total, under the tidy data model, in our example, the codebook would have only 107, non-redundant entries, which is much smaller and more convenient to use than the 601 codebook entries under the typical wide data format.
+Describing data (e.g., with a codebook) is much easier under the tidy data format than it is under the typical wide data format (see @fig-4). Assuming a questionnaire with 100 questions, 3 attributes per question and 2 repetitions, the data table would have 601 columns (100x3x2 + 1 subject_index) under wide data format, each of which requiring its own entry in a codebook (i.e., 601 rows in a codebook table) generating large files with considerable redundancies and thus a higher risk for errors. Alternatively, under the tidy data format, the same data would have only 6 columns (subject_index, question_id, repetition_index and the three attributes). The 100 questions could have their own codebook (i.e., 100 entries, one per question) as well as the different types of response options offered for each question (e.g., with only 1 entry if all the questions used the same Likert scale).  Thus, in total, under the tidy data model, in our example, the codebook would have only 107, non-redundant entries, which is much smaller and more convenient to use than the 601 codebook entries under the typical wide data format.
 
-Another important concern when using questionnaires is how to deal with multiple languages. In international projects the same questionnaires are typically distributed in multiple languages. Moreover, the language used by respondents in a study may not be the language required by the journal where the study will be published nor the language used by the scientific community that may reuse that dataset. Managing multiple languages under the wide data format can be quite cumbersome, leading to multiplication of columns and data documentation. Under the long data format, the English text could be used in the main data file together with a column indicating in which language a given question was asked. The translations of the question may then be compactly stored in dedicated Question and Option tables that can be joined using keys (e.g., question_id).
+Another important concern when using questionnaires is how to deal with multiple languages. In international projects the same questionnaires are typically distributed in multiple languages. Moreover, the language used by respondents in a study may not be the language required by the journal where the study will be published nor the language used by the scientific community that may reuse that dataset. Managing multiple languages under the wide data format can be quite cumbersome, leading to multiplication of columns and data documentation. Under the tidy data format, the English text could be used in the main data file together with a column indicating in which language a given question was asked. The translations of the question may then be compactly stored in dedicated Question and Option tables that can be joined using keys (e.g., question_id).
 
 
 ### Combining multiple questionnaires
 
-Combining data from multiple questionnaires completed by a common set of participants is comparatively much easier under the long than under the wide data format. We already mentioned the issues regarding the efficiency of data representation (see @fig-1) and data documentation (see @fig-4). The additional problem we describe here is that data from different questionnaires may use different data models, and it may therefore not be possible to join them directly: the columns and values of the data may first need to be recoded for consistency. For example, one data table may encode the question id using an index (e.g., `q1_response`) while another may use some sort of code (e.g., `sleep_response`) or the same question_id may exist in two different tables but refer to different questions. Harmonizing questionnaire data (as well the corresponding codebooks) is much easier under the long format than under the wide format because there are fewer columns to change. In fact, it is generally recommended to transform the wide data into the long format when attempting to combine data across multiple questionnaires [@kolczynska2022]. 
+Combining data from multiple questionnaires completed by a common set of participants is considerably easier under the tidy than under the wide data format. We already mentioned the issues regarding the efficiency of sparse data representation (see @fig-1) and data documentation (see @fig-4). The additional problem we describe here is that data from different questionnaires may use different data models, and it may therefore not be possible to join them directly: the columns and values of the data may first need to be recoded for consistency. For example, one data table may encode the question id using an index (e.g., `q1_response`) while another may use some sort of code (e.g., `sleep_response`) or the same question_id may exist in two different tables but refer to different questions. Harmonizing questionnaire data (as well the corresponding codebooks) is much easier under the tidy format than under the wide format because there are fewer columns to change, the column names are simpler and could in fact be shared across datasets. In fact, it is generally recommended to transform the wide data into the tidy format when attempting to combine data across multiple questionnaires [@kolczynska2022]. 
 
 
 
 
 ### Linking datasets
 
-An important advantage of the tidy/long data format over the wide one relates to the idea of linking the questionnaire data to other kinds of data in a way that is both convenient and allows for that additional data to be properly formatted and easy to use. One example of such a linked data table that we already mentioned is the metadata describing the questions that were asked to participants (which could for instance include the domain, the required reading level, the emotional valence and other factors that could be used to further process the response data). If this type of data were properly formatted, it could serve as data for other types of analyses (e.g., topic analysis of questionnaire databases)--indeed, one person’s metadata is another person's data [@pomerantz2015].
+An important advantage of the tidy data format over the wide one relates to the idea of linking the questionnaire data to other kinds of data in a way that is both convenient and allows for that additional data to be properly formatted and easy to use. One example of such a linked data table that we already mentioned is the metadata describing the questions that were asked to participants (which could for instance include the domain, the required reading level, the emotional valence and other factors that could be used to further process the response data). If this type of data were properly formatted, it could serve as data for other types of analyses (e.g., topic analysis of questionnaire databases)--indeed, one person’s metadata is another person's data [@pomerantz2015].
 
 
-It would be desirable for questions in a questionnaire to refer to a question database so that datasets using the same questions could be identified, integrated, compared and augmented, and insights and data about a question could be effectively reused in future questionnaires and drive better questionnaire designs.  Achieving this is rather straightforward with the long data format where a `question_id` could have values linking unambiguously to such databases. Under the wide data format however, things are more challenging since column names are modified to incorporate dataset specific information, effectively breaking the link between questions and their source database. For example, a column `V1_1_2` could refer to a question in a database called `V1_1_2` or to the second repetition of question `V1_1` or the question `V1` presented as the first question to respondents the second time the questionnaire was completed.
+It would be desirable for questions in a questionnaire to refer to a question database so that datasets using the same questions could be identified, integrated, compared and augmented, and insights and data about a question could be effectively reused in future questionnaires and drive better questionnaire designs.  Achieving this is rather straightforward with the tidy data format where a `question_id` could have values linking unambiguously to such databases. Under the wide data format however, things are more challenging since column names are modified to incorporate dataset specific information, effectively breaking the link between questions and their source database. For example, a column `V1_1_2` could refer to a question in a database called `V1_1_2` or to the second repetition of question `V1_1` or the question `V1` presented as the first question to respondents the second time the questionnaire was completed.
 
 
-A final example of data one might want to systematically link to questionnaire data, in particular if the questions require respondents to input textual responses, are mouse clicks and keystroke data (which keyboard key was pressed when) as this type of data may be used to authenticate participants and possibly make inferences about their cognitive processes [@conijn2019]. Under the long data format, it is straightforward to connect the response data table with the keystroke data table: both tables need to have columns to refer to `subject_id`, `question_id` and possibly other variables (e.g., if the same question was asked multiple times).  Things are messier under the wide data format as in that case the keystroke data need to refer to column names, where it may not be clear which column to link the keystroke data with, and where a change in columns names (e.g., in order to join multiple tables) may break[^3] the links between the response data and their related data tables. 
+A final example of data one might want to systematically link to questionnaire data, in particular if the questions require respondents to input textual responses, are mouse clicks and keystroke data (which keyboard key was pressed when) as this type of data may be used to authenticate participants and possibly make inferences about their cognitive processes [@conijn2019]. Under the tidy data format, it is straightforward to connect the response data table with the keystroke data table: both tables need to have columns to refer to `subject_id`, `question_id` and possibly other variables (e.g., if the same question was asked multiple times).  Things are messier under the wide data format as in that case the keystroke data need to refer to column names, where it may not be clear which column to link the keystroke data with, and where a change in columns names (e.g., in order to join multiple tables) may break[^3] the links between the response data and their related data tables. 
 
 [^3]: Note that dataset specific column names require dataset specific data analysis scripts (preventing automation) and that changing column names during the analysis can break previous code [for an example, see @arslan2019.]
 
 
-Thus, it appears that even though an analyst's main focus might be on a single tabular data containing participants' responses, the long format allows that data to be meaningfully and effectively connected to other data that may significantly augment our understanding of the studied phenomena.
+Thus, it appears that even though an analyst's main focus might be on a single tabular data containing participants' responses, the tidy format allows that data to be meaningfully and effectively connected to other data that may significantly augment our understanding of the studied phenomena.
 
 
-# On the difficulty to make questionnaire data tidy
-
-In the previous section we demonstrated the clear advantages of the long over the wide data format. There are however some challenges related to the long format. Some readers may for instance object that the common operation of computing participant-scores (e.g., a “extraversion” score) from questionnaire data--which typically involves creating a new column by summing other columns--is much easier under the wide data format than the long one. While it is true that more operations are needed to compute such scores under the long data format, the steps are rather straightforward to implement (see code chunk 4 for an example in R).
+# Some challenges of the tidy questionnaire data format
 
 
+## Computing scores from questionnaire data
+
+In the previous section we demonstrated several key advantages of the tidy over the wide data format. There are however some challenges related to the tidy format. Some readers may for instance object that the common operation of computing participant-scores (e.g., a “extraversion” score) from questionnaire data--which typically involves creating a new column by summing other columns--is much easier under the wide data format than the tidy one. While it is true that more operations are needed to compute such scores under the tidy data format, the steps are rather straightforward to implement (see code chunk 4 for a toy example in R).
 
 
 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+-> use a real example: questionnaire data from personality test, with various repetitions and maybe conditions.
+here the tidy format could use standard code to process the data while the tidy format would require more custom code.
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 ```{r}
@@ -367,16 +410,17 @@ In the previous section we demonstrated the clear advantages of the long over th
 
 # create toy dataset
 quiz_data <- tribble(
-  ~subject_id, ~question_id, ~question_text, ~answer, ~score,   
-  "s001",   "q10", "What is the capital of France?", "Paris", 1,
-  "s001",   "q11", "What is the capital of Luxembourg?", "Luxembourg", 1,
-  "s001",   "q12", "When was Leanoardo da Vinci born?", "1452", 1,
-  "s002",   "q10", "What is the capital of France?", "Paris", 1,
-  "s002",   "q11", "What is the capital of Luxembourg?", NA, 0,
-  "s002",   "q12", "When was Leanoardo da Vinci born?", "1900", 0,
+  ~subject_id, ~question_id, ~question_text,                    ~answer,   ~score,   
+  "s001",      "q10",       "What is the capital of France?",     "Paris",      1,
+  "s001",      "q11",       "What is the capital of Luxembourg?", "Luxembourg", 1,
+  "s001",      "q12",       "When was Leanoardo da Vinci born?",  "1452",       1,
+  "s002",      "q10",       "What is the capital of France?",     "Paris",      1,
+  "s002",      "q11",       "What is the capital of Luxembourg?", NA,           0,
+  "s002",      "q12",       "When was Leanoardo da Vinci born?",  "1900",       0,
 )
 
-# code to score quiz responses: this code could be separate from the data analysis script and reused on other datasets.
+# code to score quiz responses: this code could be separate from the data analysis script 
+# and reused on other datasets.
 my_scoring_function <- function(q10, q11){
   0.8 * q10 + 1.2 * q11
 }
@@ -395,144 +439,166 @@ scores <- quiz_data |>
   # retain only relevant columns
   select(subject_id, score)
 
-print(scores)
 ```
 
 
-**Code Chunk 4.** Example code demonstrating how to compute a score from a set of questions under the long data format in R using the tidyverse package.
+**Code Chunk 4.** Example code demonstrating how to compute a score from a set of questions under the tidy data format in R using the tidyverse package.
+
+
+
+## Mixing of data types
+
+Perhaps a more serious concern is that questionnaires typically use a variety of response options that generate data that are of different types. For example, one question may offer the response options "yes" and "no", another may propose "yes", "no" and "I don't know" and a third one may ask for a text input (where respondents might for instance type in the word "yes").  What this example shows is that the same value of "yes" has a somewhat different meaning across these three cases. To encode this data one has the choice to either "loosely" type the data (i.e., in all three cases "yes" is encoded as a string) or to type the data more strictly (i.e., "yes" as a level of the "yes_no" or "yes_no_dontknow" option sets in the first two cases, respectively, and, as a string in the third case). Having strongly typed data is very useful for analysis and visualization: it may allow specialized software to use appropriate default parameters and methods for analysis and visualization. It may also reduce the risk of errors, for example by preventing operations on data with different data types.
+
+When each response is encoded in its own column, using a strict data type is straightforward--this is arguably one of the major advantages of the wide data format commonly used today (e.g., `q1_response` could have type "yes_no" while `q3_response` could have type "string"). But as we have argued above, this data format brings with it a range of important disadvantages.
+
+Handling mixed response types within a *single* tidy table is less straightforward and requires making design choices. One solution would be to have one column per type of response in the table (e.g., `response_yesno`, `response_string`, ...). While in this case the columns can be strongly typed, many mising values would need to be filled in for all the possible response options that were NOT used for a particular question. Furthermore, the data analyst would have to painstakenly track for each question which of those response columns to pick--clearly not an ideal solution. A better alternative is to encode the responses using a small set of columns encoded using general data types (e.g, string, float, integer, boolean) and to store the more specific type information (i.e., "yes_no" vs "string") elsewhere. This solution is more elegant, usable and compact than the previous. But it also begs the questions of where to store that more specific data type information and how this fits in concrete data analyses practices (i.e., is it a problem or inconvenient that data is not *strictly* typed?). 
+
+To answser these questions we will first present a concrete, specific way to organize questionnaire data in a tidy table. This will hopefully make it easier to appreciate the benefits and disadvantages of the proposed solution. 
 
 
 
 
 
-A more serious concern is that it is typically not possible with questionnaire data to simultaneously satisfy the following two conditions: a) all the data is encoded in a single data table and b) the data table is strictly tidy [@wickham2014]. 
 
-The reason why single tables for questionnaire data are not strictly tidy is mostly because responses to questions can be of different types. For example, one question may offer the response options "yes" and "no", another may propose "yes", "no" and "I don't know" and a third one may ask for a text input (where respondents might for instance type in the word "yes").  What this example shows is that the same value of "yes" has a somewhat different meaning across these three cases. Under the wide data format, this is not a problem since the type of variable is consistent within columns (e.g., the same "yes"/"no" response options have been used systematically each time question 1 was asked, hence all values of `q1_response` are of the same type). Under the long data format things are somewhat more complicated and a data model design choice needs to be made. One option is to not include the response in the main data table and instead have separate linked tables for the responses (one table per type of response; e.g., one table for "yes/no", one for "yes/no/I don't know" and one for text inputs). This relational database way of organizing the data ensures that each table is tidy. However, we end up having to use multiple tables and manage links between tables to process the data--this seems rather at odds with current data analysis practices and most statistical data analysis software today have been designed for single rectangular data tables [@wickham2014]. The alternative option is to squeeze multiple data types into a single table. Here we see two different sub-options. The first sub-option creates a column for each type of response filling with NA all unused cases (e.g., `q1_response_yesno` would have value of "yes", while `q1_response_yesnoIdontknow` and `q1_response_textinput` would have values of NA). This solution does not seem satisfactory for multiple reasons, including in particular the need to search for the right column when analyzing a particular response. The second sub-option is to define a data model that is more abstract (columns are only loosely typed) and where additional information needs to be used to fully interpret the responses. Continuing with the previous example, a `response_description` column (with values that are all of type “text”) may have the value "yes" in all the three mentioned cases, but there would in addition be a column called `option_id` which could have the values "yes/no", "yes/no/I don't know" and "text_input". This solution is more elegant and compact, but places the burden of not mixing response types on the data analyst.
-
+# The [PROJECT] data model for questionnaires
 
 
-# The Behavese data model for questionnaires
+In previous sections we presented the general principles of tidy data; here we want to provide a concrete illustration of how those principles apply to questionnaire data as well as provide additional specifications (not covered in the principles) regarding in particular what columns to include in the table, how to name things and what units to chose. This specification is part of a larger initiative on data models for behavioral data [PROJECT_LINK]; we will focus here only on key elements and refer the interested reader to the online documentation. 
 
-[PROJECT](https://PROJECT/) is a collection of integrated projects and software systems designed to accelerate, integrate and scale-up cognitive science research to yield scientific discoveries and innovation while promoting best practices and open science.
 
-The PROJECT data model (PROJECT_ACRONYM)--a central component of PROJECT--is born out of two key realizations. Firstly, while many datasets are now publicly available (e.g., on https://osf.io/ or https://zenodo.org/), it is very hard to find data that are readily usable. In fact, many datasets may not be usable at all, even after putting in considerable effort. Indeed, some data files are incomplete, lacking documentation, weirdly formatted and recorded using proprietary data formats. Secondly, as we were running a large scale study using many different cognitive tasks and questionnaires, we realized that if we were to analyze each task as a one-shot case, it would take us a lot of time and we would end up writing code that would be hard to reuse and to maintain. Furthermore, it would be difficult to enforce common principles across tasks and datasets (e.g., how to treat outliers, whether or not to log transform response times, whether or not to filter out incorrect responses) and hence it would be hard to ascertain if specific results are due to differences in data analytic approaches or to actual differences in the data. In short, data that follow specific conventions and standards make it possible a) to reuse other people’s data with minimal efforts and b) to develop standardized and reusable code.  
+Two points are worth noting at this stage. First, studies involve mutiple types of data (e.g., metadata, administrative data, data about the instruments used, code books). Here we focus only on the table describing the interaction between an agent and a questionnaire item. We call this table the "Response" table; we may also refer to it as the "main table" and all other tables as "secondary tables". Secondly, it is impossible to name things in a way that satisfies everyone. To encompass a large number of use cases we tend to prefer more abstract terms to designate a particular entity, which however may feel odd for people working on a specific use case. For example, we use the term "agent" rather than more specific terms like "respondent", "participant" or "subject" to cover a wider range of use cases (e.g., artificial agents or non-human animals peforming computerized tests). 
 
-It is important to clarify what we mean by data model to distinguish PROJECT_ACRONYM from other related projects, standards and conventions. Data has many facets and for each of them, conventions and standards can be defined. One such facet is descriptive metadata, that is, data that describes the data of interest in a way that enables search engines to find relevant dataset based on user queries. Standards like https://schema.org/ have been developed for this purpose and can describe a large variety of things, including datasets. Nevertheless, extensions to such standards may be needed for specific use cases. This may be the case for example when users search datasets based on features that are not readily available or unintuitive in the existing standards (e.g., such as searching for datasets that involve more than a thousand participants).
-
-The PROJECT data model does not focus on such metadata; instead it focuses on how to describe and encode the main concepts of behavioral data (such as stimulus and responses) in the data set itself, how to consistently name the features of observations (i.e., known as a controlled vocabulary), what units of measurements to use and how to organize datasets into files and folders. 
-
-A detailed description of the current version of PROJECT_ACRONYM can be found elsewhere (https://PROJECT/data-model/). Here we describe only a handful of PROJECT_ACRONYM key design choices as they equally apply to questionnaire data.
-
-## Key PROJECT_ACRONYM design choices
-focus on the interaction between one person and one stimulus;
-The main observational unit in PROJECT_ACRONYM is the interaction between a person and an instance of a task which typically leads to a response that can be meaningfully interpreted by researchers. In a cognitive test, the task might be to decide if an arrow is pointing to the left or right by clicking one of two possible keys (these inputs define the response options). A “trial” in this context is a data construct that glues together event data that pertain to one instance of an interaction between an agent (e.g., a human participant) and a stimulus (e.g., a specific image of a left arrow, shown in a specific way). A response is one or multiple inputs or actions emitted by the agent and which form a meaningful piece of information within the context of the task (e.g., a “choice” that evaluates to correct). 
-
-In the case of questionnaires, we follow the same logic. A trial now refers to the interaction between an agent and a specific question item. A question has specific properties (e.g., its text content) and is displayed in a specific way (e.g., shown until a response is entered). Agents are offered input options to enter their responses (e.g., clicking on a checkbox, entering a text or number), and those responses can sometimes be scored or evaluated (e.g., a correct answer in a quiz). 
-
-Thus in both cognitive tests and questionnaires cases, the observational unit can be the agent stimulus interaction, resulting in the long data format. Two points are worth noting here. First, the terminology used in these two use cases tend to be quite different. For instance, the term “stimulus” is common in cognitive tests but rarely used in questionnaires, where terms like “question” and “item” are de rigueur. We prefer the consistent use of one set of terms, rather than mixing related terms; we also prefer to adopt the terms from the cognitive testing domain (e.g, stimulus, response) over the terms from the questionnaire domain (e.g., question, item) as the latter seems less general and more ambiguous (e.g., items may sometimes refer to a question AND its associated response options).    
-Using the term “stimulus” to describe a question may feel odd at first; however, a question is in fact a stimulus and the capability to have a common data structure for cognitive tests and questionnaires outweighs in our view preferences for specific terms expressing the same idea. 
-
-The second point to note is that while in computerized cognitive tests, trials typically occur in succession (i.e., a stimulus is shown, the agent provides inputs that form a response; then the next trials starts and a new stimulus is shown), in questionnaires, it is quite common that multiple questions are presented at once to respondents (e.g., a sheet of paper students have to fill out, a “question matrix” presented on the screen where each row is a different question). 
-This visual design choice seems necessary when questionnaires are distributed on sheets of paper; however, when using digital media it is possible and preferable to display only one question at a time as research clearly shows that this yields better data (e.g., fewer responses are skipped) and an improved user experience [@liu2018a; @toepoel2009]. When multiple questions or trials are presented at once, the order of the questions of the sheet are used to order the trials in the data tables (and there is a construct to indicate they belong to the same page) but there is no guarantee or evidence that this was indeed the case. 
 
  
+## Terminology
 
-keep the main information in one table; delegate further details to secondary, linked tables
+There are several important categories of variables/columns that are useful for describing the interaction of an agent with a questionnaire item. We present them below toghether with the specific variables we use.
 
-A second key design choice of PROJECT_ACRONYM is to keep most of the relevant information within a central “Trial” table and delegate more specific information to linked, secondary tables. A single “Trial” table containing the most relevant data about the participant, the stimulus and the response is in line with current practices (but at odds with relational database design principles). Specific information that might be important only in some cases or have a different data format (e.g., the trajectories of the computer mouse while answering a particular question) are stored in separate tables (e.g., a mouse trajectory table) where the rows of that table link back the Trial table via the “trial” key variable.
+### Agent
 
-This solution makes it easy to analyze questionnaire data (as the main information is the Trial table) but offers a consistent way to store more detailed information for more specialized purposes (i.e., linked tables). 
+We refer to the entity that is interacting with the questionnaire as an "agent" and encode that information in the main table as follows: 
 
+ - **agent_id** (string) is a unique identifier of the agent *within a dataset*. For privacy reasons, this id should not contain any personal information and is typically not unique across all datasets (e.g., "P001", "P002", ...).  
 
-separate data into instrument specific files nested within subject specific folders
-A third PROJECT_ACRONYM design choice concerns how to organize a dataset into folders and files. It is quite common to see datasets where all the data is contained in a single file. When scaling up to thousands of participants and many questionnaires and other data generating activities, grouping all the data in a single file rarely makes sense. Instead, PROJECT_ACRONYM recommends separating the data into person or agent specific folders. Within that agent folder, data is further distributed across activity specific folders (e.g., one folder for questionnaire A, one for questionnaire B, one for the cognitive test C). This convention has several benefits. Indeed, if data from a participant needs to be deleted for some reason (e.g., data privacy request), it is much easier and safer in this case to delete all the data from one person (i.e., simply delete one folder) as in the case where data is organized into one file or in activity specific files (where it would be necessary to open all the data, search for specific entries, delete those entries and resave the data).
-It is also easier to write data analysis code and share subsets of data with others as selecting a subset of participant folders would constitute a meaningful subset of the data (contrary to selecting rows in a table where one is not guaranteed to have all the data from a given participant).
-
-In addition, we recommend storing information that is about the study or common to all study participants in files and folders that are at the root level of the data set folder (e.g., the codebooks, the description of the instruments) and to use open data file formats to store data (e.g., tables are csv files).
+ Note that agent_id serves as a key to access more information about that agent (e.g., within an Agent table) such as age, gender, education, and possibly an id that may be used to link that agents' data across multiple datasests (e.g., when a person was involved in multiple studies) or even link to personal data, such as email addreses, as may be necessary for the logistics of running studies and paying participants.
+ 
 
 
-## Questionnaire data in PROJECT_ACRONYM 
-
-Now that we covered some general ideas behind PROJECT_ACRONYM it might be useful to see more concretely how questionnaire data can be described in PROJECT_ACRONYM. Again, we focus here only on the main ideas of the PROJECT_ACRONYM Trial table for questionnaires and refer the reader to the PROJECT_ACRONYM documentation for further details. 
 
 ### Stimulus
-Stimulus refers to the actual question shown to agents (typically human respondents). A stimulus instance or presentation has many properties: some generic attributes of stimuli are stored in the Trial table (see below); other more specific attributes may be stored in a linked Stimulus table (e.g., if the stimulus is an image or a video). The main stimulus properties in the Trial table are the following:
 
-stimulus_id is an alphanumeric string that uniquely identifies a question. This unique id can be used for instance to determine if two questions are the same (within or across datasets or studies) and to possibly access more data about that question (e.g., via a question database that provides for example a scientific reference for that question or its reading level). 
+Stimulus refers to the spatio-temporal sensory stimulation emitted to the agent. In a typical questionnaire, the stimulus might refer to the question text shown to the agent. However, stimuli can of course be much more complex (e.g., a video of a person with specific features asking the question verbally using a specific voice and prosody, etc.) The main stimulus attributes (encoded as columns in the Response table) are the following:
 
-stimulus_index: is an integer that tracks the order of the stimulus presentation. In the context of a questionnaire, stimulus_index = 1 would typically refer to the first question in a questionnaire and stimulus_index=23 to the twenty-third question in a questionnaire. 
+ - **stimulus_id** (string) is an alphanumeric string that uniquely identifies a stimulus. In the case of questionnaires, stimulus_id could refer to a particular question. This id is essential for processing questionnaire data (e.g., compute a "depression" score from the responses to a subset of the questions asked). 
+ 
+ - **stimulus_type** (string) describes what type of stimulus was shown. For example, one may want to distinguish instructions and other messages from questions. 
+
+ - **stimulus_description** (string) is a textual description of the stimulus. In the case of questionnaires, stimulus_description contains the english version of the question text shown to participants (if the question was presented in different languages--which would be stated in the language column of the Response table--the different translations would be available in related tables (e.g., the Stimulus table). This information is very handy for data analysts as it often avoids the need to consult external documentation.
+
+ - **stimulus_onset** (float) indicates how many seconds after the trial onset this stimulus was presented to agents. In questionnaires, this value is typically 0. 
+
+ - **stimulus_duration** (float) indicates for how many seconds the question was displayed. 
 
 
-stimulus_description: is a textual description of the stimulus. In the case of questionnaires, stimulus_description contains the english version of the question text shown to participants (if the question was presented in different languages--which would be stated in the language column of the Trial table--the different translations would be available in related tables (e.g., the Stimulus table). 
+There are several other stimulus attributes that are very common and thus could be included in the Response table (e.g., stimulus_index when there are multiple stimuli, stimulus_language when multiple language are used). Finally, there are many properties about the stimulus--which often will be specific to different types of stimuli--that should be encoded in secondary tables: the stimulus_id value in the Response table allows the analyst to recover all the details about that stimulus if needed (e.g., the URL to the video shown, the reading difficulty level of the question). 
 
-stimulus_onset: indicates how many seconds after the trial onset this stimulus was presented to agents. In questionnaires, this value is typically 0. 
 
-stimulus_duration: indicates for how many seconds the question was displayed on the screen. 
+
 
 
 ### Options
-Options define the set of possible responses that an agent can make. For example, if a question offers the options to respond “yes”, “no” or to not respond at all, then it is not possible for the agent to enter a date or a text for example. Conversely if the option is a short text field, the agent may in principle input any sequence of say 255 characters. It is thus important to note that options are not equivalent to inputs--as to use a specific option may require multiple user inputs--and options are not equivalent to responses--they define and restrict what potential responses could be.
 
-The main properties of options stored in the Trial table are:
+Options define the set of possible responses that an agent can make. For example, if a question offers the options to respond “yes”, “no” or to not respond at all, then it is not possible for the agent to enter a date or a text for example. Conversely if the option is a short text field, the agent may in principle input any sequence of say 255 characters. It is thus important to note that options are not equivalent to inputs (as to use a specific option may require multiple user inputs) and options are not equivalent to responses (they define and restrict what potential responses could be). It is also important to note that an item in a questionnaire is typically composed of a stimulus (i.e., question text) and response options. The main property of options stored in the Response table is:
 
-option_id is a unique identifier of a specific response option. For example, a specific Likert scale offering agents the possibility to choose among 7 levels of agreement ranging from “strongly disagree” to “strongly agree” may have an option_id value of “agreement_7”.  Note that a given question can oftentimes be used with different options (e.g., “agreement_7” vs “agreement_5” vs “agreement_2”) and that the combination of a specific question text (i.e., question_id) and a specific option (i.e., option_id) is sometimes referred as an “item”. We have no explicit concept for the combination of these two ids in PROJECT_ACRONYM. 
+ - **option_id** (string) is a unique identifier of a specific response option. For example, a specific Likert scale offering agents the possibility to choose among 7 levels of agreement ranging from “strongly disagree” to “strongly agree” may have an option_id value of “agreement_7”. 
 
 
 
 
 ### Response
-Response refers to the meaning that is given to the agent’s inputs and may be computed using an aggregation of event data. The main features of the responses that are encoded in the Trial table are the following:
+Response refers to the meaning that is given to the agent’s inputs and may be computed using an aggregation of event data. The main features of the responses that are encoded in the Response table are the following:
 
 
-response_description is a short text describing the response given by the agent. In the case of questionnaires, this may be the label of a chosen option (e.g., “strongly agree”) or the text entered in a text field (i.e., for an open question) or even a numeric input (e.g., “42”). 
+ - **response_description** (string) is a short text describing the response given by the agent. In the case of questionnaires, this may be the label of a chosen option (e.g., “strongly agree”) or the text entered in a text field (i.e., for an open question) or even a numeric input encoded as a string (e.g., “42”). 
  
-response_numeric is a numeric value associated with the response. In some cases, response_value is empty (e.g., in the case of text inputs); in some cases, response_value is the same as response_description (e.g., when agents entered a number); in other case, response_value refers to a numeric value that is associated to an option chosen by the agent (e.g., the “never” option may be associated with the value of 0 and “always” with a value of 1). This is a numeric interpretation of a textual or categorical variable that is independent from the question asked; it is not a “code” that is used for scoring (see “score” section below).
+ - **response_numeric** (float) is a numeric value associated with the response. In some cases, response_value is empty (e.g., in the case of text inputs); in some cases, response_value is the same as response_description (e.g., when agents entered a number); in other case, response_value refers to a numeric value that is associated to an option chosen by the agent (e.g., the “never” option may be associated with the value of 0 and “always” with a value of 1). This numeric value is independent from the question asked; it is not a “code” that is used for scoring (see “score” section below).
 
-response_option_index 
-: refers to the index of the option chosen with the set of offered options (when these are a set like “agreement_7”). This is necessary for example when options are presented in random orders (e.g., in a quiz). 
+ - **response_option_index** (integer) refers to the index of the option chosen among the set of offered options (when these are a set like “agreement_7”). This is necessary for example when options are presented in random orders (e.g., in a quiz). 
 
-response_time
-: indicates how many seconds it took the agent to enter their response relative to the moment where entering a response for that trial became possible (e.g., onset of the options on the screen). 
+ - **response_time** (float) indicates how many seconds it took the agent to enter their response relative to the moment where entering a response for that trial became possible (e.g., onset of the options on the screen). 
+
 
 
 ### Evaluation
-It is often necessary to evaluate the response provided by the agent. Importantly, how to evaluate a response depends on the specific question asked and often even depends on the questionnaire as a whole. The main features to evaluate a response within PROJECT_ACRONYM are the following:
+It is often necessary to evaluate the response provided by the agent. Importantly, how to evaluate a response depends on the specific question asked and often even depends on the questionnaire as a whole. The main features to evaluate a response include:
 
-accuracy indicates with a number ranging from 0 to 1 if the response was correct. 
+ - **accuracy** (float) indicates with a number ranging from 0 to 1 the level of accuracy of the response. 
 
-correct indicates with a boolean value if the response is correct (true) or incorrect (false).
+ - **correct** (boolean) indicates with a boolean value if the response is correct (true) or incorrect (false).
 
-score is a number that indicates the value the experimenter associates to this response in this particular context. For example, in the BIS/BAS questionnaire, agents have to answer a set of questions by choosing for each one of four possible options (i.e., “very true for me”, “somewhat true for me”, “somewhat false for me”, “very false for me”). For some questions, responding “very true of me” yields a score of 1 while for others it may yield a score of 4 (i.e., the reverse coded items) or even a score of 0 (i.e., the filler items). These item scores are then aggregated in some specific way to compute questionnaire-level scores (e.g., a BAS fun seeking score). 
+ - **score** (float) is a number that indicates the value the experimenter associates to this response in this particular context. For example, in the BIS/BAS questionnaire, agents have to answer a set of questions by choosing one of four possible response options (i.e., “very true for me”, “somewhat true for me”, “somewhat false for me”, “very false for me”). For some questions, responding “very true of me” yields a score of 1 while for others it yields a score of 4 (i.e., reverse coded items) or even a score of 0 (i.e., filler items). These item scores are then aggregated in some specific way to compute questionnaire-level scores (e.g., a "BAS fun seeking" score). 
 
-It is important to note that several of the PROJECT_ACRONYM concepts presented above are confounded in many current questionnaire datasets and that this can be quite problematic. For example, when responses are encoded using only a single numeric value (e.g., 2, 3 4) it is unclear if these values represent the index of the selected options, a numeric value associated to the label of the option or a score associated to a particular way of responding to that particular question.  When *response_numeric* and *score* and not distinguished as concepts in the data, it may not be possible to know if the responses in a dataset were “reverse-coded” or if they represent the “raw responses”--which arguably makes the dataset unusable. 
+It is worth noting that several of these concepts are confounded in many current questionnaire datasets, which can be quite problematic. For example, when responses are encoded using only a single numeric value (e.g., 2, 3 4) it is unclear if these values represent the index of the selected options, a numeric value associated to the label of the option or a score associated to a particular way of responding to that particular question. If there is documentation stating those number reflect a score, it is typically impossible to verify if the encoding is accurate in the absence of the actual responses in the data. The data model presented here allows to make a clear distinction between these concepts and is thus less error prone. 
+
+
+
+### Scoping
+
+
+In addition to the columns that are needed to describe the interaction, we also need variables to locate the context of that interaction. In particular we use the following: 
+
+ - **trial_index** (integer) allows to sequence all the interactions involving an agent. 
+ - **iteration** (integer) indicates how often this particular stimulus/question was presented to the agent (e.g., iteration = 2 means this is the second time this question was asked)
+
+Again, depending on the context additional scoping variables may be useful (e.g., session_id, session_index, episode_index).
+
+
+
+
+
+## Mixing of data types (continued)
+
+The data model we presented above is quite general and can be used to encode a wide range of questionnaire data in a tidy way. We mentionned earlier that one of the challenges of this format was figuring out how to deal with response options of different types (e.g., categorical, numeric, text). Having described a specific data model we can now be a bit more specific about this issue. In the data model presented above, all the columns of the Response table have a specific and fixed data type (e.g., string, integer, float, boolean). But what about the more specific data types that responses may have? 
+
+
+The observational unit of the Response table is the interaction between an agent and a questionnaire item. This means that each row in the table contains all the data we need to understand how a specific person responded to a particular question, including information about the question (e.g., the id of the question, the question text, the order of presenetatin of that question, its timing) and information about the response (e.g., what option was chosen, what label it had, the numeric value associate to that option, how long it took to respond). It would therefore make sense in this context to have information about the more specific data type available as one of the attributes of that observation; in our data model this could for example be read in the "option_id" column. Thus althought the response data is not encoded using the strict type, information about that strict type is readily available. It is worth noting here in passing that a row in the Response table provides information that is pretty straighforward to interpret and often doesn't require consulting documentation. It is also worth noting that rich information can be collected to describe an agent-stimulus interaction with the possibility to add additional columns without much difficulty. In practice, transforming this rich data into a one-row-per-agent format would yield a very large number of columns with very long and/or kryptic variable names which can make it hard to understand and effectively process the data. In such cases, the value of strongly typed data is likely overshadowed by the added complexity of column names: knowing that the values of `i34_q23_rt_r1` are encoded as a 7-level satisfaction categorical variable would not be very useful if one doesn't know what `i34_q23_rt_r1` refers to. 
+
+
+We stated earlier that strongly typed data had important benefits for data analysis and visualization, and that it may prevent certain types of errors. Having information about the more specific response data type readily available is not sufficient to get those benefits. It is possible to create software that knows about this specific data model and would enforce the more specific data type when relevant. But even without such custom software, the disadvantage of "weakly" typed data for questionnaires may not be that significant after all. Indeed, when writing data analysis code to compute scores or other aggregates from questionnaire data it is almost always the case that very specific knowledge about the questionnaire must be implemented in the data analysis code. For instance, to compute the "fun seeking score" from responses to the BISBAS questionnaire one needs to know exactly which questions to focus on, and how to score and aggregate them. It would seem natural to also include in that code what specific data values responses to those questions are expected to have, to make sure the data indeed is compliant with those expectation and to process the data accordingly. Consider for example, the code required to score the BISBAS questionnaire. Somewhere that code will have to state that responses to question 5 need to be recoded, such that the values "very true for me", "somewhat true for me", "somewhat false for me" and "very false for me" are converted into the numbers 1, 2, 3 and 4 respectively, and that no other response values are possible. Whether the value "very true for me" is encoded as a level of a specific categorical variable or more simply as a string seems to be less relevant in this usecase because the code is tailor made for this specific case and "knows" what specific values to expect. In fact, it is a good practice to explicitly test if the input data conforms to expectations and to raise an error when it does not (e.g, if there are response values that should not occur in question 5 of the BISBAS questionaire). It is thus possible and rather straightforward to enforce the stronger data types in code. 
+
+In short, having strongly typed response data is generally a good thing. For questionnaire data this would imply adopting a one column per response type format which however implies multiple other disadvantages. The tidy questionnaire data format that we propose instead offers a more elegant way of organizing questionnaire data: the same column names can be used consistently across a wide range of questionnaires and allows to seamlessly collect many features about how a person answered a question. But, this tidy questionnaire format does NOT encode the responses using a strong type. This disadvantage seems however less serious than one might think at first because code to analyze questionnaire data typically requires knowledge about the response data types.
+
+
+
+
+
+
+
+
+
 
 
 
 
 # Discussion
 
-Questionnaires are a central research tool in social sciences and their potential has yet to be fully exploited. A key impediment towards realizing this potential is a lack of standards and principles to organize questionnaire data so they can be efficiently processed, integrated, reused and shared. 
+Questionnaires are a central research tool in social and behavioral sciences and their potential has yet to be fully exploited. A key impediment towards realizing this potential is a lack of standards and principles to organize questionnaire data so they can be efficiently processed, integrated, reused and shared. 
 
-Most questionnaire data today are organized following the wide data format, where each row refers to a respondent and each column to an attribute of each of the questions or responses. Although very common, and compliant with popular statistical software (e.g., SPSS), we have shown that this data format has numerous important shortcomings. To this wide data format, we prefer the alternative, long data format as it explicitly maintains attributes attached to a response, stores data more effectively, facilitates data processing (e.g., selecting and filtering) and the addition of further response describing attributes (e.g., response times) as well as simplifies data documentation (e.g., shorter, less redundant codebooks). It also makes it easier to combine data from multiple questionnaires and link relevant datasets (e.g., response data with keystroke data). 
+Most questionnaire data today are organized in tables where each row refers to a respondent and each column to an attribute of each of the questions or responses. Although very common, and compliant with popular commercial statistical software, we have shown that this data format has numerous important shortcomings. To this "wide" data format, we prefer the alternative, tidy data format which organizes questionnaire data such that each row represents the interaction between a person and a questionnaire item. This data format explicitly groups togehter all the attributes of the question and respones (i.e., they are part of the same row), stores sparse data more effectively, facilitates data processing (e.g., selecting and filtering) and the addition of further response describing attributes (e.g., response times) as well as simplifies data documentation (e.g., shorter, less redundant codebooks). It also makes it easier to combine data from multiple questionnaires and link relevant datasets (e.g., response data with keystroke data). 
 
-It seems clear to us that the long data format is superior to the wide one. However, because the responses participants give to each question can be of different data types (e.g., one question may ask participants to select among “yes” or “no”, another to rate a frequency on a 1-7 Likert scale or to enter some text or a number), it is typically not possible for this long data format to strictly follow the tidy data principles [@wickham2014]. Relational databases are the natural way of dealing with such data. However, current data analysis software and practices are not well equipped to analyze such data, expecting instead a small set of rectangular tables [@wickham2014]. 
+One of the challenges of the tidy questionnaire data however is how to deal with responses of different "custom" data types (e.g., 7-level satisifaction rating scale, yes/no choices, text input)--a situation that poses no problem to the wide data format where each response column can have its own specfic datatype. After presenting a specific way of organizing tidy questionnaire data, we argued that while our solution is not ideal, it appears to us that it is satisfactory given the constraints (i.e., all the response data is in a single, simple table) and given that the disadvantages of not having strong types seems less salient in the case of questionnaire data because their analysis typically require highly specific code which also should enforce requirements on the data. 
 
-The solution we propose here is a good compromise. We adopt the long data format for its numerous advantages. We also adopt the common practice of grouping the most relevant data within a single table (hence rejecting the relational database approach). These two decisions lead us to follow the tidy principles only in a loose way (i.e., columns are not strongly typed, e.g., a variable might be encoded as a float rather than a 7 level Likert scale). More detailed information about data types are however maintained in the data and can be used to strongly type, tidy subsets of the data as well as for data documentation (e.g., a codebook).
+Our exploration of questionnaire data formats led us to conclude that for sharing questionnaire data in tabular form, the tidy data format is better than the "wide" one. This does not mean that the tidy questionnaire data format is always better. Firstly, if the constraint of storing questionnaire response data in a single, basic table (e.g., csv file) is removed (e.g., by adopting more modern open data formats and corresponding software tools), it is likely that better data models for questionnaire data will follow. Secondly, there are certainly many valid reasons for data analysts to continue to use the "wide" data format. Many datasets are shared using that format. Many commerical software tools expect data to be in that format. Many analyst may be very familiar with such data and much less familiar and confident with what we describe as the tidy questionnaire data format. Those are important reasons that should not be minimized. 
 
-
-How to best organize data depends primarily on how that data is expected to be used, and by whom. The current dominant approach of organizing questionnaire data seems to be driven by two separate usages, each demanding separate design principles. 
-
-The first usage of the tabular data is the analysis, including computing averages across rows or computing sums across a subset of columns (e.g., to compute a score). Common commercial data analysis software even expects data to be in this format. There is however also a second, perhaps more implicit usage of the wide format for tabular questionnaire data: it provides an interface to the data, a means for the analyst to visually compare responses across questions or inspect the distribution of responses for a given question across respondents. This second usage is highlighted for instance in recommendations to order the columns of a questionnaire data table so they reflect the order in which questions were experienced by users [e.g., @netscher2018].
+In the spirit of open science, we favour the use of open data formats (e.g., csv) and the use of open software (e.g., R, python) rather than proprietary data formats and commercial software. When analyzing data using code (as opposed to graphical user interfaces) it seems inevitable that data analysts will have to reshape and transform the data multiple times to fit specific data analysis and visualization needs. In the world of data science, the tidy data format has been widely adopted as the starting point for any data analysis pipeline, an idea that forms the corner stone of perhaps the most popular data analysis software ecosystem used today--the tidyverse. We think this approach would benefit questionnaire based research without taking anything away from those who prefer or need the wide data format for their specific use case: we provided code snippets in this article to illustrate that converting questionnarie data from the tidy data format to a wide format is not that complicated.
 
 
-We believe that structuring data to support both types of usages leads to a result that satisfies neither. Instead, it makes more sense to us, on the one hand, to adopt the long data format to facilitate data storage, processing and documentation and, on the other hand, to design better data analysis software tools that take advantage of the long data format, data standards and additional files (e.g., metadata, paradata) to offer analysts better tools for exploring and visualizing questionnaire data (e.g., navigate the questions as seen by a participant together with their response and response distribution of the sample). Mixing these two usages when structuring questionnaire data keeps us stuck in a suboptimal situation and prevents progress in data processing and software development.
+Theoretical arguments may not be that convincing, and to adopt a new standard or practice, one may first have to experience its direct benefits first hand. We hope that some of the examples offered in this article provide at least a glimpse into those benefits. We also want to note that more standardized and richer questionnaire data opens up the possibility for developing software that takes advantage of that structure. Just as an example, it can be quite challenging with the one-person-per-row questionnaire data format to understand in what order a given person responded to a set of questions. One can find for instance the recommendation to order the columns of a questionnaire data table so they reflect the order in which questions were experienced by respondents [e.g., @netscher2018]. But this strategy only preserves the ordering and would furthermore not work when the ordering changes betweeen respondents. The tidy questionnaire data model we proposed can accomodate order and timining data about the question presentation and the responses so that in principle one could develop software that could replay the exact sequence of events as they occurred. 
 
   
-In this article, we covered important ideas, ideas that might be general enough to prevent this document from becoming outdated too quickly. But we did not cover everything that is required to fully structure, document and share questionnaire data [see for example, @netscher2018; @horstmann2020; @towse2021a]. Our main goal with this article was to raise awareness about the importance of the structure of the data itself and explain why certain design choices seem better than others. For the actual specification and implementation details, which are likely to evolve over time, we refer the reader to the dedicated website (https://PROJECT_WEBSITE/data-model/). 
+In this article, we covered important ideas; ideas that might be general enough to prevent this document from becoming outdated too quickly. But we did not cover everything that is required to fully structure, document and share questionnaire data [see for example, @netscher2018; @horstmann2020; @towse2021a]. Our main goal with this article was to raise awareness about the importance of the structure of questionnaire data itself and explain why certain design choices may be better than others. The actual specification and implementation details, are likely to evolve over time; for more details on our specific solution, we refer the reader to the dedicated website (https://PROJECT_WEBSITE/data-model/). Standardized data calls for standardized processing, including automated data checks, codebooks and data visualization. Automating the boring stuff frees up more time for deep thinking and actual scientific work. We hope this effort will contribute to improve research practices, collaborative research and facilitate the development of specialized software tools [as has been the case in other fields\; @poldrack2024] to the benefit of the scientific community. 
 
-
-
-Standardized data calls for standardized processing, including automated data checks, codebooks and data visualization. Automating the boring stuff frees up more time for deep thinking and actual scientific work. We hope this work will contribute to improve research practices, collaborative research and facilitate the development of specialized software tools [as has been the case in other fields\; @poldrack2024] to the benefit of the scientific community. 
 
 
 # References
