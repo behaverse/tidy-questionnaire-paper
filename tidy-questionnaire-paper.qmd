@@ -419,10 +419,8 @@ scores <- quiz_data |>
   pivot_wider(id_cols = subject_id, 
 			  names_from = question_id,
 			  values_from = c(score)) |> 
-  
   # apply scoring function 
   mutate(score = my_scoring_function(q10, q11)) |> 
-  
   # retain only relevant columns
   select(subject_id, score)
 
@@ -542,7 +540,7 @@ Again, depending on the context additional scoping variables may be useful (e.g.
 
 
 
-## Mixing of data types
+## Mixing of data types (continued)
 
 The data model we presented above is quite general and can be used to encode a wide range of questionnaire data in a tidy way. We mentioned earlier that one of the challenges of this format was figuring out how to deal with response options of different types (e.g., categorical, numeric, text). Having described a specific data model we can now be a bit more specific about this issue. In the data model presented above, all the columns of the Response table have a specific and fixed data type (e.g., string, integer, float, boolean). But what about the more specific data types that responses may have? 
 
