@@ -5,7 +5,6 @@ format: html
 
 ```{r}
 #| message: false
-
 library(tidyverse)
 ```
 
@@ -21,31 +20,28 @@ When the data is organized into a one-response-per-row format (which we call the
 
 ```{r}
 #| message: false
-
 bfi2 <- read_csv("data/x_bfi2.csv")
 psqi <- read_csv("data/psqi.csv")
-
 ```
 
 Here we will use a real, albeit small data set, as our goal is only to explore coding strategies that are nevertheless meant to apply to real use cases. This dataset contains data from 8 participants who completed at least one of two standard questionnaires, either once or twice. For simplicity, this dataset is offered as two distinct tabular csv files, one per questionnaire.
 
-The first questionnaire in this dataset is a slightly modified version the bfi-2 personality test which contains 60 questions. We picked this questionnarie for this example because it is well-known and widely used, contains many items and can be used to compute a large number of scores and subscores (called "domain scales" and "fact scales"). This dataset contains data for only three participants: two of these completed the questionnaire twice, and of them completed it only once.
+The first questionnaire in this dataset is a slightly modified version of the bfi-2 personality test which contains 60 questions. We picked this questionnaire for this example because it is well-known and widely used, contains many items and can be used to compute a large number of scores and subscores (called "domain scales" and "fact scales"). This dataset contains data for only three participants: two of these completed the questionnaire twice, and of them completed it only once.
 
-The second questionnaire in this dataset is the "Pittsburgh Sleep Quality Index (PSQI)". We chose this questionnaire because it uses a wide range of responses types (e.g., time of day, number of minutes, hours per night, orderd categories representing a frequency, open text responses, ratings of qualty) and uses more complex scoring rules--this questionniare may therefore pose additional challenges for data organization and analysis. This dataset contains data from 5 participants who all completed that questionnaire twice. Furthermore, one of these participants (agent_id "030") is also inlcuded in the bfi-2 data.
+The second questionnaire in this dataset is the "Pittsburgh Sleep Quality Index (PSQI)". We chose this questionnaire because it uses a wide range of responses types (e.g., time of day, number of minutes, hours per night, ordered categories representing a frequency, open text responses, ratings of quality) and uses more complex scoring rules--this questionnaire may therefore pose additional challenges for data organization and analysis. This dataset contains data from 5 participants who all completed that questionnaire twice. Furthermore, one of these participants (agent_id "030") is also included in the bfi-2 data.
 
-For each question we recorded what response option participants chose, how long it took them to select that option once the question was displayed (each question was displayed one by one on the screen), and how long it took them to validate their response by clicking on the "Next" button (participants could change their responses, while a given question was displayed, but once they clicked "Next", they were presented with the next question and could not navigate back to earlier questions.) These are just a subset of information that could be collected per response, which is nevertheless more than what seems to be typcally collected in questionnaire data.
+For each question we recorded what response option participants chose, how long it took them to select that option once the question was displayed (each question was displayed one by one on the screen), and how long it took them to validate their response by clicking on the "Next" button (participants could change their responses, while a given question was displayed, but once they clicked "Next", they were presented with the next question and could not navigate back to earlier questions.) These are just a subset of information that could be collected per response, which is nevertheless more than what seems to be typically collected in questionnaire data.
 
 
 
 ## Data formats: tidy/long vs untidy/wide
 
 
-We stored the two data tables in the tidy questionnaire data format and will now create a version of these two data files that follows the "one-person-per-row" (aka "wide") format. Furthermore, we will combine both pairs of files to form a combined tidy and and a combined wide table respectively. This is to illustrate in particular how data from multile questionnaires may be combined and how sparsity in each questionnaire data affects the size of the resulting combined tables.
+We stored the two data tables in the tidy questionnaire data format and will now create a version of these two data files that follows the "one-person-per-row" (aka "wide") format. Furthermore, we will combine both pairs of files to form a combined tidy and a combined wide table respectively. This is to illustrate in particular how data from multiple questionnaires may be combined and how sparsity in each questionnaire data affects the size of the resulting combined tables.
 
 
 
 ```{r}
-
 # step 1: create wide data versions of the two tables
 bfi2_wide <- bfi2 |> pivot_wider(id_cols = c(agent_id, instrument_id), 
                            names_from = c(stimulus_id, iteration), 
@@ -105,16 +101,16 @@ knitr::kable(table_data, col.names = c("dataset", "rows", "columns", "rows x col
 
 
 
-There are several important points to note in table above. The tidy data tables all have the same small number of columns; their number of rows will vary depending on the amount of data collected. Conversely, their wide-formatted counterparts have a number of rows and columns that both depend on the specific dataset and study design (e.g., more repeitions of the same questions would lead to more columns). Thus the shape of the tables when they are wide is less predictable. Furthermore, because columns represent the attributes of an observation, the wide format is much more difficult to process. For example, there are 978 columns in the wide version of the bfi2 data but only 12 in its tidy version. When lookig at the number of missing values it is clear to see that in some cases (when data is sparse), the number of missing values increases substantially when transforming the data from tidy to wide (for bfi2, that number increased from 15 to 503). An other important observation is that when combining tidy questionnarie tables, the resulting table is easily predictable: the numbers of rows and the number of NAs are simply added, while the number (and meaning) of the columns remain the same. In contrast, when combining wide data tables, the resulting table is unpredictable without knowledge about the content of the data. Note also the large increase in NAs for this combined table (5121) compared to the combined tidy data (115).
+There are several important points to note in the table above. The tidy data tables all have the same small number of columns; their number of rows will vary depending on the amount of data collected. Conversely, their wide-formatted counterparts have a number of rows and columns that both depend on the specific dataset and study design (e.g., more repetitions of the same questions would lead to more columns). Thus the shape of the tables when they are wide is less predictable. Furthermore, because columns represent the attributes of an observation, the wide format is much more difficult to process. For example, there are 978 columns in the wide version of the bfi2 data but only 12 in its tidy version. When looking at the number of missing values it is clear to see that in some cases (when data is sparse), the number of missing values increases substantially when transforming the data from tidy to wide (for bfi2, that number increased from 15 to 503). Another important observation is that when combining tidy questionnaire tables, the resulting table is easily predictable: the numbers of rows and the number of NAs are simply added, while the number (and meaning) of the columns remain the same. In contrast, when combining wide data tables, the resulting table is unpredictable without knowledge about the content of the data. Note also the large increase in NAs for this combined table (5121) compared to the combined tidy data (115).
  
-We also wanted to assess these data formats affect the size of the data. One simple but somewhat naive way of assessing size is to count the number of cells in each table. While this may in principle serve as a proxy, it is not that straightforward because the data in each cell may require more or less memory space depending for instance on how it is encoded (e.g., a boolean vs a string). The strategy we chose here was to save the various data tables as csv files and assess the size of those files. As can be seen in the table, the wide formats in our example are systematically larger than their tidy counterpart.    
+We also wanted to assess whether these data formats affect the size of the data. One simple but somewhat naive way of assessing size is to count the number of cells in each table. While this may in principle serve as a proxy, it is not that straightforward because the data in each cell may require more or less memory space depending for instance on how it is encoded (e.g., a boolean vs a string). The strategy we chose here was to save the various data tables as csv files and assess the size of those files. As can be seen in the table, the wide formats in our example are systematically larger than their tidy counterparts.    
 
 
 
 
 ## Scoring questionnaires
 
-The next step will be to score each of the questionnaires, using the tidy and wide data formats and compare their advantages and disadvantages. In addition to computing those scores we will also compute the median response time to answer a the corresponding questions. While this is not classically done, the idea of including it here is to assess how computing additional metrics on more than one response attribute would affect the complexity of the code.
+The next step will be to score each of the questionnaires, using the tidy and wide data formats and compare their advantages and disadvantages. In addition to computing those scores we will also compute the median response time to answer the corresponding questions. While this is not classically done, the idea of including it here is to assess how computing additional metrics on more than one response attribute would affect the complexity of the code.
 
 
 ### BFI-2
@@ -181,10 +177,10 @@ Secondly, the code above is strongly tied, not only to information about the que
 
 Third, as in our example there are (up to) 2 repetitions of this questionnaire, we have to manually run the scoring code on each value of those iterations. Again, if there were a different number of iterations or different  intentions to group data (e.g., completing surveys in morning vs evening), we would again have to change the code above.
 
-Finally, when computing multiple aggregates on a particular response (in our example, how long they took to respond to those questions), we can see that it requires pretty much writing an independent chunk of code (the code for the anxiety response time and the code for anxiety scores are run independently from each other). This means that there are redundancies and the potential for mistakes. For example, the selection of items is the same in both cases (i.e., 4R, 19, 34, 49R), but this selection is specified in two different location (both as part of the column names to be selected). As these are entered manually, and because for a given study there could potentially be a large number of such duplicated lists (e.g., there are 20 scores that one can compute out of this bfi2 questionnaire) which makes it hard to not make mistaked and to check that no mistakes were made. The above code takes about 25 lines to compute two metrics for one dimension; if we extrapolate, scoring the bfi2 questionnaire in this way would require 500 lines of code. 
+Finally, when computing multiple aggregates on a particular response (in our example, how long they took to respond to those questions), we can see that it requires pretty much writing an independent chunk of code (the code for the anxiety response time and the code for anxiety scores are run independently from each other). This means that there are redundancies and the potential for mistakes. For example, the selection of items is the same in both cases (i.e., 4R, 19, 34, 49R), but this selection is specified in two different locations (both as part of the column names to be selected). As these are entered manually, and because for a given study there could potentially be a large number of such duplicated lists (e.g., there are 20 scores that one can compute out of this bfi2 questionnaire) which makes it hard to not make mistakes and to check that no mistakes were made. The above code takes about 25 lines to compute two metrics for one dimension; if we extrapolate, scoring the bfi2 questionnaire in this way would require 500 lines of code. 
 
 
-> The names of the aggregated values need to be specified by the data analyst. For example, here we chose "anxiety_score_i1". This is again an arbitrary choice (we could have picked instead "score_bfi_anx_1", "anxiety_r1_bfi2", or something else). This custom naming of the ouputs requires extra work, is specific to the dataset (if there were more reptitions, we would need additional assigment statements); it will also cause the subsequent code to be tailor made to those specific column names.
+> The names of the aggregated values need to be specified by the data analyst. For example, here we chose "anxiety_score_i1". This is again an arbitrary choice (we could have picked instead "score_bfi_anx_1", "anxiety_r1_bfi2", or something else). This custom naming of the outputs requires extra work, is specific to the dataset (if there were more repetitions, we would need additional assignment statements); it will also cause the subsequent code to be tailor made to those specific column names.
 
 
 It is of course possible to develop more custom code (i.e., more functions) to make the data analysis code more compact, less redundant and less error prone. But that code would require extra work, it would likely be highly specific to the way the column names were constructed for this particular dataset, and in practice, this does not seem to be what data analysts do. 
@@ -225,9 +221,9 @@ bfi2_anxiety <- D_tidy |>
 knitr::kable(bfi2_anxiety)
 ```
 
-There are several points worth noting about the code above. Firstly, the code in `score_bfi2_anxiety()` only contains information about the IDs of the items that need be used and how they are to be used. It does not contain any information related to the specifics of the study or data analysis intention. For instance, there is no notion of "repetition" in this code. Second, the selection of relevant items is done only once with the filter statement; this makes the code more compact and less error prone.  Thirdly, the way that aggregates are computed on the data--which is done via the `summarize()`--makes it very easy to add additional metrics. For instance, if one wanted to also compute the minimum, maximum of and standard deviation of the response times, it would only require one additional statement per metric within the summarise function (e.g., `response_time_min = min(response_time)`; this is in stark contrast with how we analyzed the wide data.
+There are several points worth noting about the code above. Firstly, the code in `score_bfi2_anxiety()` only contains information about the IDs of the items that need to be used and how they are to be used. It does not contain any information related to the specifics of the study or data analysis intention. For instance, there is no notion of "repetition" in this code. Second, the selection of relevant items is done only once with the filter statement; this makes the code more compact and less error prone.  Thirdly, the way that aggregates are computed on the data--which is done via the `summarize()`--makes it very easy to add additional metrics. For instance, if one wanted to also compute the minimum, maximum of and standard deviation of the response times, it would only require one additional statement per metric within the summarise function (e.g., `response_time_min = min(response_time)`; this is in stark contrast with how we analyzed the wide data.
 
-Forth, if we look at how those functions are being applied to the data, we can see that by using the `group_by()` function (which is part of the dplyr package, included in the tidyverse) we can apply the scoring functions for any type of subset of our data. Here we specify that we want to have separate scoring for each agent and for each iteration. We don't need to know or specify in advance how many iterations are in the dataset. The number of iterations does not impact the amount of code one needs to write. This code is also easy to update in the future; if there was a "time_of_day" column, that column could be used to compute different scores for whatever levels that variable has by simply changing the contents of that group_by() function. Importantly, this coding approach cleanly separates the scoring function which is tied only to the questionnaire used from the speicfic study design and data analysis strategies (which in our example is embeddedin the group_by() function call).
+Forth, if we look at how those functions are being applied to the data, we can see that by using the `group_by()` function (which is part of the dplyr package, included in the tidyverse) we can apply the scoring functions for any type of subset of our data. Here we specify that we want to have separate scoring for each agent and for each iteration. We don't need to know or specify in advance how many iterations are in the dataset. The number of iterations does not impact the amount of code one needs to write. This code is also easy to update in the future; if there was a "time_of_day" column, that column could be used to compute different scores for whatever levels that variable has by simply changing the contents of that group_by() function. Importantly, this coding approach cleanly separates the scoring function which is tied only to the questionnaire used from the specific study design and data analysis strategies (which in our example is embedded in the group_by() function call).
 
 
 It is also important to note that the output of the scoring "anxiety" following this approach is again a tidy table where no extra effort was required to name things. The shape of this table will depend on the specific analysis that was computed (e.g., if there are more iterations, there will be more rows), but the columns of that table will reflect the various metrics computed in the summary call.
@@ -239,7 +235,7 @@ Of course at some point one may want to display the table as a one-row-per-perso
 
 As stated earlier we won't use the strategy we employed for the wide data to score all of the dimensions as this would take us quite some time to do and would not be very interesting. But doing this exercise would certainly allow the reader to experience how painful that could be.
 
-Here we will only use the tidy data as a starting point. We will abstract the code above a bit more to show how how compact questionnaire data analysis may be.
+Here we will only use the tidy data as a starting point. We will abstract the code above a bit more to show how compact questionnaire data analysis may be.
 
 
 
@@ -281,9 +277,9 @@ score_questionnaire <- function(df, scoring_params){
 
 ```
  
-The code above is quite generic and applies to the common case where responses option indecis are converted to numbers using a particular set of rules and then aggregated. Because this code is generic and could apply to a wide range of questionnaires, it could be part of a package and reused broadly, preventing the need to write custom code.
+The code above is quite generic and applies to the common case where response option indices are converted to numbers using a particular set of rules and then aggregated. Because this code is generic and could apply to a wide range of questionnaires, it could be part of a package and reused broadly, preventing the need to write custom code.
 
-We wrote the code in a way that the `score_questionnaire()` takes as input the questionnaire data and a list of parameters that specifiy how to score a particular dimension. This type of code that separates the specifics of a score (tied to a particular instrument) from the mechanics of computing the score is preferrable over hard coding the specifics in the analysis code directly (as we did earlier) as it makes it easier to review if the specification is correct or not. 
+We wrote the code in a way that the `score_questionnaire()` takes as input the questionnaire data and a list of parameters that specify how to score a particular dimension. This type of code that separates the specifics of a score (tied to a particular instrument) from the mechanics of computing the score is preferable over hard coding the specifics in the analysis code directly (as we did earlier) as it makes it easier to review if the specification is correct or not. 
 
 
 To compute a specific score, we will then need to do the following:
@@ -309,10 +305,10 @@ D_tidy |>
 
 ```
 
-To compute all of the 20 scores from the bfi2 questionnaires, we first need to specfiy the parameters for each score. This can be done all in one, easy to review, place:
+To compute all of the 20 scores from the bfi2 questionnaires, we first need to specify the parameters for each score. This can be done all in one, easy to review, place:
 
 ```{r}
-# Storing all the scoring ruls for the bfi-2 questionnaire in lists:
+# Storing all the scoring rules for the bfi-2 questionnaire in lists:
 
 ## Extraversion: 1, 6, 11R, 16R, 21, 26R, 31R, 36R, 41, 46, 51R, 56
 bfi2_extraversion <- list(
@@ -477,7 +473,7 @@ bfi2_imagination <- list(
 ```
 
 
-Note that the above is a sort of documentation of how to score the bfi2 questionnaire; this content should be an integral part of the questionnaire (and questionnaire data collection system) itself rather then being manually entered as we did here.
+Note that the above is a sort of documentation of how to score the bfi2 questionnaire; this content should be an integral part of the questionnaire (and questionnaire data collection system) itself rather than being manually entered as we did here.
 
 Once we have defined the list of scores we want to compute on our data, we can create a list of those parameter lists: 
 
@@ -550,7 +546,7 @@ knitr::kable(bfi2_scores_wide)
 
 ### PSQI
 
-The PSQI questionnaire is more challenging to score because it involve a larger variety of response formats and because the scoring procedure is a bit more involved.
+The PSQI questionnaire is more challenging to score because it involves a larger variety of response formats and because the scoring procedure is a bit more involved.
 
 Also for brevity we will only focus only on computing the score for "Component 2: Sleep latency" as it involves multiple steps.
 
@@ -637,7 +633,7 @@ score_sleep_latency <- function(q2,q5){
 }
 ```
 
-The code above shows that one can write simple functions to process each question separtely, a function to agregate those results and a wrapper function to keep the data analysis code cleaner.  It is important to note here that this code expect very specific input values: in the first case a number of minutes (postive number between 0 and 1440), in the second, one out of 4 possible response categories. In the above code we show how the data analysis code can make sure that the input is as expected (as opposed to relying on the data being correctly formatted). 
+The code above shows that one can write simple functions to process each question separately, a function to aggregate those results and a wrapper function to keep the data analysis code cleaner.  It is important to note here that this code expects very specific input values: in the first case a number of minutes (i.e., a positive number between 0 and 1440), in the second, one out of 4 possible response categories. In the above code we show how the data analysis code can make sure that the input is as expected (as opposed to relying on the data being correctly formatted). 
 
 Having created those functions, we can now analyze our specific dataset:
 
@@ -673,7 +669,7 @@ D_wide |>
 
 #### The tidy data format
 
-We could use an approch similar to what we did for BFI-2: define a list of parameters to compute a specific score and a generic function to run the analysis of data. This would work for calculating the subscores, but then a second step would be required to compute the agregate score from those two subscores. 
+We could use an approach similar to what we did for BFI-2: define a list of parameters to compute a specific score and a generic function to run the analysis of data. This would work for calculating the subscores, but then a second step would be required to compute the aggregate score from those two subscores. 
 
 The alternative is to create a function that takes as input a data frame and returns the scores
 
@@ -699,7 +695,7 @@ score_psqi_latency <- function(df){
   
   df |> 
     filter(stimulus_id %in% c("psqi_q_2", "frequency_trouble_sleep_because;psqi-past_q_6")) |> 
-    # process each question separatetly
+    # process each question separately
     rowwise() |> 
     mutate(score_tmp = ifelse(stimulus_id=="psqi_q_2", 
                           score_psqi_question_2(response_numeric), 
@@ -732,11 +728,11 @@ D_tidy |>
 ```
 
 
-The code in this case is quite a bit more complex; the main advantages are however that a) we can compute more metrics on the selected items without much effort (e.g., response_time) compared to the strategy we used on the wide data format and b) we can have studies that involve any number of iterations (or other types of grouping variables) and reuse the exact same code; in contast, the code used on the wide data format is strongly tied to the specifics of the study, be it through the study parameters encoded in the column names or the number of steps required in the analysis.
+The code in this case is quite a bit more complex; the main advantages are however that a) we can compute more metrics on the selected items without much effort (e.g., response_time) compared to the strategy we used on the wide data format and b) we can have studies that involve any number of iterations (or other types of grouping variables) and reuse the exact same code; in contrast, the code used on the wide data format is strongly tied to the specifics of the study, be it through the study parameters encoded in the column names or the number of steps required in the analysis.
 
 
 ## Conclusion
 
-This notebook presents a more realistic, although still simplified, example of the analysis of questionnaire data using the wide and tidy data formats respectively. Overall, the tidy data format seems preferrable for several reasons. However, we also note that in some cases handling the tidy data format may require code that is more complex than the wide data format. 
+This notebook presents a more realistic, although still simplified, example of the analysis of questionnaire data using the wide and tidy data formats respectively. Overall, the tidy data format seems preferable for several reasons. However, we also note that in some cases handling the tidy data format may require code that is more complex than the wide data format. 
 
 
