@@ -1,5 +1,5 @@
 ---
-title: "Examples"
+title: "Code chunks from tidy questionnaire paper"
 format: html
 ---
 
@@ -15,26 +15,26 @@ format: html
 # load package
 library(tidyverse)
 
-# define toy dataset in the long data format
+# define toy dataset in the tidy data format
 df <- tribble(
-    ~subject_id, ~question_id, ~question_text, ~answer, 
-    "s001",   1, "How old are you?", "23", 
-    "s001",   2, "Do you like cinnamon?", "yes", 
-    "s002",   1, "How old are you?", "37",
-    "s002",   2, "Do you like cinnamon?", "no", 
+    ~subject_id, ~question_id, ~question_text,          ~answer, 
+    "s001",       1,            "How old are you?",      "23", 
+    "s001",       2,            "Do you like cinnamon?", "yes", 
+    "s002",       1,            "How old are you?",      "37",
+    "s002",       2,            "Do you like cinnamon?", "no", 
 )
 
-# reshape the long data into the wide data format 
+# reshape the tidy data into the wide data format 
 df_wide <- df |> pivot_wider(id_cols = subject_id, 
                    names_from = question_id, 
                    values_from = c(question_text, answer))
 ```
 
-**Code Chunk 1.** Reshaping data from long to wide is a breeze with the `pivot_wider()` function from the tidyverse package. Note that there is also a `pivot_longer()` function for the reverse reshaping operation.
+**Code Chunk 1.** Reshaping data from tidy to wide is a breeze with the `pivot_wider()` function from the tidyverse package. Note that there is also a `pivot_longer()` function for the reverse reshaping operation.
 
 
 
-Furthermore, while Rule 3 states that data about different observational units should be organized in separate tables, there are of course situations where one needs to combine data from separate tables (e.g., did people from different ages respond differently to a given question?) Again, with the appropriate tooling, it is straightforward to join two tables, provided they share columns (i.e., keys; for an example of code sample joining two tables in R using the tidyverse package, see code chunk 2 and its output Table 3).
+
 
 ```{r}
 #| echo: fenced
@@ -46,47 +46,41 @@ Furthermore, while Rule 3 states that data about different observational units s
 
 # -- demographic data
 demographics <- tribble(
-  ~subject_id, ~is_married, ~gender, ~ses_level, 
-  "s001",   FALSE, "male", 4, 
-  "s002",   TRUE, "female", 8, 
+  ~subject_id, ~is_married, ~gender,  ~ses_level, 
+  "s001",      FALSE,       "male",   4, 
+  "s002",      TRUE,        "female", 8, 
 )
 
 # join data tables
 df_joined <- left_join(df, demographics, by = "subject_id")
 ```
 
-**Code Chunk 2.** Joining data tables with shared keys. In this example we use the `left_join()` function from the tidyverse package in R to join a demographics table to a questionnaire data table (wide format) using `subject_id` as the key to map entries across the two tables. 
+**Code Chunk 2.** Joining data tables with shared keys. In this example we use the `left_join()` function from the tidyverse package in R to join a demographics table to a questionnaire data table using `subject_id` as the key to map entries across the two tables. 
 
 
 
-
-```{r}
-df_joined
-```
-
-STOPPED HERE
 
 ```{r}
 #| echo: fenced
 #| eval: false
 
 # create toy dataset
-df_long <- tribble(
-    ~subject_id, ~question_id, ~question, ~answer, ~repetition,
-    "s001",   1, "How old are you?", "23", 1,
-    "s001",   2, "Do you like cinnamon?", "yes", 1, 
-    "s002",   1, "How old are you?", "37", 1, 
-    "s002",   2, "Do you like cinnamon?", "no", 1, 
-    "s001",   1, "How old are you?", "23", 2, 
-    "s001",   2, "Do you like cinnamon?", "yes", 2,  
-    "s002",   1, "How old are you?", "37", 2, 
-    "s002",   2, "Do you like cinnamon?", "yes", 2, 
-    "s001",   1, "How old are you?", "23", 3, 
-    "s001",   2, "Do you like cinnamon?", "yes", 3, 
+df_tidy <- tribble(
+    ~subject_id, ~question_id, ~question,             ~answer, ~repetition,
+    "s001",       1,            "How old are you?",      "23",    1,
+    "s001",       2,            "Do you like cinnamon?", "yes",   1, 
+    "s002",       1,            "How old are you?",      "37",    1, 
+    "s002",       2,            "Do you like cinnamon?", "no",    1, 
+    "s001",       1,            "How old are you?",      "23",    2, 
+    "s001",       2,            "Do you like cinnamon?", "yes",   2,  
+    "s002",       1,            "How old are you?",      "37",    2, 
+    "s002",       2,            "Do you like cinnamon?", "yes",   2, 
+    "s001",       1,            "How old are you?",      "23",    3, 
+    "s001",       2,            "Do you like cinnamon?", "yes",   3, 
 )
 
 # create a "wide" version of the dataset
-df_wide <- df_long |> 
+df_wide <- df_tidy |> 
   mutate(question_id = paste0('q', question_id), 
          repetition = paste0('r', repetition)) |> 
   pivot_wider(names_from = c(question_id, repetition), 
@@ -100,15 +94,16 @@ df_wide <- df_long |>
 df_wide |> select(matches("^q1_"))
 df_wide |> select(matches("r2$"))
 
-# -- under the long format
-df_long |> filter(question_id == 1)
-df_long |> filter(repetition == 2)
+# -- under the tidy format
+df_tidy |> filter(question_id == 1)
+df_tidy |> filter(repetition == 2)
 
 ```
 
-**Code Chunk 3.** Selecting and filtering data under the wide vs long data format. Note that in this example, the operations remain rather simple because we used a consistent column naming scheme and tidyverse offers effective column selection tools. It is likely that when using other tools for data analysis (e.g., Excel) these difficulties will be much more salient.
+**Code Chunk 3.** Selecting and filtering data under the wide vs tidy data format. Note that in this example, the operations remain rather simple because we used a consistent column naming scheme and tidyverse offers effective column selection tools. It is likely that when using other tools for data analysis (e.g., Excel) these difficulties will be much more salient.
 
 
+ 
 
 
 
@@ -118,16 +113,17 @@ df_long |> filter(repetition == 2)
 
 # create toy dataset
 quiz_data <- tribble(
-  ~subject_id, ~question_id, ~question_text, ~answer, ~score,   
-  "s001",   "q10", "What is the capital of France?", "Paris", 1,
-  "s001",   "q11", "What is the capital of Luxembourg?", "Luxembourg", 1,
-  "s001",   "q12", "When was Leanoardo da Vinci born?", "1452", 1,
-  "s002",   "q10", "What is the capital of France?", "Paris", 1,
-  "s002",   "q11", "What is the capital of Luxembourg?", NA, 0,
-  "s002",   "q12", "When was Leanoardo da Vinci born?", "1900", 0,
+  ~subject_id, ~question_id, ~question_text,                       ~answer,      ~score,   
+  "s001",      "q10",        "What is the capital of France?",     "Paris",      1,
+  "s001",      "q11",        "What is the capital of Luxembourg?", "Luxembourg", 1,
+  "s001",      "q12",        "When was Leanoardo da Vinci born?",  "1452",       1,
+  "s002",      "q10",        "What is the capital of France?",     "Paris",      1,
+  "s002",      "q11",        "What is the capital of Luxembourg?", NA,           0,
+  "s002",      "q12",        "When was Leanoardo da Vinci born?",  "1900",       0,
 )
 
-# code to score quiz responses: this code could be separate from the data analysis script and reused on other datasets.
+# code to score quiz responses: this code could be separate from the data analysis script 
+# and reused on other datasets.
 my_scoring_function <- function(q10, q11){
   0.8 * q10 + 1.2 * q11
 }
@@ -139,20 +135,39 @@ scores <- quiz_data |>
   pivot_wider(id_cols = subject_id, 
 			  names_from = question_id,
 			  values_from = c(score)) |> 
-  
   # apply scoring function 
   mutate(score = my_scoring_function(q10, q11)) |> 
-  
   # retain only relevant columns
   select(subject_id, score)
 
-print(scores)
 ```
 
 
-**Code Chunk 4.** Example code demonstrating how to compute a score from a set of questions under the long data format in R using the tidyverse package.
+**Code Chunk 4.** Example code demonstrating how to compute a score from a set of questions under the tidy data format in R using the tidyverse package.
 
 
- 
- 
- 
+
+
+After computing a quiz-level score one might want to add that score as a new column to the data--this type of operation may be required for some types of analysis (e.g., linear regression models). 
+
+One issue we face here is that the column "score" exists in both the quiz table (where it refers to the score of each response) and in the scores table (where it refers to the score on the quiz) which means that we can't simply combine them. Given that in this example we only have scores from one source (i.e., the quiz), the simplest solution is to rename the score inside the scores table into quiz_score before joining it with the response level data.  
+
+
+```{r}
+# rename score to quiz_score
+scores <- scores |> 
+  rename(quiz_score = score)
+
+# add quiz_score to tidy quiz_data
+dd <- quiz_data |> 
+  full_join(scores, by="subject_id")
+  
+```
+
+**Code Chunk 5.** Example code demonstrating how to add the scores  as a new column of the tidy data format in R using the tidyverse package.
+
+
+
+
+
+
