@@ -1,5 +1,8 @@
 project:
   type: manuscript
+  render:
+    - "*.qmd"
+    - "R/*.qmd"
 
 manuscript:
   article: tidy-questionnaire-paper.qmd

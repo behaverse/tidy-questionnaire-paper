@@ -5,8 +5,9 @@ _manuscript
 /naturemag-doi.bst
 
 _freeze/
-.DS_Store
-.Rproj.user
+/R/.Rhistory
+/R/.Rproj.user
+/R/.RData
 /R/data_tmp/
 **/*.quarto_ipynb
 site_libs/bootstrap/bootstrap-67e3b562ef4dbc2dcf3cbf0914964bd1.min.css

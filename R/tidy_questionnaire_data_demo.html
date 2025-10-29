@@ -112,13 +112,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>psqi <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/psqi.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Here we will use a real, albeit small data set, as our goal is only to explore coding strategies that are nevertheless meant to apply to real use cases. This dataset contains data from 8 participants who completed at least one of two standard questionnaires, either once or twice. For simplicity, this dataset is offered as two distinct tabular csv files, one per questionnaire.</p>
-<p>The first questionnaire in this dataset is a slightly modified version the bfi-2 personality test which contains 60 questions. We picked this questionnarie for this example because it is well-known and widely used, contains many items and can be used to compute a large number of scores and subscores (called “domain scales” and “fact scales”). This dataset contains data for only three participants: two of these completed the questionnaire twice, and of them completed it only once.</p>
-<p>The second questionnaire in this dataset is the “Pittsburgh Sleep Quality Index (PSQI)”. We chose this questionnaire because it uses a wide range of responses types (e.g., time of day, number of minutes, hours per night, orderd categories representing a frequency, open text responses, ratings of qualty) and uses more complex scoring rules–this questionniare may therefore pose additional challenges for data organization and analysis. This dataset contains data from 5 participants who all completed that questionnaire twice. Furthermore, one of these participants (agent_id “030”) is also inlcuded in the bfi-2 data.</p>
-<p>For each question we recorded what response option participants chose, how long it took them to select that option once the question was displayed (each question was displayed one by one on the screen), and how long it took them to validate their response by clicking on the “Next” button (participants could change their responses, while a given question was displayed, but once they clicked “Next”, they were presented with the next question and could not navigate back to earlier questions.) These are just a subset of information that could be collected per response, which is nevertheless more than what seems to be typcally collected in questionnaire data.</p>
+<p>The first questionnaire in this dataset is a slightly modified version of the bfi-2 personality test which contains 60 questions. We picked this questionnaire for this example because it is well-known and widely used, contains many items and can be used to compute a large number of scores and subscores (called “domain scales” and “fact scales”). This dataset contains data for only three participants: two of these completed the questionnaire twice, and of them completed it only once.</p>
+<p>The second questionnaire in this dataset is the “Pittsburgh Sleep Quality Index (PSQI)”. We chose this questionnaire because it uses a wide range of responses types (e.g., time of day, number of minutes, hours per night, ordered categories representing a frequency, open text responses, ratings of quality) and uses more complex scoring rules–this questionnaire may therefore pose additional challenges for data organization and analysis. This dataset contains data from 5 participants who all completed that questionnaire twice. Furthermore, one of these participants (agent_id “030”) is also included in the bfi-2 data.</p>
+<p>For each question we recorded what response option participants chose, how long it took them to select that option once the question was displayed (each question was displayed one by one on the screen), and how long it took them to validate their response by clicking on the “Next” button (participants could change their responses, while a given question was displayed, but once they clicked “Next”, they were presented with the next question and could not navigate back to earlier questions.) These are just a subset of information that could be collected per response, which is nevertheless more than what seems to be typically collected in questionnaire data.</p>
 </section>
 <section id="data-formats-tidylong-vs-untidywide" class="level2">
 <h2 class="anchored" data-anchor-id="data-formats-tidylong-vs-untidywide">Data formats: tidy/long vs untidy/wide</h2>
-<p>We stored the two data tables in the tidy questionnaire data format and will now create a version of these two data files that follows the “one-person-per-row” (aka “wide”) format. Furthermore, we will combine both pairs of files to form a combined tidy and and a combined wide table respectively. This is to illustrate in particular how data from multile questionnaires may be combined and how sparsity in each questionnaire data affects the size of the resulting combined tables.</p>
+<p>We stored the two data tables in the tidy questionnaire data format and will now create a version of these two data files that follows the “one-person-per-row” (aka “wide”) format. Furthermore, we will combine both pairs of files to form a combined tidy and a combined wide table respectively. This is to illustrate in particular how data from multiple questionnaires may be combined and how sparsity in each questionnaire data affects the size of the resulting combined tables.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># step 1: create wide data versions of the two tables</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>bfi2_wide <span class="ot">&lt;-</span> bfi2 <span class="sc">|&gt;</span> <span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> <span class="fu">c</span>(agent_id, instrument_id), </span>
@@ -157,91 +157,87 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(D_tidy, <span class="at">file =</span> <span class="st">'data/D_tidy.csv'</span>)</span>
 <span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(D_wide, <span class="at">file =</span> <span class="st">'data/D_wide.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<table class="caption-top table">
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
 <caption>Dimensions and NA counts for each dataset, separately and combined, under the tidy and the wide tabular formats.</caption>
-<colgroup>
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>dataset</th>
-<th>rows</th>
-<th>columns</th>
-<th>rows x cols</th>
-<th>NAs</th>
-<th>csv size</th>
+<th style="text-align: left;">dataset</th>
+<th style="text-align: right;">rows</th>
+<th style="text-align: right;">columns</th>
+<th style="text-align: right;">rows x cols</th>
+<th style="text-align: right;">NAs</th>
+<th style="text-align: left;">csv size</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>bfi2</td>
-<td>305</td>
-<td>12</td>
-<td>3660</td>
-<td>15</td>
-<td>31.5 KB</td>
+<td style="text-align: left;">bfi2</td>
+<td style="text-align: right;">305</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">3660</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: left;">31.5 KB</td>
 </tr>
 <tr class="even">
-<td>psqi</td>
-<td>190</td>
-<td>12</td>
-<td>2280</td>
-<td>100</td>
-<td>27.5 KB</td>
+<td style="text-align: left;">psqi</td>
+<td style="text-align: right;">190</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">2280</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">27.5 KB</td>
 </tr>
 <tr class="odd">
-<td>D_tidy (combined)</td>
-<td>495</td>
-<td>12</td>
-<td>5940</td>
-<td>115</td>
-<td>66.6 KB</td>
+<td style="text-align: left;">D_tidy (combined)</td>
+<td style="text-align: right;">495</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">5940</td>
+<td style="text-align: right;">115</td>
+<td style="text-align: left;">66.6 KB</td>
 </tr>
 <tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
-<td>bfi2_wide</td>
-<td>3</td>
-<td>978</td>
-<td>2934</td>
-<td>503</td>
-<td>59.6 KB</td>
+<td style="text-align: left;">bfi2_wide</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">978</td>
+<td style="text-align: right;">2934</td>
+<td style="text-align: right;">503</td>
+<td style="text-align: left;">59.6 KB</td>
 </tr>
 <tr class="even">
-<td>psqi_wide</td>
-<td>5</td>
-<td>306</td>
-<td>1530</td>
-<td>100</td>
-<td>36.2 KB</td>
+<td style="text-align: left;">psqi_wide</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">306</td>
+<td style="text-align: right;">1530</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">36.2 KB</td>
 </tr>
 <tr class="odd">
-<td>D_wide (combined)</td>
-<td>7</td>
-<td>1283</td>
-<td>8981</td>
-<td>5121</td>
-<td>109.1 KB</td>
+<td style="text-align: left;">D_wide (combined)</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1283</td>
+<td style="text-align: right;">8981</td>
+<td style="text-align: right;">5121</td>
+<td style="text-align: left;">109.1 KB</td>
 </tr>
 </tbody>
 </table>
-<p>There are several important points to note in table above. The tidy data tables all have the same small number of columns; their number of rows will vary depending on the amount of data collected. Conversely, their wide-formatted counterparts have a number of rows and columns that both depend on the specific dataset and study design (e.g., more repeitions of the same questions would lead to more columns). Thus the shape of the tables when they are wide is less predictable. Furthermore, because columns represent the attributes of an observation, the wide format is much more difficult to process. For example, there are 978 columns in the wide version of the bfi2 data but only 12 in its tidy version. When lookig at the number of missing values it is clear to see that in some cases (when data is sparse), the number of missing values increases substantially when transforming the data from tidy to wide (for bfi2, that number increased from 15 to 503). An other important observation is that when combining tidy questionnarie tables, the resulting table is easily predictable: the numbers of rows and the number of NAs are simply added, while the number (and meaning) of the columns remain the same. In contrast, when combining wide data tables, the resulting table is unpredictable without knowledge about the content of the data. Note also the large increase in NAs for this combined table (5121) compared to the combined tidy data (115).</p>
-<p>We also wanted to assess these data formats affect the size of the data. One simple but somewhat naive way of assessing size is to count the number of cells in each table. While this may in principle serve as a proxy, it is not that straightforward because the data in each cell may require more or less memory space depending for instance on how it is encoded (e.g., a boolean vs a string). The strategy we chose here was to save the various data tables as csv files and assess the size of those files. As can be seen in the table, the wide formats in our example are systematically larger than their tidy counterpart.</p>
+</div>
+</div>
+<p>There are several important points to note in the table above. The tidy data tables all have the same small number of columns; their number of rows will vary depending on the amount of data collected. Conversely, their wide-formatted counterparts have a number of rows and columns that both depend on the specific dataset and study design (e.g., more repetitions of the same questions would lead to more columns). Thus the shape of the tables when they are wide is less predictable. Furthermore, because columns represent the attributes of an observation, the wide format is much more difficult to process. For example, there are 978 columns in the wide version of the bfi2 data but only 12 in its tidy version. When looking at the number of missing values it is clear to see that in some cases (when data is sparse), the number of missing values increases substantially when transforming the data from tidy to wide (for bfi2, that number increased from 15 to 503). Another important observation is that when combining tidy questionnaire tables, the resulting table is easily predictable: the numbers of rows and the number of NAs are simply added, while the number (and meaning) of the columns remain the same. In contrast, when combining wide data tables, the resulting table is unpredictable without knowledge about the content of the data. Note also the large increase in NAs for this combined table (5121) compared to the combined tidy data (115).</p>
+<p>We also wanted to assess whether these data formats affect the size of the data. One simple but somewhat naive way of assessing size is to count the number of cells in each table. While this may in principle serve as a proxy, it is not that straightforward because the data in each cell may require more or less memory space depending for instance on how it is encoded (e.g., a boolean vs a string). The strategy we chose here was to save the various data tables as csv files and assess the size of those files. As can be seen in the table, the wide formats in our example are systematically larger than their tidy counterparts.</p>
 </section>
 <section id="scoring-questionnaires" class="level2">
 <h2 class="anchored" data-anchor-id="scoring-questionnaires">Scoring questionnaires</h2>
-<p>The next step will be to score each of the questionnaires, using the tidy and wide data formats and compare their advantages and disadvantages. In addition to computing those scores we will also compute the median response time to answer a the corresponding questions. While this is not classically done, the idea of including it here is to assess how computing additional metrics on more than one response attribute would affect the complexity of the code.</p>
+<p>The next step will be to score each of the questionnaires, using the tidy and wide data formats and compare their advantages and disadvantages. In addition to computing those scores we will also compute the median response time to answer the corresponding questions. While this is not classically done, the idea of including it here is to assess how computing additional metrics on more than one response attribute would affect the complexity of the code.</p>
 <section id="bfi-2" class="level3">
 <h3 class="anchored" data-anchor-id="bfi-2">BFI-2</h3>
 <section id="the-wide-data-format" class="level4">
@@ -307,9 +303,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>There are several points we want to highlight about the code above. Firstly, this type of code tends to be quite verbose. We wrote functions here to aim to make that code compact; in practice it is rather common to not see any such functions but instead see long assignment statements.</p>
 <p>Secondly, the code above is strongly tied, not only to information about the questionnaire (e.g., which items to pick)–which is unavoidable–, it is also strongly tied to the specific way in which the column names have been arbitrarily constructed. If for some reason we change how column names are constructed, we could have to replace all of the code above. Furthermore, if the study had not involved repetitions, the naming would have been different and thus we would have again to change the code.</p>
 <p>Third, as in our example there are (up to) 2 repetitions of this questionnaire, we have to manually run the scoring code on each value of those iterations. Again, if there were a different number of iterations or different intentions to group data (e.g., completing surveys in morning vs evening), we would again have to change the code above.</p>
-<p>Finally, when computing multiple aggregates on a particular response (in our example, how long they took to respond to those questions), we can see that it requires pretty much writing an independent chunk of code (the code for the anxiety response time and the code for anxiety scores are run independently from each other). This means that there are redundancies and the potential for mistakes. For example, the selection of items is the same in both cases (i.e., 4R, 19, 34, 49R), but this selection is specified in two different location (both as part of the column names to be selected). As these are entered manually, and because for a given study there could potentially be a large number of such duplicated lists (e.g., there are 20 scores that one can compute out of this bfi2 questionnaire) which makes it hard to not make mistaked and to check that no mistakes were made. The above code takes about 25 lines to compute two metrics for one dimension; if we extrapolate, scoring the bfi2 questionnaire in this way would require 500 lines of code.</p>
+<p>Finally, when computing multiple aggregates on a particular response (in our example, how long they took to respond to those questions), we can see that it requires pretty much writing an independent chunk of code (the code for the anxiety response time and the code for anxiety scores are run independently from each other). This means that there are redundancies and the potential for mistakes. For example, the selection of items is the same in both cases (i.e., 4R, 19, 34, 49R), but this selection is specified in two different locations (both as part of the column names to be selected). As these are entered manually, and because for a given study there could potentially be a large number of such duplicated lists (e.g., there are 20 scores that one can compute out of this bfi2 questionnaire) which makes it hard to not make mistakes and to check that no mistakes were made. The above code takes about 25 lines to compute two metrics for one dimension; if we extrapolate, scoring the bfi2 questionnaire in this way would require 500 lines of code.</p>
 <blockquote class="blockquote">
-<p>The names of the aggregated values need to be specified by the data analyst. For example, here we chose “anxiety_score_i1”. This is again an arbitrary choice (we could have picked instead “score_bfi_anx_1”, “anxiety_r1_bfi2”, or something else). This custom naming of the ouputs requires extra work, is specific to the dataset (if there were more reptitions, we would need additional assigment statements); it will also cause the subsequent code to be tailor made to those specific column names.</p>
+<p>The names of the aggregated values need to be specified by the data analyst. For example, here we chose “anxiety_score_i1”. This is again an arbitrary choice (we could have picked instead “score_bfi_anx_1”, “anxiety_r1_bfi2”, or something else). This custom naming of the outputs requires extra work, is specific to the dataset (if there were more repetitions, we would need additional assignment statements); it will also cause the subsequent code to be tailor made to those specific column names.</p>
 </blockquote>
 <p>It is of course possible to develop more custom code (i.e., more functions) to make the data analysis code more compact, less redundant and less error prone. But that code would require extra work, it would likely be highly specific to the way the column names were constructed for this particular dataset, and in practice, this does not seem to be what data analysts do.</p>
 </section>
@@ -393,15 +389,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 </div>
-<p>There are several points worth noting about the code above. Firstly, the code in <code>score_bfi2_anxiety()</code> only contains information about the IDs of the items that need be used and how they are to be used. It does not contain any information related to the specifics of the study or data analysis intention. For instance, there is no notion of “repetition” in this code. Second, the selection of relevant items is done only once with the filter statement; this makes the code more compact and less error prone. Thirdly, the way that aggregates are computed on the data–which is done via the <code>summarize()</code>–makes it very easy to add additional metrics. For instance, if one wanted to also compute the minimum, maximum of and standard deviation of the response times, it would only require one additional statement per metric within the summarise function (e.g., <code>response_time_min = min(response_time)</code>; this is in stark contrast with how we analyzed the wide data.</p>
-<p>Forth, if we look at how those functions are being applied to the data, we can see that by using the <code>group_by()</code> function (which is part of the dplyr package, included in the tidyverse) we can apply the scoring functions for any type of subset of our data. Here we specify that we want to have separate scoring for each agent and for each iteration. We don’t need to know or specify in advance how many iterations are in the dataset. The number of iterations does not impact the amount of code one needs to write. This code is also easy to update in the future; if there was a “time_of_day” column, that column could be used to compute different scores for whatever levels that variable has by simply changing the contents of that group_by() function. Importantly, this coding approach cleanly separates the scoring function which is tied only to the questionnaire used from the speicfic study design and data analysis strategies (which in our example is embeddedin the group_by() function call).</p>
+<p>There are several points worth noting about the code above. Firstly, the code in <code>score_bfi2_anxiety()</code> only contains information about the IDs of the items that need to be used and how they are to be used. It does not contain any information related to the specifics of the study or data analysis intention. For instance, there is no notion of “repetition” in this code. Second, the selection of relevant items is done only once with the filter statement; this makes the code more compact and less error prone. Thirdly, the way that aggregates are computed on the data–which is done via the <code>summarize()</code>–makes it very easy to add additional metrics. For instance, if one wanted to also compute the minimum, maximum of and standard deviation of the response times, it would only require one additional statement per metric within the summarise function (e.g., <code>response_time_min = min(response_time)</code>; this is in stark contrast with how we analyzed the wide data.</p>
+<p>Forth, if we look at how those functions are being applied to the data, we can see that by using the <code>group_by()</code> function (which is part of the dplyr package, included in the tidyverse) we can apply the scoring functions for any type of subset of our data. Here we specify that we want to have separate scoring for each agent and for each iteration. We don’t need to know or specify in advance how many iterations are in the dataset. The number of iterations does not impact the amount of code one needs to write. This code is also easy to update in the future; if there was a “time_of_day” column, that column could be used to compute different scores for whatever levels that variable has by simply changing the contents of that group_by() function. Importantly, this coding approach cleanly separates the scoring function which is tied only to the questionnaire used from the specific study design and data analysis strategies (which in our example is embedded in the group_by() function call).</p>
 <p>It is also important to note that the output of the scoring “anxiety” following this approach is again a tidy table where no extra effort was required to name things. The shape of this table will depend on the specific analysis that was computed (e.g., if there are more iterations, there will be more rows), but the columns of that table will reflect the various metrics computed in the summary call.</p>
 <p>Of course at some point one may want to display the table as a one-row-per-person table; this can be done quite easily.</p>
 </section>
 <section id="scoring-the-bfi2-questionnaire-as-a-whole" class="level4">
 <h4 class="anchored" data-anchor-id="scoring-the-bfi2-questionnaire-as-a-whole">Scoring the bfi2 questionnaire as a whole</h4>
 <p>As stated earlier we won’t use the strategy we employed for the wide data to score all of the dimensions as this would take us quite some time to do and would not be very interesting. But doing this exercise would certainly allow the reader to experience how painful that could be.</p>
-<p>Here we will only use the tidy data as a starting point. We will abstract the code above a bit more to show how how compact questionnaire data analysis may be.</p>
+<p>Here we will only use the tidy data as a starting point. We will abstract the code above a bit more to show how compact questionnaire data analysis may be.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># function to "recode" response values</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>compute_agreement_rate <span class="ot">&lt;-</span> <span class="cf">function</span>(df, <span class="at">col =</span> <span class="st">"response_option_index"</span>, <span class="at">level_count =</span> <span class="dv">7</span>, <span class="at">reverse =</span> <span class="cn">FALSE</span>){</span>
@@ -437,8 +433,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>              ) </span>
 <span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The code above is quite generic and applies to the common case where responses option indecis are converted to numbers using a particular set of rules and then aggregated. Because this code is generic and could apply to a wide range of questionnaires, it could be part of a package and reused broadly, preventing the need to write custom code.</p>
-<p>We wrote the code in a way that the <code>score_questionnaire()</code> takes as input the questionnaire data and a list of parameters that specifiy how to score a particular dimension. This type of code that separates the specifics of a score (tied to a particular instrument) from the mechanics of computing the score is preferrable over hard coding the specifics in the analysis code directly (as we did earlier) as it makes it easier to review if the specification is correct or not.</p>
+<p>The code above is quite generic and applies to the common case where response option indices are converted to numbers using a particular set of rules and then aggregated. Because this code is generic and could apply to a wide range of questionnaires, it could be part of a package and reused broadly, preventing the need to write custom code.</p>
+<p>We wrote the code in a way that the <code>score_questionnaire()</code> takes as input the questionnaire data and a list of parameters that specify how to score a particular dimension. This type of code that separates the specifics of a score (tied to a particular instrument) from the mechanics of computing the score is preferable over hard coding the specifics in the analysis code directly (as we did earlier) as it makes it easier to review if the specification is correct or not.</p>
 <p>To compute a specific score, we will then need to do the following:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we can now encode the scoring rules for the questionnaire in a compact way:</span></span>
@@ -528,9 +524,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 </div>
-<p>To compute all of the 20 scores from the bfi2 questionnaires, we first need to specfiy the parameters for each score. This can be done all in one, easy to review, place:</p>
+<p>To compute all of the 20 scores from the bfi2 questionnaires, we first need to specify the parameters for each score. This can be done all in one, easy to review, place:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Storing all the scoring ruls for the bfi-2 questionnaire in lists:</span></span>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Storing all the scoring rules for the bfi-2 questionnaire in lists:</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Extraversion: 1, 6, 11R, 16R, 21, 26R, 31R, 36R, 41, 46, 51R, 56</span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>bfi2_extraversion <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
@@ -692,7 +688,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-160"><a href="#cb10-160" aria-hidden="true" tabindex="-1"></a>  <span class="at">reverse_ids =</span> <span class="fu">paste0</span>(<span class="st">"bfi-2_q_"</span>,  <span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">45</span>))</span>
 <span id="cb10-161"><a href="#cb10-161" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Note that the above is a sort of documentation of how to score the bfi2 questionnaire; this content should be an integral part of the questionnaire (and questionnaire data collection system) itself rather then being manually entered as we did here.</p>
+<p>Note that the above is a sort of documentation of how to score the bfi2 questionnaire; this content should be an integral part of the questionnaire (and questionnaire data collection system) itself rather than being manually entered as we did here.</p>
 <p>Once we have defined the list of scores we want to compute on our data, we can create a list of those parameter lists:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## We can group all of those scale parameter lists into an instrument specific list</span></span>
@@ -725,8 +721,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we use purrr instead of for loops</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># we also first create a wrapper to simplify code</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(df, param_list){</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">%&gt;%</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">group_by</span>(agent_id, iteration) <span class="sc">%&gt;%</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">group_by</span>(agent_id, iteration) <span class="sc">|&gt;</span> </span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">score_questionnaire</span>(param_list)</span>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
@@ -870,6 +866,235 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
+<section id="psqi" class="level3">
+<h3 class="anchored" data-anchor-id="psqi">PSQI</h3>
+<p>The PSQI questionnaire is more challenging to score because it involves a larger variety of response formats and because the scoring procedure is a bit more involved.</p>
+<p>Also for brevity we will only focus only on computing the score for “Component 2: Sleep latency” as it involves multiple steps.</p>
+<section id="the-wide-data-format-1" class="level4">
+<h4 class="anchored" data-anchor-id="the-wide-data-format-1">The wide data format</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># question 2: convert duration ranges into integer 0-3</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># question 5: convert choice into integer 0-3</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># sum previous two scores</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># convert the sum into integer 0 -3</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># score question 2:</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>validate_psqi_question_2_input <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.numeric</span>(x)) {</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"Input must be numeric"</span>)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">any</span>(x <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)){</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"Input must be larger than 0"</span>)</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x)</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="co"># validate_psqi_question_2_input(c(1, 1, 2, NA))</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>score_psqi_question_2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">validate_psqi_question_2_input</span>(x)</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.numeric</span>(<span class="fu">cut</span>(x, <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">15</span>, <span class="dv">30</span>, <span class="dv">60</span>, <span class="dv">24</span><span class="sc">*</span><span class="dv">60</span>))) <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a><span class="co"># score question 5:</span></span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>validate_psqi_question_5_input <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>  q5_levels <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"not during the past month"</span>, <span class="st">"less than once a week"</span>, <span class="st">"once or twice a week"</span>, <span class="st">"three or more times a week"</span>)</span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.factor</span>(x)) { <span class="co"># if x is encoded as a factor variable</span></span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="sc">!</span> <span class="fu">all</span>(<span class="fu">levels</span>(x) <span class="sc">==</span> q5_levels)){</span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a>      <span class="fu">stop</span>(<span class="fu">paste0</span>(<span class="st">"Input does not have the required levels: </span><span class="sc">\n</span><span class="st">Input levels: "</span>, <span class="fu">levels</span>(x), <span class="st">"</span><span class="sc">\n</span><span class="st">Expected levels: "</span>, q5_levels))</span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.character</span>(x)){</span>
+<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"Input must be either factor or string"</span>)</span>
+<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a>    <span class="co"># check inputs are </span></span>
+<span id="cb15-42"><a href="#cb15-42" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (element <span class="cf">in</span> x){</span>
+<span id="cb15-43"><a href="#cb15-43" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="fu">is.na</span>(element)) <span class="cf">next</span></span>
+<span id="cb15-44"><a href="#cb15-44" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="sc">!</span>element <span class="sc">%in%</span> q5_levels){</span>
+<span id="cb15-45"><a href="#cb15-45" aria-hidden="true" tabindex="-1"></a>        <span class="fu">stop</span>(<span class="fu">paste0</span>(<span class="st">"Input contains unexpected values: "</span>, element) )</span>
+<span id="cb15-46"><a href="#cb15-46" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb15-47"><a href="#cb15-47" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb15-48"><a href="#cb15-48" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb15-49"><a href="#cb15-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x)</span>
+<span id="cb15-50"><a href="#cb15-50" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-51"><a href="#cb15-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-52"><a href="#cb15-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-53"><a href="#cb15-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-54"><a href="#cb15-54" aria-hidden="true" tabindex="-1"></a>score_psqi_question_5 <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb15-55"><a href="#cb15-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">validate_psqi_question_5_input</span>(x)</span>
+<span id="cb15-56"><a href="#cb15-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.numeric</span>(</span>
+<span id="cb15-57"><a href="#cb15-57" aria-hidden="true" tabindex="-1"></a>    <span class="fu">factor</span>(x, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"not during the past month"</span>, <span class="st">"less than once a week"</span>, <span class="st">"once or twice a week"</span>, <span class="st">"three or more times a week"</span>))</span>
+<span id="cb15-58"><a href="#cb15-58" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">-</span><span class="dv">1</span></span>
+<span id="cb15-59"><a href="#cb15-59" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-60"><a href="#cb15-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-61"><a href="#cb15-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-62"><a href="#cb15-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-63"><a href="#cb15-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-64"><a href="#cb15-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-65"><a href="#cb15-65" aria-hidden="true" tabindex="-1"></a><span class="co"># combine the subcomponent scores</span></span>
+<span id="cb15-66"><a href="#cb15-66" aria-hidden="true" tabindex="-1"></a>score_sleep_latency_components <span class="ot">&lt;-</span> <span class="cf">function</span>(x,y){</span>
+<span id="cb15-67"><a href="#cb15-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.numeric</span>(</span>
+<span id="cb15-68"><a href="#cb15-68" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cut</span>(x <span class="sc">+</span> y, <span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>))</span>
+<span id="cb15-69"><a href="#cb15-69" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">-</span><span class="dv">1</span></span>
+<span id="cb15-70"><a href="#cb15-70" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-71"><a href="#cb15-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-72"><a href="#cb15-72" aria-hidden="true" tabindex="-1"></a><span class="co"># wrapper to do all the previous steps in one function call</span></span>
+<span id="cb15-73"><a href="#cb15-73" aria-hidden="true" tabindex="-1"></a>score_sleep_latency <span class="ot">&lt;-</span> <span class="cf">function</span>(q2,q5){</span>
+<span id="cb15-74"><a href="#cb15-74" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">score_psqi_question_2</span>(q2)</span>
+<span id="cb15-75"><a href="#cb15-75" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> <span class="fu">score_psqi_question_5</span>(q5)</span>
+<span id="cb15-76"><a href="#cb15-76" aria-hidden="true" tabindex="-1"></a>  <span class="fu">score_sleep_latency_components</span>(x,y)</span>
+<span id="cb15-77"><a href="#cb15-77" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The code above shows that one can write simple functions to process each question separately, a function to aggregate those results and a wrapper function to keep the data analysis code cleaner. It is important to note here that this code expects very specific input values: in the first case a number of minutes (i.e., a positive number between 0 and 1440), in the second, one out of 4 possible response categories. In the above code we show how the data analysis code can make sure that the input is as expected (as opposed to relying on the data being correctly formatted).</p>
+<p>Having created those functions, we can now analyze our specific dataset:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use the above code to compute the psqi sleep latency score for each iteration and append to data</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>D_wide <span class="ot">&lt;-</span> D_wide <span class="sc">|&gt;</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">psqi_latency_score_i1 =</span> <span class="fu">score_sleep_latency</span>(</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                                      psqi_q_2_response_numeric_i1, </span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>                                      <span class="st">`</span><span class="at">frequency_trouble_sleep_because;psqi-past_q_6_response_description_i1</span><span class="st">`</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>                                      ),</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">psqi_latency_score_i2 =</span> <span class="fu">score_sleep_latency</span>(</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>                                      psqi_q_2_response_numeric_i2, </span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>                                      <span class="st">`</span><span class="at">frequency_trouble_sleep_because;psqi-past_q_6_response_description_i2</span><span class="st">`</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>                                      )</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>         ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The above code is rather compact thanks to the use of functions. However, as in with the bfi2_wide example, we end up having to write code that is specific to our study: we need to compute the scores separately for each iteration, which leads to duplicated code and the potential to make mistakes (forgetting to change the i1 to i2 when copy-pasting code).</p>
+<p>The second observation: we add new columns to the main table; we are now mixing in the table things that are data (responses to questions) and things that we compute using that data (the psqi sleep latency score). We could of course save the resulting columns in a separate table.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>D_wide <span class="sc">|&gt;</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(agent_id, psqi_latency_score_i1, psqi_latency_score_i2) <span class="sc">|&gt;</span> </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">agent_id</th>
+<th style="text-align: right;">psqi_latency_score_i1</th>
+<th style="text-align: right;">psqi_latency_score_i2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">002</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">019</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">030</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">008</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">012</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">026</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">031</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="the-tidy-data-format-1" class="level4">
+<h4 class="anchored" data-anchor-id="the-tidy-data-format-1">The tidy data format</h4>
+<p>We could use an approach similar to what we did for BFI-2: define a list of parameters to compute a specific score and a generic function to run the analysis of data. This would work for calculating the subscores, but then a second step would be required to compute the aggregate score from those two subscores.</p>
+<p>The alternative is to create a function that takes as input a data frame and returns the scores</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>score_sleep_latency_components_df <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(x) <span class="sc">!=</span> <span class="dv">2</span>){</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"Data does not have the expected number of items"</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">score_sleep_latency_components</span>(x[<span class="dv">1</span>], x[<span class="dv">2</span>])</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>score_psqi_latency <span class="ot">&lt;-</span> <span class="cf">function</span>(df){</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># because rowwise will override any existing groups, we need to save and restore them when needed</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>  group_vars <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">group_vars</span>(df)</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(stimulus_id <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"psqi_q_2"</span>, <span class="st">"frequency_trouble_sleep_because;psqi-past_q_6"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># process each question separately</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rowwise</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">score_tmp =</span> <span class="fu">ifelse</span>(stimulus_id<span class="sc">==</span><span class="st">"psqi_q_2"</span>, </span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">score_psqi_question_2</span>(response_numeric), </span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>                          <span class="cn">NA</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">score_tmp =</span> <span class="fu">ifelse</span>(stimulus_id<span class="sc">==</span><span class="st">"frequency_trouble_sleep_because;psqi-past_q_6"</span>,</span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">score_psqi_question_5</span>(response_description), </span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>                          score_tmp)) <span class="sc">|&gt;</span> </span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(<span class="fu">across</span>(<span class="fu">all_of</span>(group_vars))) <span class="sc">|&gt;</span> </span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># aggregate scores across all selected responses</span></span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">dimension =</span> <span class="st">"psqi_latency"</span>, </span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>              <span class="at">score =</span> <span class="fu">score_sleep_latency_components_df</span>(score_tmp), </span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>              <span class="at">response_time =</span> <span class="fu">mean</span>(response_time, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a>              <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a>              <span class="at">na_n =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(response_time)),</span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a>              <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a>              ) </span>
+<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>D_tidy <span class="sc">|&gt;</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(agent_id, iteration) <span class="sc">|&gt;</span> </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">score_psqi_latency</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 7
+   agent_id iteration dimension    score response_time     n  na_n
+   &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;         &lt;dbl&gt; &lt;int&gt; &lt;int&gt;
+ 1 008              1 psqi_latency     2          5.73     2     0
+ 2 008              2 psqi_latency     3          7.95     2     0
+ 3 012              1 psqi_latency     2         13.2      2     0
+ 4 012              2 psqi_latency     1          5.34     2     0
+ 5 026              1 psqi_latency     3         10.5      2     0
+ 6 026              2 psqi_latency     2          5.38     2     0
+ 7 030              1 psqi_latency     1          3.69     2     0
+ 8 030              2 psqi_latency     1         10.0      2     0
+ 9 031              1 psqi_latency     1         23.5      2     0
+10 031              2 psqi_latency     0         15.8      2     0</code></pre>
+</div>
+</div>
+<p>The code in this case is quite a bit more complex; the main advantages are however that a) we can compute more metrics on the selected items without much effort (e.g., response_time) compared to the strategy we used on the wide data format and b) we can have studies that involve any number of iterations (or other types of grouping variables) and reuse the exact same code; in contrast, the code used on the wide data format is strongly tied to the specifics of the study, be it through the study parameters encoded in the column names or the number of steps required in the analysis.</p>
+</section>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>This notebook presents a more realistic, although still simplified, example of the analysis of questionnaire data using the wide and tidy data formats respectively. Overall, the tidy data format seems preferable for several reasons. However, we also note that in some cases handling the tidy data format may require code that is more complex than the wide data format.</p>
 </section>
 
 </main>
