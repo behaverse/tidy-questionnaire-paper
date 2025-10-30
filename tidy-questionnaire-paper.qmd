@@ -651,7 +651,7 @@ The authors declare no competing interests.
 
 # Data accessibility statement
 
-This paper does not include any external data.
+The supplementary material contains a very small dataset that is freely and openly available. This dataset is part of a larger study which was approved by the local Ethics Review Panel.
 
 
 
