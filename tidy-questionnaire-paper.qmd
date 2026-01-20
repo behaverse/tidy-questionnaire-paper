@@ -1,23 +1,24 @@
 ---
 title: Tidy questionnaire data 
 author: 
-## listed alphabetically
-    - name: Author One
+    - name: Pedro Cardoso-Leite
       affiliation: 
-        name: "1* "
-    - name: Author Two
+        name: "1*"
+    - name: Morteza Ansarinia
       affiliation: 
         name: "1"
 authornotes:
     - note: "1"
-      text: Department of xxx
+      text: |
+        Department of Behavioural and Cognitive Sciences
+        University of Luxembourg
     - note: "*"
-      text: "`correspondingauthor@email.com`"
+      text: "`pedro.cardosoleite@uni.lu`"
 format:
   scientific-data-pdf: default
 date: last-modified
 abstract: |
-  Questionnaires are foundational tools in social, behavioral and cognitive sciences. While the past century witnessed significant advances in the design and deployment of questionnaires, comparatively little attention was paid on how to structure the resulting data. The ubiquitous current practice consists in adopting a tabular data format, where each row in a table represents a respondent and each column a specific question, response or other attribute. This format has clear advantages when applied to small datasets. However, when dealing with more complex datasets, this format quickly becomes impractical, error prone and difficult to reuse. Furthermore, it prevents questionnaire research from taking advantage of modern digital technologies, multi-modal assessment and advanced data analytic methods. As an alternative, we recommend instead the tidy data format and show how it can handle most of those limitations. This change of format reflects a deeper change in perspectives: focusing on the person-by-question interaction as being the key observational unit rather than the person-by-questionnaire(s). The tidy format also makes it more apparent that the same data model could in principle be used to structure data not only from a wide range of questionnaires but also from computerized cognitive tests where the tidy format is already commonly used (i.e., each row in such tables representing a "trial", referring to a person x stimulus interaction). A shared data model for behavioral and questionnaire data--as proposed by the [PROJECT data model](https://PROJECT/data-model/)--simplifies data documentation and reuse, the sharing of data analysis methods across both types of instruments (e.g., analysis of response times in questionnaires), but also affords the development of a new generation of software tools, data analytic methods, and research questions, which may ultimately improve scientific research quality and yield novel insights about the human mind. 
+  Questionnaires are foundational tools in social, behavioral and cognitive sciences. While the past century witnessed significant advances in the design and deployment of questionnaires, comparatively little attention was paid on how to structure the resulting data. The ubiquitous current practice consists in adopting a tabular data format, where each row in a table represents a respondent and each column a specific question, response or other attribute. This format has clear advantages when applied to small datasets. However, when dealing with more complex datasets, this format quickly becomes impractical, error prone and difficult to reuse. Furthermore, it prevents questionnaire research from taking advantage of modern digital technologies, multi-modal assessment and advanced data analytic methods. As an alternative, we recommend instead the tidy data format and show how it can handle most of those limitations. This change of format reflects a deeper change in perspectives: focusing on the person-by-question interaction as being the key observational unit rather than the person-by-questionnaire(s). The tidy format also makes it more apparent that the same data model could in principle be used to structure data not only from a wide range of questionnaires but also from computerized cognitive tests where the tidy format is already commonly used (i.e., each row in such tables representing a "trial", referring to a person x stimulus interaction). A shared data model for behavioral and questionnaire data--as proposed by the [behaverse data model](https://behaverse.org/data-model/)--simplifies data documentation and reuse, the sharing of data analysis methods across both types of instruments (e.g., analysis of response times in questionnaires), but also affords the development of a new generation of software tools, data analytic methods, and research questions, which may ultimately improve scientific research quality and yield novel insights about the human mind. 
 
 bibliography: 
   - bibliography.bib
@@ -29,7 +30,7 @@ keywords: [questionnaire, tidy data, data standards, methods, automation, open s
 
 # Introduction
 
-Questionnaires[^1] have been a main research instrument in social sciences since the mid 19th century, with the first use of questionnaires in psychology being attributed to Gustav Theodor Fechner in 1860 [@gault1907]. Today, the term "questionnaire" yields more than 1’7 million hits on PubMed ([https://pubmed.ncbi.nlm.nih.gov/?term=questionnaire](https://pubmed.ncbi.nlm.nih.gov/?term=questionnaire)) across virtually all fields of science, testifying to its ubiquity as a data collection method. 
+Questionnaires[^1] have been a main research instrument in social sciences since the mid 19th century, with the first use of questionnaires in psychology being attributed to Gustav Theodor Fechner in 1860 [@gault1907]. Today, the term "questionnaire" yields more than 1’7 million hits on [PubMed](https://pubmed.ncbi.nlm.nih.gov/?term=questionnaire) across virtually all fields of science, testifying to its ubiquity as a data collection method. 
 
 [^1]: In the context of this work, we define a questionnaire as being a type of research instrument that mostly consists of questions presented to participants in the form of text and which participants are asked to respond to. The term survey, which is sometimes used interchangeably, refers to sampling data from a population, typically, but not always, using questionnaires. 
 
@@ -38,7 +39,7 @@ Questionnaires[^1] have been a main research instrument in social sciences since
 The long history of questionnaire based research is marked by improvements in the design, distribution and analysis of questionnaires [@krosnick1999]. Yet, questionnaires remain underrated and their full potential unexploited. Indeed, most questionnaires today appear still grounded in the pen and paper medium of the past century. Digital technologies now permit a rapid and wide distribution of questionnaires via the Internet, the collection of datasets that are not only more voluminous but also much richer than in the past. Modern technologies allow for adaptive questionnaires well beyond the simple branching structures seen today (e.g., hiding or showing questions depending on previous responses). Questionnaires could be considerably more versatile by  adjusting the difficulty of the language to the reading level of the respondent or the granularity of the response options to their cognitive abilities, for example. Digital technologies facilitate the collection of rich behavioral data beyond simple answers to questions. Variables like date and time of day (i.e., timestamp), response times (i.e., how long it took a person to answer a question), changes of mind (i.e., changing responses before submitting) or geo-location are already straightforward to collect. Additional measurements, such as facial emotion recognition, gaze tracking, heart rate and blinking rate (e.g., using webcam video recordings while people fill out questionnaires)--collected separately for each question--may offer new insights and could significantly augment our understanding of respondents. Clearly, current practices in questionnaire based research have not yet taken full advantage of the possibilities modern technologies offer. One of the impediments to such advancements, we believe, is the ineffective management and processing of questionnaire data which typically do not scale up and prevent automation. 
 
 
-The goal of this work is to contribute to a more consistent and effective use of questionnaires by offering recommendations for structuring their data. This work is part of a larger initiative aiming to improve data practices in behavioral sciences and raise research quality (for more details, see the PROJECT website [https://PROJECT/standards/](https://PROJECT/standards/)). 
+The goal of this work is to contribute to a more consistent and effective use of questionnaires by offering recommendations for structuring their data. This work is part of a larger initiative aiming to improve data practices in behavioral sciences and raise research quality (for more details, see the behaverse website [https://behaverse.org/standards/](https://behaverse.org/standards/)). 
 
 
 
@@ -59,7 +60,7 @@ While there are many resources on how to design better questionnaires [e.g., @va
 Standardizing questionnaire data however poses several challenges. For starters, it is more challenging to standardize questionnaire data than other types of data because of their potential increased complexity. A "question" can have many different formats (e.g., text, images, sounds) and offer participants a wide range of input options (e.g., radio buttons, numeric text fields) that may lead to different kinds of data types (e.g., numeric, text, ordered, nominal). Because questionnaires typically use a mixture of question types, it can be challenging to represent all that information consistently (in a data modeling sense). This being said, the challenge is not insurmountable as computer scientists and data engineers have long developed strong models and technologies for organizing, managing and processing very large datasets (see for example [https://en.wikipedia.org/wiki/Database_normalization](https://en.wikipedia.org/wiki/Database_normalization)), and those technologies seamlessly support all the data intensive digital applications used by billions of people today (e.g., Wikipedia, Netflix, Facebook).  
 
 
-The existence of good technical solutions however is not sufficient; among the many reasons why it's difficult for a community (of researchers) to converge and adopt a specific standard, is that different people will have different ideas on what it means to organize data "best"[^2]. Indeed, what counts as "best" may dependent for example, on how the data is collected, how the data will be processed, the software used to process that data, the expertise and familiarity of the data analysts with different data formats, the size and complexity of the data, whether or not the data is intended to be shared, integrated with other datasets or whether or not the data will be used to drive applications. For example, online questionnaire software may use a relational database to record questionnaire data (e.g., [LimeSurvey](https://www.limesurvey.org/)). However, such relational databases are not typically shared "as is" and are much harder to manipulate and process than the simple individual tabular data files that seem to be the default adopted by most data analysts today [@wickham2014]--those data collection platforms therefore generally offer a means to export the data as a single table or spreadsheet. Also, certain statistical procedures (e.g. mixed effects models) require data to be in one format (i.e., the tidy/long format described below) while some statistical software only accept data in another specific format (i.e., the "wide" format described below).  
+The existence of good technical solutions however is not sufficient; among the many reasons why it's difficult for a community (of researchers) to converge and adopt a specific standard, is that different people will have different ideas on what it means to organize data "best"[^2]. Indeed, what counts as "best" may dependent for example, on how the data is collected, how the data will be processed, the software used to process that data, the expertise and familiarity of the data analysts with different data formats, the size and complexity of the data, whether or not the data is intended to be shared, integrated with other datasets or whether or not the data will be used to drive applications. For example, online questionnaire software may use a relational database to record questionnaire data (e.g., [LimeSurvey](https://www.limesurvey.org/)). However, such relational databases are not typically shared "as is" and are much harder to manipulate and process than the simple individual tabular data files that seem to be the default adopted by most data analysts today [@wickham2014]--those data collection platforms therefore generally offer a means to export the data as a single table or spreadsheet. Finally, certain data formats may be more convenient (and possibly even required) depending on the specific software used to conduct specific types of analyses. For example, in R, the long data format may seem more natural for linear mixed models while the wide data format is commonly used for principal component analysis. 
 
 
 [^2]: And even if people would agree on such a definition, there are certainly many options that relate to convention and personal preference rather than objective criteria (e.g., long explicit vs short variable names, expressing durations in seconds vs milliseconds). 
@@ -148,7 +149,7 @@ There are general recommendations for how to structure tabular data to facilitat
 
 **Table 2.** Example of tidy data format for questionnaire data. Contrast this table with Table 1.
 
-| subject_id | questions_id | question_repetition | question_test           | response | response_time |
+| subject_id | questions_id | question_repetition | question_text           | response | response_time |
 | ---------- | ------------ | ------------------- | ----------------------- | -------- | ------------- |
 | s001       | 2            | 1                   | "Do you like cinnamon?" | "yes"    | 1.32          |
 | s001       | 2            | 2                   | "Do you like cinnamon?" | "yes"    | 0.98          |
@@ -162,7 +163,7 @@ There are general recommendations for how to structure tabular data to facilitat
 
 A core concept to organize data tables is the idea of *observational unit* which defines what the data table is about. For example, a dataset could be about students' test scores, about air travel, or car engine performance. In each of these cases, there is an entity (e.g., student) for which we have various attributes (e.g., age, gender, grade). It is important for structuring a table to be clear on what this primary entity is in order to ascertain what constitutes an observational unit. This observational unit determines what should be included in the table (or should instead be placed in a different table) and, most importantly, what constitutes a row in that table.
 
-Considering questionnaire data, if one organizes the data table so that each row represents a person (as in Table 1), one implicitly makes the statement that the observational unit is at the person level (and thus that the columns in the table describe a person). Alternatively--and this is the view that we hold--one may decide that the observational unit is the "response", which is formed by the interaction between a person and a question (as in Table 2). In this case, each row in the data table would be indexed by an instance of a person x question encounter. This implies that the data from a given person will be spread over multiple rows in the data table since a person will typically answer many questions. This way of structuring data is less common for questionnaire data but is more typical of data in cognitive computerized testing, where each row represents a "trial" (see https://PROJECT/data-model/spec/trials/).
+Considering questionnaire data, if one organizes the data table so that each row represents a person (as in Table 1), one implicitly makes the statement that the observational unit is at the person level (and thus that each column in that person's row describes a specific attribute of that person). Alternatively--and this is the view that we hold--one may decide that the observational unit is the "response", which is formed by the interaction between a person and a question (as in Table 2). In this case, each row in the data table would be indexed by an instance of a person x question encounter. This implies that the data from a given person will be spread over multiple rows in the data table since a person will typically answer many questions. This way of structuring data is less common for questionnaire data but is more typical of data in cognitive computerized testing, where each row represents a "trial" (see https://behaverse.org/data-model/spec/trials/).
 
 
 
@@ -459,14 +460,14 @@ To answer these questions we will first present a concrete, specific way to orga
 
 
 
-# The [PROJECT] data model for questionnaires
+# The behaverse data model for questionnaires
 
 
-In previous sections we presented the general principles of tidy data; here we want to provide a concrete illustration of how those principles apply to questionnaire data as well as provide additional specifications (not covered in the principles) regarding in particular what columns to include in the table, how to name things and what units to choose. This specification is part of a larger initiative on data models for behavioral data ([PROJECT_LINK](PROJECT_LINK)); we will focus here only on key elements and refer the interested reader to the online documentation. 
+In previous sections we presented the general principles of tidy data; here we want to provide a concrete illustration of how those principles apply to questionnaire data as well as provide additional specifications (not covered in the principles) regarding in particular what columns to include in the table, how to name things and what units to choose. This specification is part of a larger initiative on data models for behavioral data ([https://behaverse.org/data-model/](https://behaverse.org/data-model/)); we will focus here only on key elements and refer the interested reader to the online documentation. 
 
 
 
-![The PROJECT data model involves a set of linked tables. The main table is the “Response” table as it contains most of the information required to make sense of how an agent interacted with an item (which is composed of a stimulus and response options). More detailed information about any entity involved in a study is readily accessible via the Response table as it contains for each response keys that connect it to other tables (e.g., a Stimulus table that contains detailed information about the stimuli presented to the agent, including their timing). This figure illustrates the overall architecture of the PROJECT data model; a more detailed diagram is available on the [PROJECT website](https://PROJECT.org/data-model/assets/schemas/trials_uml.png).](figures/fig_5.png){#fig-5 width=50%}
+![The behaverse data model involves a set of linked tables. The main table is the “Response” table as it contains most of the information required to make sense of how an agent interacted with an item (which is composed of a stimulus and response options). More detailed information about any entity involved in a study is readily accessible via the Response table as it contains for each response keys that connect it to other tables (e.g., a Stimulus table that contains detailed information about the stimuli presented to the agent, including their timing). This figure illustrates the overall architecture of the behaverse data model; a more detailed diagram is available on the [behaverse website](https://behaverse.org/data-model/assets/schemas/trials_uml.png).](figures/fig_5.png){#fig-5 width=50%}
 
 
 
@@ -602,13 +603,19 @@ In the spirit of open science, we favour the use of open data formats (e.g., CSV
 Theoretical arguments may not be that convincing, and to adopt a new standard or practice, one may first have to experience its direct benefits first hand. We hope that some of the examples offered in this article provide at least a glimpse into those benefits. We also want to note that more standardized and richer questionnaire data opens up the possibility for developing software that takes advantage of that structure. Just as an example, it can be quite challenging with the one-person-per-row questionnaire data format to understand in what order a given person responded to a set of questions. One can find for instance the recommendation to order the columns of a questionnaire data table so they reflect the order in which questions were experienced by respondents [e.g., @netscher2018]. But this strategy only preserves the ordering and would furthermore not work when the ordering changes between respondents. The tidy questionnaire data model we proposed can accommodate order and timing data about the question presentation and the responses so that in principle one could develop software that could replay the exact sequence of events as they occurred. 
 
   
-In this article, we covered important ideas; ideas that might be general enough to prevent this document from becoming outdated too quickly. But we did not cover everything that is required to fully structure, document and share questionnaire data [see for example, @netscher2018; @horstmann2020; @towse2021a]. Our main goal with this article was to raise awareness about the importance of the structure of questionnaire data itself and explain why certain design choices may be better than others. The actual specification and implementation details, are likely to evolve over time; for more details on our specific solution, we refer the reader to the dedicated website ([https://PROJECT_WEBSITE/data-model/](https://PROJECT_WEBSITE/data-model/)). Standardized data calls for standardized processing, including automated data checks, codebooks and data visualization. Automating the boring stuff frees up more time for deep thinking and actual scientific work. We hope this effort will contribute to improve research practices, collaborative research and facilitate the development of specialized software tools [as has been the case in other fields\; @poldrack2024] to the benefit of the scientific community. 
+In this article, we covered important ideas; ideas that might be general enough to prevent this document from becoming outdated too quickly. But we did not cover everything that is required to fully structure, document and share questionnaire data [see for example, @netscher2018; @horstmann2020; @towse2021a]. Our main goal with this article was to raise awareness about the importance of the structure of questionnaire data itself and explain why certain design choices may be better than others. The actual specification and implementation details, are likely to evolve over time; for more details on our specific solution, we refer the reader to the dedicated website ([https://behaverse.org/data-model/](https://behaverse.org/data-model/)). Standardized data calls for standardized processing, including automated data checks, codebooks and data visualization. Automating the boring stuff frees up more time for deep thinking and actual scientific work. We hope this effort will contribute to improve research practices, collaborative research and facilitate the development of specialized software tools [as has been the case in other fields\; @poldrack2024] to the benefit of the scientific community. 
 
 # Supplementary materials
 
 The code chunks in this paper are available as a quarto markdown notebook; that notebook contains an additional chunk to show how the scores computed in chunk 4 can be joined with the response level data.
 
 We also provide a small dataset comprising 7 participants who completed one or two standardized questionnaires, either once or twice as well as a notebook illustrating the structuring and scoring of questionnaire data. The goal of this second notebook is to provide a more complete and realistic example as the ones presented in the code chunks above.
+
+You can access this supplementary materials here: https://github.com/behaverse/tidy-questionnaire-paper
+
+
+
+
 
 # References
 
@@ -641,8 +648,7 @@ Anonymized for review.
 
 # Funding information
 
-Anonymized for review.
-<!-- This work was supported by the Luxembourg National Research Fund (ATTRACT/2016/ID/11242114/DIGILEARN). -->
+This work was supported by the Luxembourg National Research Fund (ATTRACT/2016/ID/11242114/DIGILEARN).
 
 
 # Competing interests
