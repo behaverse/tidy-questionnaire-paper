@@ -611,7 +611,7 @@ The code chunks in this paper are available as a quarto markdown notebook; that 
 
 We also provide a small dataset comprising 7 participants who completed one or two standardized questionnaires, either once or twice as well as a notebook illustrating the structuring and scoring of questionnaire data. The goal of this second notebook is to provide a more complete and realistic example as the ones presented in the code chunks above.
 
-You can access this supplementary materials here: https://github.com/behaverse/tidy-questionnaire-paper
+You can access this supplementary materials here: [https://github.com/behaverse/tidy-questionnaire-paper](https://github.com/behaverse/tidy-questionnaire-paper)
 
 
 
