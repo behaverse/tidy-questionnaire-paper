@@ -624,21 +624,21 @@ You can access this supplementary materials here: https://github.com/behaverse/t
 
 # Contributions
   
-Contributed to Conceptualization: Author1, Author2
+Contributed to Conceptualization: PCL, MA
 
-Contributed to Funding acquisition: Author1
+Contributed to Funding acquisition: PCL
 
-Contributed to Methodology: Author1, Author2
+Contributed to Methodology: PCL, MA
 
-Project administration: Author1, Author2
+Project administration: PCL, MA
 
-Contributed to Software: Author1, Author2
+Contributed to Software: PCL, MA
 
-Contributed to Validation: Author1, Author2
+Contributed to Validation: PCL, MA
 
-Contributed to Writing – original draft: Author1
+Contributed to Writing – original draft: PCL
 
-Contributed to Writing – review & editing: Author1, Author2
+Contributed to Writing – review & editing: PCL, MA
 
 
 # Acknowledgements
