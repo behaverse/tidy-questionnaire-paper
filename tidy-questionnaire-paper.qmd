@@ -270,7 +270,7 @@ When the data is sparse (e.g., participants are exposed only to a small set of p
 
  
 ![The tidy data format is more effective to store sparse data. This figure provides a concrete example: the exact same data is stored using 6 rows x 4 columns = 24 values when using the tidy data format, while it requires almost twice as much under the wide data format (5 rows x 9 columns = 45 values). Note that the colors in these images are only used to highlight specific elements for the reader; many data files and data analysis software do not support the "coloring" of values and even when it is possible (e.g., in Excel files) coloring data is considered a bad practice.
-](figures/fig_1.png){#fig-1 width=100%}
+](figures/fig_1.png){#fig-1 width=100% fig-alt="The same data is shown in two separate tables: the table on the top uses the wide format and the table on the bottom uses the tidy format. The image also contains text annotations and arrows to explain the following: the tidy table contains 24 values distributed over four columns (i.e., subject_id, q_id, text, and resp). Only one of those values is an NA value. For illustration purposes, that NA value is colored in grey. When that same data is formatted in a wide data table (i.e., the table at the bottom), the number of columns increases and the number of rows decreases: the total number of values in the wide data format is 45 which is almost twice as many as when that data was organized using the tidy format. Importantly, NA values are injected in the wide data format for combinations of variables and cases that did not occur (e.g., subject 002 was not asked question 1). For illustration purposes, these additional NA values are colored in orange."}
 
 
 
@@ -280,7 +280,7 @@ When the data is sparse (e.g., participants are exposed only to a small set of p
 
 
 
-![Selecting the data referring to a question of interest is harder under the wide than under the tidy data format.](figures/fig_2.png){#fig-2 width=50%}
+![Selecting the data referring to a question of interest is harder under the wide than under the tidy data format.](figures/fig_2.png){#fig-2 width=50% fig-alt="Two tables are shown side by side, representing the same data organized using either the wide format (left table) or the tidy format (right table). In the wide table, several columns are highlighted in blue and there is a corresponding text annotation saying \"It is difficult to select all the data from a particular question because that data is spread across multiple columns and we have to \"manually\" keep track of (and type) the column names.\". In the tidy table, a set of rows and columns are highlighted in blue and the corresponding text annotation says \"Here selecting the data from a particular question is a breeze: one simply needs to remember the name of the question--all the corresponding attributes are neatly grouped within a row.\""}
 
 
 
@@ -342,7 +342,7 @@ df_tidy |> filter(repetition == 2)
 
 
 
-![Changing or augmenting response data with additional attributes (e.g., response times) requires adding many columns in the wide data frame (one per response), which means more effort/code and implies an increased risk of mistakes. In contrast, under the tidy data format, only a single additional column is needed per new attribute.](figures/fig_3.png){#fig-3 width=50%}
+![Changing or augmenting response data with additional attributes (e.g., response times) requires adding many columns in the wide data frame (one per response), which means more effort/code and implies an increased risk of mistakes. In contrast, under the tidy data format, only a single additional column is needed per new attribute.](figures/fig_3.png){#fig-3 width=50% fig-alt="Two tables are shown side by side, representing the same data organized using either the wide format (left table) or the tidy format (right table). In the wide table, three columns are highlighted in blue and each value displays the + symbol. There's also a label next to each column saying \"New!\" and there is a text annotation saying \"To recode your variables (e.g., changing units from milliseconds to seconds) requires changing one by one each of the relevant columns\". In the tidy table (on the right), only one column is highlighted in blue, with the label \"New!\". The text annotation to explain this highlight says \"The same operation is straightforward in this case as only one column is affected.\""}
 
 
 
@@ -357,7 +357,7 @@ Finally, writing code to transform columns (i.e., use data to compute new variab
 
 
 
-![Metadata are more concise and easier to manage under the tidy format than under the wide data format.](figures/fig_4.png){#fig-4 width=50%}
+![Metadata are more concise and easier to manage under the tidy format than under the wide data format.](figures/fig_4.png){#fig-4 width=50% fig-alt="Two schematic diagrams are displayed side by side. The one on the left represent the case of the wide data format and the one on the right represents the case of the tidy data format. In both diagrams, the data is represented by a blue rectangle illustrating the shape of the corresponding data table, and the corresponding metadata is shown as one or multiple orange rectangles, again with a shape representing the shape of the corresponding tables. In the case of the wide format, there is only one metadata rectangle which is as long as the data is wide. The text annotation says \"Describing this data table is tedious and redundant because many columns have a redundant meaning.\" In the tidy format diagram on the right, there are three small, orange rectangles with the labels \"attributes\", \"questions\" and \"options\". The text annotation in that diagram says \"Here the description of the data is much easier and more effective because each response attribute, question and option are each described only once.\"."}
 
 
 Metadata should describe data in a machine readable way; this makes it possible for software to take advantage of that metadata (e.g., for finding particular datasets, for data validation). A common way to structure such metadata is to list and explain, in a table for example, all the columns that are in a data table as well as all the possible values those columns can take (this is sometimes called a codebook; see also footnote 4). Describing a dataset in this way is convenient because one can readily query the meaning of a particular column in a dataset simply by looking up that particular entry in its codebook.  
@@ -467,7 +467,7 @@ In previous sections we presented the general principles of tidy data; here we w
 
 
 
-![The behaverse data model involves a set of linked tables. The main table is the “Response” table as it contains most of the information required to make sense of how an agent interacted with an item (which is composed of a stimulus and response options). More detailed information about any entity involved in a study is readily accessible via the Response table as it contains for each response keys that connect it to other tables (e.g., a Stimulus table that contains detailed information about the stimuli presented to the agent, including their timing). This figure illustrates the overall architecture of the behaverse data model; a more detailed diagram is available on the [behaverse website](https://behaverse.org/data-model/assets/schemas/trials_uml.png).](figures/fig_5.png){#fig-5 width=50%}
+![The behaverse data model involves a set of linked tables. The main table is the "Response" table as it contains most of the information required to make sense of how an agent interacted with an item (which is composed of a stimulus and response options). More detailed information about any entity involved in a study is readily accessible via the Response table as it contains for each response keys that connect it to other tables (e.g., a Stimulus table that contains detailed information about the stimuli presented to the agent, including their timing). This figure illustrates the overall architecture of the behaverse data model; a more detailed diagram is available on the [behaverse website](https://behaverse.org/data-model/assets/schemas/trials_uml.png).](figures/fig_5.png){#fig-5 width=50% fig-alt="Entity-relationship diagram. There are 6 entities represented as boxes with the labels \"Agent\", \"Response\", \"Stimulus\", \"Option\", \"Evaluation\" and \"Scoping\".  The box \"Response\" is shown at the center with a thicker outline: all other boxes are visually connected only to the \"Response\" box via lines whose endings indicate the type of mapping between the connected tables (i.e., one-to-many, many-to-many)."}
 
 
 
